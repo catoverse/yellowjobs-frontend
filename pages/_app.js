@@ -1,7 +1,11 @@
-import '../styles/globals.css'
+import NextHead from 'components/next-head'
+import { ChakraProvider } from '@chakra-ui/react'
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <ChakraProvider>
+      <NextHead />
+      <Component {...pageProps} />
+    </ChakraProvider>
+  )
 }
-
-export default MyApp
