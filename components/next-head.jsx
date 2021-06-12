@@ -12,13 +12,16 @@ export default function NextHead({
     <Head>
       {/* <!-- primary meta tags --> */}
       <title>{title}</title>
-      <link rel="icon" href={favicon}></link>
+      <link rel="icon" type="image/svg+xml" href={favicon}></link>
+      <link rel="alternate icon" href="/favicon.ico" />
 
       {/* meta content */}
+      <meta name="google" value="notranslate" />
       <meta name="title" content={title} />
       <meta name="description" content={desc} />
 
       {/* <!-- open graph --> */}
+      <meta property="og:site_name" content="YellowJobs" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
