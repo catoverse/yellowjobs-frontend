@@ -3,9 +3,9 @@ import { Tweet } from 'react-static-tweets'
 
 import ContentEmoji from 'assets/categories/content.svg'
 
-const CategoryBasedTweets = () => {
+const CategoryBasedTweets = ({ category }) => {
   return (
-    <Box>
+    <Box mt="24">
       <HStack>
         <Center
           bgGradient="linear(135deg, #FFDD00 0%, #FCCD53 100%)"
@@ -21,26 +21,38 @@ const CategoryBasedTweets = () => {
           fontWeight="extrabold"
           fontFamily="Darker Grotesque"
         >
-          Content opportuites
+          {category} opportuites
         </Heading>
       </HStack>
       <SimpleGrid columns={3} spacing={5} mt="5" alignItems="center">
-        <Tweet id="1404411232669638660"/>
-        <Tweet id="1404411232669638660"/>
-        <Tweet id="1404411232669638660"/>
-        <Tweet id="1404411232669638660"/>
-        <Tweet id="1404411232669638660"/>
-        <Tweet id="1404411232669638660"/>
+        <Tweet id="1404411232669638660" />
+        <Tweet id="1404411232669638660" />
+        <Tweet id="1404411232669638660" />
+        <Tweet id="1404411232669638660" />
+        <Tweet id="1404411232669638660" />
+        <Tweet id="1404411232669638660" />
       </SimpleGrid>
     </Box>
   )
 }
 
 export default function TweetList() {
+  const categories = [
+    'Content',
+    'Design',
+    'Management',
+    'Marketing',
+    'Sales',
+    'Support',
+    'Tech',
+    'Other',
+  ]
   return (
-    <Box mt="24" bg="gray.50">
+    <Box bg="gray.50">
       <Box maxW="container.xl" mx="auto">
-        <CategoryBasedTweets />
+        {categories.map((category) => (
+          <CategoryBasedTweets category={category} />
+        ))}
       </Box>
     </Box>
   )

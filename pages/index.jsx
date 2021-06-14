@@ -7,7 +7,7 @@ import { Box } from '@chakra-ui/react'
 
 export default function Home() {
   return (
-    <Box as="main" mb="40rem">
+    <Box as="main" mb="10rem">
       <Navbar />
       <HeroSearch />
       <JobCategories />

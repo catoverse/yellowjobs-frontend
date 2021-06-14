@@ -4,6 +4,7 @@ import { Global, css } from '@emotion/react'
 const CSS = css`
   ::-webkit-scrollbar {
     width: 20px;
+    
   }
 
   ::-webkit-scrollbar-track {
@@ -11,17 +12,21 @@ const CSS = css`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
+    background-color: yellow;
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #a8bbbf;
+    background-color: goldenrod;
   }
   
   ::selection { background: yellow; }
+
+  body {
+      overflow-x: hidden;
+  }
 `
 
 function GlobalCSS() {
