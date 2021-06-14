@@ -14,11 +14,13 @@
     "@emotion/styled": "^11",
     "@fontsource/darker-grotesque": "^4.4.5",
     "@svgr/webpack": "^5.5.0",
+    "date-fns": "^2.22.1",
     "framer-motion": "^4",
     "next": "10.2.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "react-static-tweets": "^0.5.4"
   },
   "devDependencies": {
     "prettier": "^2.3.1"

@@ -1,4 +1,5 @@
 import { Box, Text, HStack, VStack, Center, Heading } from '@chakra-ui/react'
+
 import ContentEmoji from 'assets/categories/content.svg'
 import DesignEmoji from 'assets/categories/design.svg'
 import ManagementEmoji from 'assets/categories/management.svg'
@@ -36,7 +37,7 @@ const Category = ({ icon, title }) => {
 export default function JobCategories() {
   return (
     <Box maxW="container.xl" mx="auto" mt="10">
-      <Heading fontSize="3xl" fontWeight="bold" fontFamily="Darker Grotesque">
+      <Heading fontSize="3xl" fontWeight="medium" fontFamily="Darker Grotesque">
         Opportunities available in 
       </Heading>
       <HStack mt="3" spacing="10">

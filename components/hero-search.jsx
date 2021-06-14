@@ -48,13 +48,13 @@ export default function HeroSearch() {
           </HStack>
           <HStack>
             <Text>popular :</Text>
-            <Button size="sm" variant="outline" fontWeight="normal">
+            <Button size="sm" variant="outline" fontWeight="normal" borderColor="white">
               UI/UX
             </Button>
-            <Button size="sm" variant="outline" fontWeight="normal">
+            <Button size="sm" variant="outline" fontWeight="normal" borderColor="white">
               Machine Learning
             </Button>
-            <Button size="sm" variant="outline" fontWeight="normal">
+            <Button size="sm" variant="outline" fontWeight="normal" borderColor="white">
               Data Science
             </Button>
           </HStack>
