@@ -37,7 +37,7 @@ export default function JobCategories() {
   return (
     <Box maxW="container.xl" mx="auto" mt="10">
       <Heading fontSize="3xl" fontWeight="bold" fontFamily="Darker Grotesque">
-        Opportunities available in
+        Opportunities available in 
       </Heading>
       <HStack mt="3" spacing="10">
         <Category title="Content" icon={<ContentEmoji />} />
