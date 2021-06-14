@@ -20,6 +20,8 @@ const CSS = css`
   ::-webkit-scrollbar-thumb:hover {
     background-color: #a8bbbf;
   }
+  
+  ::selection { background: yellow; }
 `
 
 function GlobalCSS() {

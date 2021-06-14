@@ -15,7 +15,7 @@ import { FiSearch as SearchIcon } from 'react-icons/fi'
 
 export default function HeroSearch() {
   return (
-    <Box bgGradient="linear(135deg, #FFDD00 0%, #FCCD53 100%);" pt="4">
+    <Box bgGradient="linear(135deg, #FFDD00 0%, #FCCD53 100%)" pt="4">
       <Flex maxW="container.xl" mx="auto">
         <VStack justify="center" align="flex-start" spacing="4">
           <Heading
