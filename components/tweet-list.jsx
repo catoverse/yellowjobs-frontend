@@ -5,7 +5,7 @@ import ContentEmoji from 'assets/categories/content.svg'
 
 const CategoryBasedTweets = ({ category }) => {
   return (
-    <Box mt="24">
+    <Box mt={{ base: 0, md: 24 }} py={10}>
       <HStack>
         <Center
           bgGradient="linear(135deg, #FFDD00 0%, #FCCD53 100%)"
@@ -17,14 +17,14 @@ const CategoryBasedTweets = ({ category }) => {
           <ContentEmoji />
         </Center>
         <Heading
-          fontSize="40px"
+          fontSize={{ base: '28px', md: '40px' }}
           fontWeight="extrabold"
           fontFamily="Darker Grotesque"
         >
           {category} opportuites
         </Heading>
       </HStack>
-      <SimpleGrid columns={3} spacing={5} mt="5" alignItems="center">
+      <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={5} mt="5" alignItems="center">
         <Tweet id="1404411232669638660" />
         <Tweet id="1404411232669638660" />
         <Tweet id="1404411232669638660" />
@@ -49,7 +49,7 @@ export default function TweetList() {
   ]
   return (
     <Box bg="gray.50">
-      <Box maxW="container.xl" mx="auto">
+      <Box maxW="container.xl" mx="auto" px="4">
         {categories.map((category) => (
           <CategoryBasedTweets category={category} />
         ))}

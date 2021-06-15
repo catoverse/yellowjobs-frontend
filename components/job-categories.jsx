@@ -36,7 +36,7 @@ const Category = ({ icon, title }) => {
 
 export default function JobCategories() {
   return (
-    <Box maxW="container.xl" mx="auto" mt="10">
+    <Box maxW="container.xl" mx="auto" mt="10" display={{ base: 'none', md: 'block' }}>
       <Heading fontSize="3xl" fontWeight="medium" fontFamily="Darker Grotesque">
         Opportunities available in 
       </Heading>

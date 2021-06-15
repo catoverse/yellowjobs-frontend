@@ -15,11 +15,16 @@ import { FiSearch as SearchIcon } from 'react-icons/fi'
 
 export default function HeroSearch() {
   return (
-    <Box bgGradient="linear(135deg, #FFDD00 0%, #FCCD53 100%)" pt="4" ml="4" borderRadius="sm">
-      <Flex maxW="container.xl" mx="auto">
-        <VStack justify="center" align="flex-start" spacing="4">
+    <Box
+      bgGradient="linear(135deg, #FFDD00 0%, #FCCD53 100%)"
+      pt="4"
+      ml={{ base: 0, md: 4 }}
+      borderRadius="sm"
+    >
+      <Flex mx="auto" maxW="1200px" px={{ base: 4, md: 6 }}>
+        <VStack justify="center" align="flex-start" spacing="4" my={24}>
           <Heading
-            fontSize="3xl"
+            fontSize={{ base: '2xl', md: '3xl' }}
             fontWeight="bold"
             fontFamily="Darker Grotesque"
           >
@@ -27,13 +32,13 @@ export default function HeroSearch() {
           </Heading>
           <HStack spacing="0">
             <Input
-              minW="lg"
-              w="100%"
+              minW={{ base: '96%', md: 'lg' }}
+              w="96%"
               size="lg"
               fontSize="sm"
               bg="white"
-              _hover={{ bg: 'white' }}
-              _focus={{ bg: 'white' }}
+              _hover={{ bg: 'white', borderColor: 'blue' }}
+              _focus={{ bg: 'white', borderColor: 'blue' }}
               variant="filled"
               borderRightRadius="none"
               colorScheme="whiteAlpha"
@@ -46,21 +51,40 @@ export default function HeroSearch() {
               icon={<SearchIcon />}
             />
           </HStack>
-          <HStack>
+          <Flex gridColumnGap="2" direction={{ base: 'column', md: 'row' }}>
             <Text>popular :</Text>
-            <Button size="sm" variant="outline" fontWeight="normal" borderColor="white">
-              UI/UX
-            </Button>
-            <Button size="sm" variant="outline" fontWeight="normal" borderColor="white">
-              Machine Learning
-            </Button>
-            <Button size="sm" variant="outline" fontWeight="normal" borderColor="white">
-              Data Science
-            </Button>
-          </HStack>
+            <HStack gridRowGap={2}>
+              <Button
+                size="sm"
+                variant="outline"
+                fontWeight="normal"
+                borderColor="white"
+              >
+                UI/UX
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                fontWeight="normal"
+                borderColor="white"
+              >
+                Machine Learning
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                fontWeight="normal"
+                borderColor="white"
+              >
+                Data Science
+              </Button>
+            </HStack>
+          </Flex>
         </VStack>
         <Spacer />
-        <NextImage src="/static/design-guy.png" width="305" height="339" />
+        <Flex display={{ base: 'none', lg: 'flex' }}>
+          <NextImage src="/static/design-guy.png" width="305" height="339" />
+        </Flex>
       </Flex>
     </Box>
   )
