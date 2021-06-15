@@ -21,6 +21,8 @@ const Category = ({ icon, title }) => {
       w="32"
       height="auto"
       flexDirection="column"
+      bg="white"
+      _hover={{ bg: "gray.100" }}
     >
       <Center w="8" h="10" borderRadius="md">
         {icon}
