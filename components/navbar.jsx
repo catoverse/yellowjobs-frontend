@@ -32,13 +32,12 @@ import { useViewportScroll } from 'framer-motion'
 export default function Headers() {
   const mobileNav = useDisclosure()
 
-  const bg = useColorModeValue('white', 'gray.800')
   const ref = useRef()
   const [y, setY] = useState(0)
   const { height = 0 } = ref.current ? ref.current.getBoundingClientRect() : {}
 
   const { scrollY } = useViewportScroll()
-  
+
   useEffect(() => {
     return scrollY.onChange(() => setY(scrollY.get()))
   }, [scrollY])
@@ -49,17 +48,19 @@ export default function Headers() {
       top={0}
       left={0}
       right={0}
+      bg="white"
       display={mobileNav.isOpen ? 'flex' : 'none'}
       flexDirection="column"
       p={2}
       pb={4}
-      m={2}
-      bg={bg}
       spacing={2}
       rounded="sm"
       shadow="sm"
     >
       <CloseButton
+        pos="relative"
+        top="4"
+        right="4"
         aria-label="Close menu"
         justifySelf="self-start"
         alignSelf="flex-end"
@@ -91,7 +92,6 @@ export default function Headers() {
         ref={ref}
         shadow={y > height ? 'sm' : undefined}
         transition="box-shadow 0.2s"
-        bg={bg}
         borderTop="6px solid"
         borderTopColor="yellow.400"
         w="full"
