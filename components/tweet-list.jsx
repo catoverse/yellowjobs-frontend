@@ -7,7 +7,6 @@ import {
   Heading,
 } from '@chakra-ui/react'
 import { Tweet } from 'react-static-tweets'
-
 import ContentEmoji from 'assets/categories/content.svg'
 
 const CategoryBasedTweets = ({ category, isLightGray }) => {

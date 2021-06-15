@@ -21,7 +21,7 @@ export default function HeroSearch() {
       ml={{ base: 0, md: 4 }}
       borderRadius="sm"
     >
-      <Flex mx="auto" maxW="1200px" px={{ base: 4, md: 6 }}>
+      <Flex mx="auto" maxW="1200px" px="4">
         <VStack justify="center" align="flex-start" spacing="4" my={24}>
           <Heading
             fontSize={{ base: '2xl', md: '3xl' }}
@@ -33,7 +33,7 @@ export default function HeroSearch() {
           <HStack spacing="0">
             <Input
               minW={{ base: '96%', md: 'lg' }}
-              w="96%"
+              w="100%"
               size="lg"
               fontSize="sm"
               bg="white"

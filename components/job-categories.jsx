@@ -18,6 +18,7 @@ const Category = ({ icon, title }) => {
       borderRadius="lg"
       py="2"
       px="8"
+      w="32"
       cursor="pointer"
       _hover={{ bg: 'gray.100' }}
     >
@@ -36,7 +37,7 @@ const Category = ({ icon, title }) => {
 
 export default function JobCategories() {
   return (
-    <Box maxW="container.xl" mx="auto" mt="10" display={{ base: 'none', md: 'block' }}>
+    <Box maxW="container.xl" mx="auto" mt="10" px="4" display={{ base: 'none', md: 'block' }}>
       <Heading fontSize="3xl" fontWeight="medium" fontFamily="Darker Grotesque">
         Opportunities available in 
       </Heading>
