@@ -42,13 +42,13 @@ export default function JobCategories() {
         Opportunities available in 
       </Heading>
       <HStack mt="3" spacing="10">
-        <Category title="Content" icon={<ContentEmoji />} />
+        <Category title="Tech" icon={<TechEmoji />} />
         <Category title="Design" icon={<DesignEmoji />} />
         <Category title="Management" icon={<ManagementEmoji />} />
         <Category title="Marketing" icon={<MarketingEmoji />} />
         <Category title="Sales" icon={<SalesEmoji />} />
+        <Category title="Content" icon={<ContentEmoji />} />
         <Category title="Support" icon={<SupportEmoji />} />
-        <Category title="Tech" icon={<TechEmoji />} />
         <Category title="Others" icon={<OthersEmoji />} />
       </HStack>
     </Box>

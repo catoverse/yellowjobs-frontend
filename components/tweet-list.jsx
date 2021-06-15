@@ -54,13 +54,13 @@ const CategoryBasedTweets = ({ category, isLightGray }) => {
 
 export default function TweetList() {
   const categories = [
-    'Content',
+    'Tech',
     'Design',
     'Management',
     'Marketing',
     'Sales',
+    'Content',
     'Support',
-    'Tech',
     'Other',
   ]
   return (
