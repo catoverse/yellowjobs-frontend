@@ -22,10 +22,10 @@ const Category = ({ icon, title }) => {
       height="auto"
       flexDirection="column"
     >
-      <Center w="8" h="8" borderRadius="md">
+      <Center w="8" h="10" borderRadius="md">
         {icon}
       </Center>
-      <Text ml="2">{title}</Text>
+      <Text fontWeight="normal" opacity="0.6">{title}</Text>
     </Button>
   )
 }
