@@ -46,7 +46,8 @@ export default function HeroSearch() {
             />
             <IconButton
               size="lg"
-              colorScheme="blue"
+              bg="#E3F2FF"
+              color="#41A4FF"
               borderLeftRadius="none"
               icon={<SearchIcon />}
             />
