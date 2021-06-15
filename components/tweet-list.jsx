@@ -1,4 +1,11 @@
-import { Box, Center, HStack, SimpleGrid, Heading } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Center,
+  HStack,
+  SimpleGrid,
+  Heading,
+} from '@chakra-ui/react'
 import { Tweet } from 'react-static-tweets'
 
 import ContentEmoji from 'assets/categories/content.svg'
@@ -24,7 +31,12 @@ const CategoryBasedTweets = ({ category }) => {
           {category} opportuites
         </Heading>
       </HStack>
-      <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={5} mt="5" alignItems="center">
+      <SimpleGrid
+        columns={{ base: 1, sm: 2, md: 3 }}
+        spacing={5}
+        mt="5"
+        alignItems="center"
+      >
         <Tweet id="1404411232669638660" />
         <Tweet id="1404411232669638660" />
         <Tweet id="1404411232669638660" />
@@ -32,6 +44,9 @@ const CategoryBasedTweets = ({ category }) => {
         <Tweet id="1404411232669638660" />
         <Tweet id="1404411232669638660" />
       </SimpleGrid>
+      <Button w="full" mt={10} colorScheme="blue">
+        See all {category.toLowerCase()} opportunities
+      </Button>
     </Box>
   )
 }
