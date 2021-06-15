@@ -6,8 +6,18 @@ import {
   SimpleGrid,
   Heading,
 } from '@chakra-ui/react'
+import styled from '@emotion/styled'
 import { Tweet } from 'react-static-tweets'
 import ContentEmoji from 'assets/categories/content.svg'
+
+const MasonaryGrid = styled(Box)`
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 1000px;
+  max-width: 400px;
+`
 
 const CategoryBasedTweets = ({ category, isLightGray }) => {
   return (
@@ -31,19 +41,16 @@ const CategoryBasedTweets = ({ category, isLightGray }) => {
             {category} opportuites
           </Heading>
         </HStack>
-        <SimpleGrid
-          columns={{ base: 1, sm: 2, md: 3 }}
-          spacing={5}
-          mt="5"
-          alignItems="center"
-        >
+        <MasonaryGrid mt="5">
           <Tweet id="1404411232669638660" />
-          <Tweet id="1404411232669638660" />
-          <Tweet id="1404411232669638660" />
-          <Tweet id="1404411232669638660" />
-          <Tweet id="1404411232669638660" />
-          <Tweet id="1404411232669638660" />
-        </SimpleGrid>
+          <Tweet id="1403847095602216961" />
+          <Tweet id="1403845000740364291" />
+          <Tweet id="1401811181128458240" />
+          <Tweet id="1400452232135405568" />
+          <Tweet id="1400452232135405568" />
+          <Tweet id="1400452232135405568" />
+          <Tweet id="1400452232135405568" />
+        </MasonaryGrid>
         <Button w="full" mt={10} variant="outline" colorScheme="blue">
           See all {category.toLowerCase()} opportunities
         </Button>
