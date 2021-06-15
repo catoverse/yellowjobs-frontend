@@ -15,8 +15,14 @@ const MasonaryGrid = styled(Box)`
   gap: 2rem;
   flex-direction: column;
   flex-wrap: wrap;
-  max-height: 1000px;
   max-width: 400px;
+  max-height: 1000px;
+
+  @media (max-width: 30rem) {
+    flex-direction: row;
+    gap: 1rem;
+    max-height: none;
+  }
 `
 
 const CategoryBasedTweets = ({ category, isLightGray }) => {
