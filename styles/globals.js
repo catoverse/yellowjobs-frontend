@@ -11,13 +11,12 @@ const CSS = css`
   }
 
   ::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: lightyellow;
   }
 
   ::-webkit-scrollbar-thumb {
     background-color: yellow;
-    border-radius: 20px;
-    border: 6px solid transparent;
+    border: 4px solid transparent;
     background-clip: content-box;
   }
 

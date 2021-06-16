@@ -9,9 +9,7 @@ export default function HeroSearch() {
     <Box
       pt="4"
       as="main"
-      borderRadius="sm"
       overflow="hidden"
-      ml={{ base: 0, md: 4 }}
       bgGradient="linear(135deg, #FFDD00 0%, #FCCD53 100%)"
     >
       <Flex mx="auto" maxW="1200px" px="4">
