@@ -56,7 +56,7 @@ export default function HeroSearch() {
           </Flex>
         </VStack>
         <Spacer />
-        <Flex display={{ base: 'none', lg: 'flex' }}>
+        <Flex display={{ base: 'none', lg: 'flex' }} filter="drop-shadow(0 0 20px yellow)">
           <NextImage src="/static/design-guy.png" width="305" height="339" />
         </Flex>
       </Flex>
