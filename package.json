@@ -16,6 +16,7 @@
     "@fontsource/darker-grotesque": "^4.4.5",
     "@svgr/webpack": "^5.5.0",
     "date-fns": "^2.22.1",
+    "focus-visible": "^5.2.0",
     "framer-motion": "^4",
     "next": "10.2.3",
     "react": "17.0.2",

@@ -4,7 +4,6 @@ import { Global, css } from '@emotion/react'
 const CSS = css`
   ::-webkit-scrollbar {
     width: 20px;
-    
   }
 
   ::-webkit-scrollbar-track {
@@ -21,11 +20,14 @@ const CSS = css`
   ::-webkit-scrollbar-thumb:hover {
     background-color: goldenrod;
   }
-  
-  ::selection { background: yellow; }
 
-  body {
-      overflow-x: hidden;
+  ::selection {
+    background: yellow;
+  }
+
+  .js-focus-visible :focus:not([data-focus-visible-added]) {
+    outline: none;
+    box-shadow: none;
   }
 `
 

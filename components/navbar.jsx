@@ -6,27 +6,16 @@ import {
   Link,
   Button,
   CloseButton,
-  Icon,
   IconButton,
-  Spacer,
   chakra,
   useDisclosure,
-  useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
 
-import NextLink from 'next/link'
-import YellowJobsLogo from 'assets/logo.svg'
 import { useRef, useState, useEffect } from 'react'
 
-import { FaMoon, FaSun, FaHeart } from 'react-icons/fa'
-import {
-  AiFillHome,
-  AiOutlineInbox,
-  AiOutlineMenu,
-  AiFillGithub,
-} from 'react-icons/ai'
-import { BsFillCameraVideoFill } from 'react-icons/bs'
+import YellowJobsLogo from 'assets/logo.svg'
+import { AiOutlineMenu } from 'react-icons/ai'
 import { useViewportScroll } from 'framer-motion'
 
 export default function Headers() {
