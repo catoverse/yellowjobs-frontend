@@ -104,8 +104,8 @@ export default function Headers() {
               align="center"
               display={{ base: 'none', md: 'flex' }}
             >
-              <Link>About Us</Link>
-              <Link>Disclaimer</Link>
+              <Link _hover={{ color: 'gray.500' }}>About Us</Link>
+              <Link _hover={{ color: 'gray.500' }}>Disclaimer</Link>
               <Button variant="outline" colorScheme="blue">
                 Browse all jobs
               </Button>
