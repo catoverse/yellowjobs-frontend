@@ -89,7 +89,7 @@ export default function Headers() {
         <chakra.div h="4.5rem" mx="auto" maxW="1200px">
           <Flex w="full" h="full" px="6" align="center" justify="space-between">
             <Flex align="center">
-              <Link href="/">
+              <Link href="/" aria-label="YellowJobs Logo">
                 <HStack>
                   <YellowJobsLogo />
                 </HStack>

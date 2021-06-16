@@ -27,7 +27,7 @@ const Category = ({ icon, title }) => {
       <Center w="8" h="10" borderRadius="md">
         {icon}
       </Center>
-      <Text fontWeight="normal" opacity="0.6">{title}</Text>
+      <Text fontWeight="normal" color="gray.600">{title}</Text>
     </Button>
   )
 }

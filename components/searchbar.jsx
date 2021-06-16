@@ -45,6 +45,7 @@ export default function SearchBar() {
         </AutoCompleteList>
       </AutoComplete>
       <IconButton
+        aria-label="search"
         size="lg"
         colorScheme="blue"
         borderLeftRadius="none"

@@ -32,7 +32,12 @@ export default function HeroSearch() {
           display={{ base: 'none', lg: 'flex' }}
           filter="drop-shadow(0 0 20px yellow)"
         >
-          <NextImage src="/static/design-guy.png" width="305" height="339" />
+          <NextImage
+            src="/static/design-guy.png"
+            width="305"
+            height="339"
+            alt="Design Guy"
+          />
         </Flex>
       </Flex>
     </Box>
