@@ -62,7 +62,14 @@ const CategoryBasedTweets = ({ category, isLightGray }) => {
           <Tweet id="1400452232135405568" />
           <Tweet id="1400452232135405568" />
         </MasonaryGrid>
-        <Button w="full" mt={10} variant="outline" colorScheme="blue">
+        <Button
+          w="full"
+          mt={10}
+          bg="#41A4FF"
+          color="white"
+          _hover={{ bg: '#349afa' }}
+          _active={{ bg: '#349afa' }}
+        >
           See all {category.toLowerCase()} opportunities
         </Button>
       </Box>
