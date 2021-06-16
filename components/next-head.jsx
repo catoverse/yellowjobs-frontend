@@ -12,8 +12,7 @@ export default function NextHead({
     <Head>
       {/* <!-- primary meta tags --> */}
       <title>{title}</title>
-      <link rel="icon" type="image/svg+xml" href={favicon}></link>
-      <link rel="alternate icon" href="/favicon.ico" />
+      <link rel="icon" type="image/svg+xml" href={favicon} />
 
       {/* meta content */}
       <meta name="google" value="notranslate" />
