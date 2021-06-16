@@ -1,15 +1,7 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  VStack,
-  HStack,
-  Text,
-  Spacer,
-  Button,
-} from '@chakra-ui/react'
+import { Box, Flex, VStack, HStack, Text, Spacer } from '@chakra-ui/react'
 import NextImage from 'next/image'
 import LoopHeading from './loop-heading'
+import PopularButton from './popular-button'
 import SearchBar from './searchbar'
 
 export default function HeroSearch() {
@@ -29,30 +21,9 @@ export default function HeroSearch() {
           <Flex gridColumnGap="2" direction={{ base: 'column', md: 'row' }}>
             <Text>popular :</Text>
             <HStack gridRowGap={2}>
-              <Button
-                size="sm"
-                variant="outline"
-                fontWeight="normal"
-                borderColor="white"
-              >
-                UI/UX
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                fontWeight="normal"
-                borderColor="white"
-              >
-                Machine Learning
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                fontWeight="normal"
-                borderColor="white"
-              >
-                Data Science
-              </Button>
+              <PopularButton text="UI/UX" />
+              <PopularButton text="Machine Learning" />
+              <PopularButton text="Data Science" />
             </HStack>
           </Flex>
         </VStack>
