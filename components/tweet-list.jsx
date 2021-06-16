@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Center,
-  HStack,
-  SimpleGrid,
-  Heading,
-} from '@chakra-ui/react'
+import { Box, Button, Center, HStack, Heading } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import { Tweet } from 'react-static-tweets'
 import ContentEmoji from 'assets/categories/content.svg'
