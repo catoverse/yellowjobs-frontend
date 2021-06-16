@@ -14,6 +14,7 @@ import SearchBar from './searchbar'
 export default function HeroSearch() {
   return (
     <Box
+      as="main"
       bgGradient="linear(135deg, #FFDD00 0%, #FCCD53 100%)"
       pt="4"
       ml={{ base: 0, md: 4 }}

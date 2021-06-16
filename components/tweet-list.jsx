@@ -27,7 +27,12 @@ const MasonaryGrid = styled(Box)`
 
 const CategoryBasedTweets = ({ category, isLightGray }) => {
   return (
-    <Box mt={{ base: 0, md: 24 }} py={10} bg={isLightGray ? 'gray.50' : ''}>
+    <Box
+      as="section"
+      mt={{ base: 0, md: 24 }}
+      py={10}
+      bg={isLightGray ? 'gray.50' : ''}
+    >
       <Box maxW="container.xl" mx="auto" px="4">
         <HStack>
           <Center
@@ -79,7 +84,11 @@ export default function TweetList() {
   return (
     <>
       {categories.map((category, idx) => (
-        <CategoryBasedTweets key={idx} category={category} isLightGray={idx % 2 === 0} />
+        <CategoryBasedTweets
+          key={idx}
+          category={category}
+          isLightGray={idx % 2 === 0}
+        />
       ))}
     </>
   )

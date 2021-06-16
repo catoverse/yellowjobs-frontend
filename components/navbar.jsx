@@ -87,7 +87,7 @@ export default function Headers() {
   )
 
   return (
-    <Box pos="relative">
+    <Box as="nav" pos="relative">
       <chakra.header
         ref={ref}
         shadow={y > height ? 'sm' : undefined}
