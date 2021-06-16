@@ -1,14 +1,14 @@
 import { Box, Text, HStack, Center, Heading, Button } from '@chakra-ui/react'
 import NextLink from 'next/link'
 
-import ContentEmoji from 'assets/categories/content.svg'
-import DesignEmoji from 'assets/categories/design.svg'
-import ManagementEmoji from 'assets/categories/management.svg'
-import MarketingEmoji from 'assets/categories/marketing.svg'
-import SalesEmoji from 'assets/categories/sales.svg'
-import SupportEmoji from 'assets/categories/support.svg'
-import TechEmoji from 'assets/categories/tech.svg'
-import OthersEmoji from 'assets/categories/others.svg'
+import ContentEmoji from './icons/categories/content.svg'
+import DesignEmoji from './icons/categories/design.svg'
+import ManagementEmoji from './icons/categories/management.svg'
+import MarketingEmoji from './icons/categories/marketing.svg'
+import SalesEmoji from './icons/categories/sales.svg'
+import SupportEmoji from './icons/categories/support.svg'
+import TechEmoji from './icons/categories/tech.svg'
+import OthersEmoji from './icons/categories/others.svg'
 
 const Category = ({ icon, title }) => {
   return (

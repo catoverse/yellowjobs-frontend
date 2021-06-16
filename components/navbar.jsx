@@ -14,7 +14,7 @@ import {
 
 import { useRef, useState, useEffect } from 'react'
 
-import YellowJobsLogo from 'assets/logo.svg'
+import YellowJobsLogo from './icons/logo.svg'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { useViewportScroll } from 'framer-motion'
 

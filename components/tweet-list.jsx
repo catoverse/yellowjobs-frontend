@@ -1,7 +1,8 @@
-import { Box, Button, Center, HStack, Heading } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import { Tweet } from 'react-static-tweets'
-import ContentEmoji from 'assets/categories/content.svg'
+import { Box, Button, Center, HStack, Heading } from '@chakra-ui/react'
+
+import ContentEmoji from './icons/categories/content.svg'
 
 const MasonaryGrid = styled(Box)`
   display: flex;
