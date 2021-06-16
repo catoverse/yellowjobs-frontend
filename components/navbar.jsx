@@ -97,7 +97,7 @@ export default function Headers() {
             </Flex>
 
             <HStack
-              spacing={6}
+              spacing={10}
               justify="flex-end"
               w="full"
               maxW="824px"
