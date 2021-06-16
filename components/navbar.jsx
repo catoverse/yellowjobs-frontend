@@ -106,7 +106,7 @@ export default function Headers() {
             >
               <Link _hover={{ color: 'gray.500' }}>About Us</Link>
               <Link _hover={{ color: 'gray.500' }}>Disclaimer</Link>
-              <Button variant="outline" colorScheme="blue">
+              <Button w="44" variant="outline" borderColor="#41A4FF" color="#41A4FF" colorScheme="blue">
                 Browse all jobs
               </Button>
             </HStack>
