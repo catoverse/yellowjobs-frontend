@@ -23,6 +23,7 @@ export default function SearchBar() {
           fontSize="sm"
           bg="white"
           autoFocus
+          spellCheck="false"
           variant="filled"
           _hover={{ bg: 'white', shadow: 'lg' }}
           _focus={{ bg: 'white', shadow: '2xl' }}
