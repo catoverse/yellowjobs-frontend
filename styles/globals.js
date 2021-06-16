@@ -2,6 +2,10 @@ import { Global, css } from '@emotion/react'
 
 // add gloabl CSS here.
 const CSS = css`
+  html {
+    scroll-behavior: smooth;
+  }
+
   ::-webkit-scrollbar {
     width: 20px;
   }

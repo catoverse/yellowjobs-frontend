@@ -22,6 +22,7 @@ const CategoryBasedTweets = ({ category, isLightGray }) => {
   return (
     <Box
       as="section"
+      id={category.toLowerCase()}
       mt={{ base: 0, md: 24 }}
       py={10}
       bg={isLightGray ? 'gray.50' : ''}
@@ -79,7 +80,7 @@ export default function TweetList() {
     'Sales',
     'Content',
     'Support',
-    'Other',
+    'Others',
   ]
   return (
     <>

@@ -1,4 +1,5 @@
-import { Box, Text, HStack, VStack, Center, Heading, Button } from '@chakra-ui/react'
+import { Box, Text, HStack, Center, Heading, Button } from '@chakra-ui/react'
+import NextLink from 'next/link'
 
 import ContentEmoji from 'assets/categories/content.svg'
 import DesignEmoji from 'assets/categories/design.svg'
@@ -11,24 +12,28 @@ import OthersEmoji from 'assets/categories/others.svg'
 
 const Category = ({ icon, title }) => {
   return (
-    <Button
-      bg="gray.50"
-      borderWidth="1px"
-      borderColor="gray.200"
-      borderRadius="lg"
-      py="2"
-      px="8"
-      w="32"
-      height="auto"
-      flexDirection="column"
-      bg="white"
-      _hover={{ bg: "gray.100" }}
-    >
-      <Center w="8" h="10" borderRadius="md">
-        {icon}
-      </Center>
-      <Text fontWeight="normal" color="gray.600">{title}</Text>
-    </Button>
+    <NextLink href={`#${title.toLowerCase()}`}>
+      <Button
+        bg="gray.50"
+        borderWidth="1px"
+        borderColor="gray.200"
+        borderRadius="lg"
+        py="2"
+        px="8"
+        w="32"
+        height="auto"
+        flexDirection="column"
+        bg="white"
+        _hover={{ bg: 'gray.100' }}
+      >
+        <Center w="8" h="10" borderRadius="md">
+          {icon}
+        </Center>
+        <Text fontWeight="normal" color="gray.600">
+          {title}
+        </Text>
+      </Button>
+    </NextLink>
   )
 }
 
