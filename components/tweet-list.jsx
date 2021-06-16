@@ -79,7 +79,7 @@ export default function TweetList() {
   return (
     <>
       {categories.map((category, idx) => (
-        <CategoryBasedTweets category={category} isLightGray={idx % 2 === 0} />
+        <CategoryBasedTweets key={idx} category={category} isLightGray={idx % 2 === 0} />
       ))}
     </>
   )

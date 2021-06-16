@@ -4,14 +4,12 @@ import {
   Heading,
   VStack,
   HStack,
-  Input,
   Text,
   Spacer,
   Button,
-  IconButton,
 } from '@chakra-ui/react'
 import NextImage from 'next/image'
-import { FiSearch as SearchIcon } from 'react-icons/fi'
+import SearchBar from './searchbar'
 
 export default function HeroSearch() {
   return (
@@ -30,28 +28,7 @@ export default function HeroSearch() {
           >
             Search for opportunites here
           </Heading>
-          <HStack spacing="0">
-            <Input
-              minW={{ base: '96%', md: 'lg' }}
-              w="100%"
-              size="lg"
-              fontSize="sm"
-              bg="white"
-              _hover={{ bg: 'white', borderColor: 'blue' }}
-              _focus={{ bg: 'white', borderColor: 'blue' }}
-              variant="filled"
-              borderRightRadius="none"
-              colorScheme="whiteAlpha"
-              placeholder="search for jobs, skills, techstack...."
-            />
-            <IconButton
-              size="lg"
-              bg="#E3F2FF"
-              color="#41A4FF"
-              borderLeftRadius="none"
-              icon={<SearchIcon />}
-            />
-          </HStack>
+          <SearchBar />
           <Flex gridColumnGap="2" direction={{ base: 'column', md: 'row' }}>
             <Text>popular :</Text>
             <HStack gridRowGap={2}>

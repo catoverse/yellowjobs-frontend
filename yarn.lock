@@ -1477,6 +1477,11 @@
   dependencies:
     "@chakra-ui/utils" "1.8.0"
 
+"@choc-ui/chakra-autocomplete@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@choc-ui/chakra-autocomplete/-/chakra-autocomplete-3.5.0.tgz#02a6a5fa24d06ade066b6f932e0654fc14c53bf2"
+  integrity sha512-6Cf9+9J7Tv5K5AZJj+0Db6AEwLD6g4y33ZPUgZyXBe/Pol8aOuAbKHgW+Aq7IGSmbrmbd9T767udwAhyUDP2Ig==
+
 "@emotion/babel-plugin@^11.3.0":
   version "11.3.0"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.3.0.tgz#3a16850ba04d8d9651f07f3fb674b3436a4fb9d7"
