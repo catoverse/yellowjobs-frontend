@@ -9,6 +9,7 @@ import {
   Button,
 } from '@chakra-ui/react'
 import NextImage from 'next/image'
+import LoopHeading from './loop-heading'
 import SearchBar from './searchbar'
 
 export default function HeroSearch() {
@@ -22,13 +23,7 @@ export default function HeroSearch() {
     >
       <Flex mx="auto" maxW="1200px" px="4">
         <VStack justify="center" align="flex-start" spacing="4" my={24}>
-          <Heading
-            fontSize={{ base: '2xl', md: '3xl' }}
-            fontWeight="bold"
-            fontFamily="Darker Grotesque"
-          >
-            Search for opportunites here
-          </Heading>
+          <LoopHeading />
           <SearchBar />
           <Flex gridColumnGap="2" direction={{ base: 'column', md: 'row' }}>
             <Text>popular :</Text>
