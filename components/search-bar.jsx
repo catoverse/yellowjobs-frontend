@@ -14,10 +14,9 @@ export default function SearchBar() {
   const options = Object.keys(searchKeywords)
 
   return (
-    <HStack spacing="0">
-      <AutoComplete rollNavigation>
+    <HStack spacing="0" w="100%" maxW="lg">
+      <AutoComplete rollNavigation w="100%">
         <AutoCompleteInput
-          minW={{ base: '96%', md: 'lg' }}
           w="100%"
           size="lg"
           fontSize="sm"
