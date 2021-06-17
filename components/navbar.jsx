@@ -88,7 +88,7 @@ export default function Headers() {
         overflowY="hidden"
       >
         <chakra.div h="4.5rem" mx="auto" maxW="1200px">
-          <Flex w="full" h="full" px="6" align="center" justify="space-between">
+          <Flex w="full" h="full" px="4" align="center" justify="space-between">
             <Flex align="center">
               <NextLink href="/" aria-label="YellowJobs Logo">
                 <Link>
