@@ -12,6 +12,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 
+import NextLink from 'next/link'
 import { useRef, useState, useEffect } from 'react'
 
 import YellowJobsLogo from './icons/logo.svg'
@@ -89,11 +90,13 @@ export default function Headers() {
         <chakra.div h="4.5rem" mx="auto" maxW="1200px">
           <Flex w="full" h="full" px="6" align="center" justify="space-between">
             <Flex align="center">
-              <Link href="/" aria-label="YellowJobs Logo">
-                <HStack>
-                  <YellowJobsLogo />
-                </HStack>
-              </Link>
+              <NextLink href="/" aria-label="YellowJobs Logo">
+                <Link>
+                  <HStack>
+                    <YellowJobsLogo />
+                  </HStack>
+                </Link>
+              </NextLink>
             </Flex>
 
             <HStack
@@ -106,7 +109,13 @@ export default function Headers() {
             >
               <Link _hover={{ color: 'gray.500' }}>About Us</Link>
               <Link _hover={{ color: 'gray.500' }}>Disclaimer</Link>
-              <Button w="44" variant="outline" borderColor="#41A4FF" color="#41A4FF" colorScheme="blue">
+              <Button
+                w="44"
+                variant="outline"
+                borderColor="#41A4FF"
+                color="#41A4FF"
+                colorScheme="blue"
+              >
                 Browse all jobs
               </Button>
             </HStack>
