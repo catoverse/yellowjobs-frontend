@@ -15,6 +15,7 @@ import {
 import NextLink from 'next/link'
 import { useRef, useState, useEffect } from 'react'
 
+import Container from 'components/container'
 import YellowJobsLogo from './icons/logo.svg'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { useViewportScroll } from 'framer-motion'
@@ -77,7 +78,7 @@ export default function Headers() {
   )
 
   return (
-    <Box as="nav" pos="relative">
+    <Box as="nav" pos="sticky" top="0" zIndex="sticky">
       <chakra.header
         ref={ref}
         shadow={y > height ? 'sm' : undefined}
@@ -85,10 +86,12 @@ export default function Headers() {
         borderTop="6px solid"
         borderTopColor="yellow.400"
         w="full"
+        py="4"
         overflowY="hidden"
+        bg="white"
       >
-        <chakra.div h="4.5rem" mx="auto" maxW="1200px">
-          <Flex w="full" h="full" px="4" align="center" justify="space-between">
+        <Container>
+          <Flex w="full" h="full" align="center" justify="space-between">
             <Flex align="center">
               <NextLink href="/" aria-label="YellowJobs Logo">
                 <Link>
@@ -130,7 +133,7 @@ export default function Headers() {
             />
           </Flex>
           {MobileNavContent}
-        </chakra.div>
+        </Container>
       </chakra.header>
     </Box>
   )

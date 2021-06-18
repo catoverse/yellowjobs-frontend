@@ -9,6 +9,7 @@ import SalesEmoji from './icons/categories/sales.svg'
 import SupportEmoji from './icons/categories/support.svg'
 import TechEmoji from './icons/categories/tech.svg'
 import OthersEmoji from './icons/categories/others.svg'
+import Container from './container'
 
 const Category = ({ icon, title }) => {
   return (
@@ -39,26 +40,26 @@ const Category = ({ icon, title }) => {
 
 export default function JobCategories() {
   return (
-    <Box
-      maxW="container.xl"
-      mx="auto"
-      mt="10"
-      px="4"
-      display={{ base: 'none', md: 'block' }}
-    >
-      <Heading fontSize="3xl" fontWeight="medium" fontFamily="Darker Grotesque">
-        Opportunities available in
-      </Heading>
-      <HStack mt="3" spacing="10">
-        <Category title="Tech" icon={<TechEmoji />} />
-        <Category title="Design" icon={<DesignEmoji />} />
-        <Category title="Management" icon={<ManagementEmoji />} />
-        <Category title="Marketing" icon={<MarketingEmoji />} />
-        <Category title="Sales" icon={<SalesEmoji />} />
-        <Category title="Content" icon={<ContentEmoji />} />
-        <Category title="Support" icon={<SupportEmoji />} />
-        <Category title="Others" icon={<OthersEmoji />} />
-      </HStack>
+    <Box mt="10" display={{ base: 'none', md: 'block' }}>
+      <Container>
+        <Heading
+          fontSize="3xl"
+          fontWeight="medium"
+          fontFamily="Darker Grotesque"
+        >
+          Opportunities available in
+        </Heading>
+        <HStack mt="3" spacing="10">
+          <Category title="Tech" icon={<TechEmoji />} />
+          <Category title="Design" icon={<DesignEmoji />} />
+          <Category title="Management" icon={<ManagementEmoji />} />
+          <Category title="Marketing" icon={<MarketingEmoji />} />
+          <Category title="Sales" icon={<SalesEmoji />} />
+          <Category title="Content" icon={<ContentEmoji />} />
+          <Category title="Support" icon={<SupportEmoji />} />
+          <Category title="Others" icon={<OthersEmoji />} />
+        </HStack>
+      </Container>
     </Box>
   )
 }
