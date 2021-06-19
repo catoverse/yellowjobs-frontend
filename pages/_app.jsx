@@ -4,10 +4,7 @@ import NextHead from 'components/next-head'
 import GlobalCSS from 'styles/globals'
 import 'focus-visible/dist/focus-visible'
 import 'react-static-tweets/styles.css'
-import 'react-static-tweets/styles.css'
 import '@fontsource/darker-grotesque/500.css'
-import '@fontsource/darker-grotesque/700.css'
-import '@fontsource/darker-grotesque/900.css'
 
 export default function MyApp({ Component, pageProps }) {
   return (
