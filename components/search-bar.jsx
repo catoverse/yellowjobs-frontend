@@ -31,7 +31,7 @@ const CustomScrollBarAutoCompleteList = styled(AutoCompleteList)`
   }
 `
 
-export default function SearchBar({ isShadowActive }) {
+export default function SearchBar() {
   const options = Object.keys(searchKeywords)
 
   return (
@@ -45,7 +45,6 @@ export default function SearchBar({ isShadowActive }) {
           autoFocus
           spellCheck="false"
           variant="filled"
-          shadow={isShadowActive && 'md'}
           _hover={{ bg: 'white', shadow: 'lg' }}
           _focus={{ bg: 'white', shadow: '2xl' }}
           variant="filled"

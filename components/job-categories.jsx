@@ -20,30 +20,29 @@ import SupportEmoji from './icons/categories/support.svg'
 import TechEmoji from './icons/categories/tech.svg'
 import OthersEmoji from './icons/categories/others.svg'
 import Container from './container'
-import SearchBar from './search-bar'
 
 const Category = ({ icon, title, start, end }) => {
   return (
     <NextLink href={`#${title.toLowerCase()}`}>
       <Button
         bg="gray.50"
+        py="2"
+        px="8"
+        w="10rem"
+        height="10"
+        bg="white"
         borderWidth="1px"
         borderColor="gray.200"
         borderRadius="none"
+        _hover={{ bg: 'gray.100' }}
         borderRightWidth={!end && '0'}
         borderLeftRadius={start && 'lg'}
         borderRightRadius={end && 'lg'}
-        py="2"
-        px="8"
-        w="9.375rem"
-        height="10"
-        bg="white"
-        _hover={{ bg: 'gray.100' }}
       >
         <Center w="8" h="10">
           {icon}
         </Center>
-        <Text ml="2" fontWeight="normal" color="gray.600">
+        <Text ml="2" fontSize="sm" fontWeight="normal" color="gray.600">
           {title}
         </Text>
       </Button>
@@ -55,16 +54,22 @@ const JobTypes = () => {
   return (
     <Flex justify="space-between">
       <HStack spacing={6} color="gray.700" fontSize="sm">
-        <VStack align="flex-start">
-          <Checkbox defaultIsChecked>Full time</Checkbox>
-          <Checkbox>Freelance</Checkbox>
-        </VStack>
-        <VStack align="flex-start">
-          <Checkbox>Part time</Checkbox>
-          <Checkbox>Internships</Checkbox>
-        </VStack>
+        <Checkbox defaultIsChecked>Full time</Checkbox>
+        <Checkbox>Freelance</Checkbox>
+        <Checkbox>Part time</Checkbox>
+        <Checkbox>Internships</Checkbox>
       </HStack>
-      <SearchBar isShadowActive />
+      <Button
+        px="0"
+        variant="ghost"
+        fontSize="sm"
+        fontWeight="normal"
+        color="gray.500"
+        _hover={{ color: 'gray.800' }}
+        _active={{ color: 'gray.800' }}
+      >
+        Clear filters
+      </Button>
     </Flex>
   )
 }
@@ -83,15 +88,6 @@ export default function JobCategories() {
           <Category title="Content" icon={<ContentEmoji />} />
           <Category title="Support" icon={<SupportEmoji />} />
           <Category title="Others" icon={<OthersEmoji />} end />
-          <Button
-            variant="ghost"
-            fontSize="sm"
-            fontWeight="normal"
-            color="gray.500"
-            _hover={{ color: 'gray.800' }}
-          >
-            Clear filters
-          </Button>
         </HStack>
       </Container>
     </Box>

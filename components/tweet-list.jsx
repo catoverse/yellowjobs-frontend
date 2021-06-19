@@ -5,7 +5,7 @@ import { Box } from '@chakra-ui/react'
 
 const MasonaryGrid = styled(Box)`
   display: flex;
-  gap: 16px;
+  gap: 24px;
   flex-direction: column;
   flex-wrap: wrap;
   max-width: 400px;
