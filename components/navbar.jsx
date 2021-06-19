@@ -71,9 +71,6 @@ export default function Headers() {
       >
         Disclaimer
       </Button>
-      <Button variant="outline" colorScheme="blue">
-        Browse all jobs
-      </Button>
     </VStack>
   )
 
@@ -112,15 +109,6 @@ export default function Headers() {
             >
               <Link _hover={{ color: 'gray.500' }}>About Us</Link>
               <Link _hover={{ color: 'gray.500' }}>Disclaimer</Link>
-              <Button
-                w="44"
-                variant="outline"
-                borderColor="#41A4FF"
-                color="#41A4FF"
-                colorScheme="blue"
-              >
-                Browse all jobs
-              </Button>
             </HStack>
             <IconButton
               display={{ base: 'flex', md: 'none' }}
