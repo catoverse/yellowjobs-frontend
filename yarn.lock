@@ -2602,6 +2602,11 @@ react-remove-scroll@2.4.1:
     use-callback-ref "^1.2.3"
     use-sidecar "^1.0.1"
 
+react-scroll-to-top@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-scroll-to-top/-/react-scroll-to-top-1.0.5.tgz#7a048c1ab0b038dda237cfb6155e1cdf0ae50e4d"
+  integrity sha512-e7n5LJXpUG9/gnHMHqrGY2UBebpqVaPpAnF4kLuR/e+SRtAGr+4UStvGsCiv6XBOC+dRyTe7ZbjdV9FaPdgUfg==
+
 react-static-tweets@^0.5.4:
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/react-static-tweets/-/react-static-tweets-0.5.4.tgz#3dc75f9fc50eff033ac65d85dcfec0ad1bd11888"

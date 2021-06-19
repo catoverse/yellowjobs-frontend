@@ -4,6 +4,7 @@ import Navbar from 'components/navbar'
 import HeroSearch from 'components/hero-search'
 import JobCategories from 'components/job-categories'
 import TweetList from 'components/tweet-list'
+import ScrollToTop from 'components/scroll-to-top'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <HeroSearch />
       <JobCategories />
       <TweetList />
+      <ScrollToTop />
     </Box>
   )
 }
