@@ -6,28 +6,15 @@ const CSS = css`
     scroll-behavior: smooth;
   }
 
-  ::-webkit-scrollbar {
-    width: 20px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: lightyellow;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: yellow;
-    border: 4px solid transparent;
-    background-clip: content-box;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: goldenrod;
+  body {
+    background-color: #fafafa;
   }
 
   ::selection {
     background: yellow;
   }
 
+  /* removing ugly outlines */
   .js-focus-visible :focus:not([data-focus-visible-added]) {
     box-shadow: none;
     outline-color: transparent;
