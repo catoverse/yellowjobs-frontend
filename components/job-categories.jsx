@@ -41,6 +41,8 @@ const Category = ({ icon, title, start, end }) => {
         borderLeftRadius={start && 'lg'}
         borderRightRadius={end && 'lg'}
         onClick={onOpen}
+        _focus={{ outline: 'none' }}
+        _focusVisible={{ borderBottom: '4px solid gray' }}
       >
         <Center w="8" h="10">
           {icon}

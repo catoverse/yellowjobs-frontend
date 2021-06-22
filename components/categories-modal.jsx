@@ -60,7 +60,7 @@ export default function CategoriesMenu() {
 
           <Box as="hr" mt="10" />
           <HStack mt="5" justify="flex-end">
-            <Button variant="ghost" color="gray.500">
+            <Button variant="ghost" color="gray.500" fontWeight="normal">
               Clear filters
             </Button>
             <Button colorScheme="blue">Apply filters</Button>
