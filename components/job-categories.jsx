@@ -6,8 +6,6 @@ import {
   Flex,
   Button,
   Checkbox,
-  VStack,
-  Spacer,
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
 
@@ -20,33 +18,41 @@ import SupportEmoji from './icons/categories/support.svg'
 import TechEmoji from './icons/categories/tech.svg'
 import OthersEmoji from './icons/categories/others.svg'
 import Container from './container'
+import { useState } from 'react'
+import CategoriesMenu from './categories-menu'
 
 const Category = ({ icon, title, start, end }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <NextLink href={`#${title.toLowerCase()}`}>
-      <Button
-        bg="gray.50"
-        py="2"
-        px="8"
-        w="10rem"
-        height="10"
-        bg="white"
-        borderWidth="1px"
-        borderColor="gray.200"
-        borderRadius="none"
-        _hover={{ bg: 'gray.100' }}
-        borderRightWidth={!end && '0'}
-        borderLeftRadius={start && 'lg'}
-        borderRightRadius={end && 'lg'}
-      >
-        <Center w="8" h="10">
-          {icon}
-        </Center>
-        <Text ml="2" fontSize="sm" fontWeight="normal" color="gray.600">
-          {title}
-        </Text>
-      </Button>
-    </NextLink>
+    <Box pos="relative">
+      <NextLink href={`#${title.toLowerCase()}`}>
+        <Button
+          bg="gray.50"
+          py="2"
+          px="8"
+          w="10rem"
+          height="10"
+          bg="white"
+          borderWidth="1px"
+          borderColor="gray.200"
+          borderRadius="none"
+          _hover={{ bg: 'gray.100' }}
+          borderRightWidth={!end && '0'}
+          borderLeftRadius={start && 'lg'}
+          borderRightRadius={end && 'lg'}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <Center w="8" h="10">
+            {icon}
+          </Center>
+          <Text ml="2" fontSize="sm" fontWeight="normal" color="gray.600">
+            {title}
+          </Text>
+        </Button>
+      </NextLink>
+      {isOpen && <CategoriesMenu onClose={() => setIsOpen(false)} />}
+    </Box>
   )
 }
 
