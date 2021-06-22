@@ -34,7 +34,7 @@ export default function CategoriesMenu() {
         </ModalHeader>
         <Box as="hr" />
 
-        <ModalBody>
+        <ModalBody py="4">
           <InputGroup maxW="xs" w="100%" mt="5">
             <Input
               variant="flushed"

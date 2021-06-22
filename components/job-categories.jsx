@@ -7,7 +7,6 @@ import {
   Button,
   Checkbox,
 } from '@chakra-ui/react'
-import NextLink from 'next/link'
 
 import ContentEmoji from './icons/categories/content.svg'
 import DesignEmoji from './icons/categories/design.svg'
@@ -17,6 +16,7 @@ import SalesEmoji from './icons/categories/sales.svg'
 import SupportEmoji from './icons/categories/support.svg'
 import TechEmoji from './icons/categories/tech.svg'
 import OthersEmoji from './icons/categories/others.svg'
+
 import Container from './container'
 import CategoriesModal from './categories-modal'
 import { ModalProvider, useModal } from 'contexts/modal-context'
@@ -26,31 +26,29 @@ const Category = ({ icon, title, start, end }) => {
 
   return (
     <Box pos="relative">
-      <NextLink href={`#${title.toLowerCase()}`}>
-        <Button
-          bg="gray.50"
-          py="2"
-          px="8"
-          w="10rem"
-          height="10"
-          bg="white"
-          borderWidth="1px"
-          borderColor="gray.200"
-          borderRadius="none"
-          _hover={{ bg: 'gray.100' }}
-          borderRightWidth={!end && '0'}
-          borderLeftRadius={start && 'lg'}
-          borderRightRadius={end && 'lg'}
-          onClick={onOpen}
-        >
-          <Center w="8" h="10">
-            {icon}
-          </Center>
-          <Text ml="2" fontSize="sm" fontWeight="normal" color="gray.600">
-            {title}
-          </Text>
-        </Button>
-      </NextLink>
+      <Button
+        bg="gray.50"
+        py="2"
+        px="8"
+        w="10rem"
+        height="10"
+        bg="white"
+        borderWidth="1px"
+        borderColor="gray.200"
+        borderRadius="none"
+        _hover={{ bg: 'gray.100' }}
+        borderRightWidth={!end && '0'}
+        borderLeftRadius={start && 'lg'}
+        borderRightRadius={end && 'lg'}
+        onClick={onOpen}
+      >
+        <Center w="8" h="10">
+          {icon}
+        </Center>
+        <Text ml="2" fontSize="sm" fontWeight="normal" color="gray.600">
+          {title}
+        </Text>
+      </Button>
     </Box>
   )
 }
