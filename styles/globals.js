@@ -19,6 +19,25 @@ const CSS = css`
     box-shadow: none;
     outline-color: transparent;
   }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
 `
 
 function GlobalCSS() {
