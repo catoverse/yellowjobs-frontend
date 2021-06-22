@@ -1,6 +1,5 @@
 import { HStack, IconButton } from '@chakra-ui/react'
 import { FiSearch as SearchIcon } from 'react-icons/fi'
-import styled from '@emotion/styled'
 import searchKeywords from 'lib/search-keywords'
 
 import {
@@ -9,27 +8,6 @@ import {
   AutoCompleteItem,
   AutoCompleteList,
 } from '@choc-ui/chakra-autocomplete'
-
-const CustomScrollBarAutoCompleteList = styled(AutoCompleteList)`
-  ::-webkit-scrollbar {
-    width: 20px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
-    border-radius: 20px;
-    border: 6px solid transparent;
-    background-clip: content-box;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #a8bbbf;
-  }
-`
 
 export default function SearchBar() {
   const options = Object.keys(searchKeywords)
@@ -52,7 +30,7 @@ export default function SearchBar() {
           colorScheme="whiteAlpha"
           placeholder="search for jobs, skills, techstack...."
         />
-        <CustomScrollBarAutoCompleteList>
+        <AutoCompleteList className="custom-scrollbar">
           {options.map((option, oid) => (
             <AutoCompleteItem
               key={`option-${oid}`}
@@ -62,7 +40,7 @@ export default function SearchBar() {
               {searchKeywords[option]}
             </AutoCompleteItem>
           ))}
-        </CustomScrollBarAutoCompleteList>
+        </AutoCompleteList>
       </AutoComplete>
       <IconButton
         aria-label="search"
