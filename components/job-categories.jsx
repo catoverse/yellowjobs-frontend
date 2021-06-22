@@ -67,6 +67,7 @@ const JobTypes = () => {
         color="gray.500"
         _hover={{ color: 'gray.800' }}
         _active={{ color: 'gray.800' }}
+        display={{ base: 'none', md: 'flex' }}
       >
         Clear filters
       </Button>
@@ -76,10 +77,10 @@ const JobTypes = () => {
 
 export default function JobCategories() {
   return (
-    <Box mt="10" display={{ base: 'none', md: 'block' }}>
+    <Box mt="10">
       <Container>
         <JobTypes />
-        <HStack mt="5" spacing="0">
+        <HStack mt="5" spacing="0" display={{ base: 'none', md: 'flex' }}>
           <Category title="Tech" icon={<TechEmoji />} start />
           <Category title="Design" icon={<DesignEmoji />} />
           <Category title="Management" icon={<ManagementEmoji />} />

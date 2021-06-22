@@ -4,6 +4,7 @@ import Container from './container'
 import LoopHeading from './loop-heading'
 import PopularButton from './popular-button'
 import SearchBar from './search-bar'
+import designGuyImageSrc from 'public/static/design-guy.png'
 
 export default function HeroSearch() {
   return (
@@ -32,12 +33,7 @@ export default function HeroSearch() {
             filter="drop-shadow(0 0 20px yellow)"
             justify="flex-end"
           >
-            <NextImage
-              src="/static/design-guy.png"
-              width="305"
-              height="339"
-              alt="Design Guy"
-            />
+            <NextImage alt="Design Guy" src={designGuyImageSrc} />
           </Flex>
         </SimpleGrid>
       </Container>
