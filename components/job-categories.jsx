@@ -18,11 +18,11 @@ import SupportEmoji from './icons/categories/support.svg'
 import TechEmoji from './icons/categories/tech.svg'
 import OthersEmoji from './icons/categories/others.svg'
 import Container from './container'
-import { useState } from 'react'
-import CategoriesMenu from './categories-menu'
+import CategoriesModal from './categories-modal'
+import { ModalProvider, useModal } from 'contexts/modal-context'
 
 const Category = ({ icon, title, start, end }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const { onOpen } = useModal()
 
   return (
     <Box pos="relative">
@@ -41,7 +41,7 @@ const Category = ({ icon, title, start, end }) => {
           borderRightWidth={!end && '0'}
           borderLeftRadius={start && 'lg'}
           borderRightRadius={end && 'lg'}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={onOpen}
         >
           <Center w="8" h="10">
             {icon}
@@ -51,7 +51,6 @@ const Category = ({ icon, title, start, end }) => {
           </Text>
         </Button>
       </NextLink>
-      {isOpen && <CategoriesMenu onClose={() => setIsOpen(false)} />}
     </Box>
   )
 }
@@ -84,19 +83,22 @@ const JobTypes = () => {
 export default function JobCategories() {
   return (
     <Box mt="10">
-      <Container>
-        <JobTypes />
-        <HStack mt="5" spacing="0" display={{ base: 'none', md: 'flex' }}>
-          <Category title="Tech" icon={<TechEmoji />} start />
-          <Category title="Design" icon={<DesignEmoji />} />
-          <Category title="Management" icon={<ManagementEmoji />} />
-          <Category title="Marketing" icon={<MarketingEmoji />} />
-          <Category title="Sales" icon={<SalesEmoji />} />
-          <Category title="Content" icon={<ContentEmoji />} />
-          <Category title="Support" icon={<SupportEmoji />} />
-          <Category title="Others" icon={<OthersEmoji />} end />
-        </HStack>
-      </Container>
+      <ModalProvider>
+        <Container>
+          <JobTypes />
+          <HStack mt="5" spacing="0" display={{ base: 'none', md: 'flex' }}>
+            <Category title="Tech" icon={<TechEmoji />} start />
+            <Category title="Design" icon={<DesignEmoji />} />
+            <Category title="Management" icon={<ManagementEmoji />} />
+            <Category title="Marketing" icon={<MarketingEmoji />} />
+            <Category title="Sales" icon={<SalesEmoji />} />
+            <Category title="Content" icon={<ContentEmoji />} />
+            <Category title="Support" icon={<SupportEmoji />} />
+            <Category title="Others" icon={<OthersEmoji />} end />
+          </HStack>
+        </Container>
+        <CategoriesModal />
+      </ModalProvider>
     </Box>
   )
 }
