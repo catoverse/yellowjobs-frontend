@@ -58,12 +58,21 @@ const Category = ({ icon, title, start, end }) => {
 const JobTypes = () => {
   return (
     <Flex justify="space-between">
-      <HStack spacing={6} color="gray.700" fontSize="sm">
-        <Checkbox defaultIsChecked>Full time</Checkbox>
-        <Checkbox>Freelance</Checkbox>
-        <Checkbox>Part time</Checkbox>
-        <Checkbox>Internships</Checkbox>
-      </HStack>
+      <Flex
+        fontSize="sm"
+        color="gray.700"
+        gridGap={{ base: '0', md: '6' }}
+        flexDirection={{ base: 'column', md: 'row' }}
+      >
+        <Flex gridGap={{ base: '16', md: '6' }}>
+          <Checkbox defaultIsChecked>Full time</Checkbox>
+          <Checkbox>Freelance</Checkbox>
+        </Flex>
+        <Flex gridGap={{ base: '16', md: '6' }}>
+          <Checkbox>Part time</Checkbox>
+          <Checkbox>Internships</Checkbox>
+        </Flex>
+      </Flex>
       <Button
         px="0"
         variant="ghost"

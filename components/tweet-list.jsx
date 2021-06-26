@@ -16,7 +16,7 @@ export default function TweetList() {
       </Center>
     )
 
-  console.log(data)
+//   console.log(data)
   return (
     <Box as="section" my={5}>
       <Container>
