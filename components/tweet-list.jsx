@@ -1,37 +1,32 @@
-import styled from '@emotion/styled'
 import Container from './container'
+import useSWR from 'swr'
 import { Tweet } from 'react-static-tweets'
-import { Box } from '@chakra-ui/react'
-
-const MasonaryGrid = styled(Box)`
-  display: flex;
-  gap: 24px;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-width: 400px;
-  max-height: 1000px;
-
-  @media (max-width: 30rem) {
-    flex-direction: row;
-    gap: 1rem;
-    max-height: none;
-  }
-`
+import { Box, Center, Spinner } from '@chakra-ui/react'
+import { API_URL, fetcher } from 'lib/api'
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 export default function TweetList() {
+  const { data, error } = useSWR(`${API_URL}/api/tweets`, fetcher)
+
+  if (error) return <div>failed to load</div>
+  if (!data)
+    return (
+      <Center minH="100vh">
+        <Spinner />
+      </Center>
+    )
+
+  console.log(data)
   return (
     <Box as="section" my={5}>
       <Container>
-        <MasonaryGrid mt="5">
-          <Tweet id="1404411232669638660" />
-          <Tweet id="1403847095602216961" />
-          <Tweet id="1403845000740364291" />
-          <Tweet id="1401811181128458240" />
-          <Tweet id="1400452232135405568" />
-          <Tweet id="1400452232135405568" />
-          <Tweet id="1400452232135405568" />
-          <Tweet id="1400452232135405568" />
-        </MasonaryGrid>
+        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+          <Masonry gutter="1rem">
+            {data.map((tweetObj) => (
+              <Tweet key={tweetObj._id} id={tweetObj.tweet_id} />
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
       </Container>
     </Box>
   )
