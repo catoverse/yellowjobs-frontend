@@ -44,6 +44,8 @@ export default function CategoriesMenu({ selectedCategory }) {
         roles: value.join(','),
       },
     })
+
+    onClose() // close the modal after selecting the roles
   }
 
   const clearFilters = () => {
