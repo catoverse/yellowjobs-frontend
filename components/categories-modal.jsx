@@ -9,6 +9,8 @@ import {
   InputRightElement,
   SimpleGrid,
   Checkbox,
+  CheckboxGroup,
+  useCheckboxGroup,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -19,11 +21,12 @@ import {
 } from '@chakra-ui/react'
 import { FiSearch } from 'react-icons/fi'
 import { useModal } from 'contexts/modal-context'
-import { subCategories } from 'lib/design-subcategories'
 import useSWR from 'swr'
 import { API_URL, fetcher } from 'lib/api'
+import { useRouter } from 'next/router'
 
 export default function CategoriesMenu({ selectedCategory }) {
+  const router = useRouter()
   const { isOpen, onClose } = useModal()
   const { data, error } = useSWR(
     `${API_URL}/api/categories?name=${selectedCategory}`,
@@ -31,6 +34,22 @@ export default function CategoriesMenu({ selectedCategory }) {
   )
   const capitalizedCategory =
     selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)
+
+  const { value, setValue } = useCheckboxGroup()
+
+  const applyRoleBasedFilters = () => {
+    router.push({
+      pathname: '/',
+      query: {
+        roles: value.join(','),
+      },
+    })
+  }
+
+  const clearFilters = () => {
+    setValue([])
+    router.push('/')
+  }
 
   if (error) return <div>failed to load</div>
   if (!data)
@@ -71,17 +90,26 @@ export default function CategoriesMenu({ selectedCategory }) {
             overflowY="auto"
             className="custom-scrollbar"
           >
-            {data[0].roles.map((category) => (
-              <Checkbox>{category}</Checkbox>
-            ))}
+            <CheckboxGroup value={value} onChange={setValue}>
+              {data[0].roles.map((category) => (
+                <Checkbox value={category}>{category}</Checkbox>
+              ))}
+            </CheckboxGroup>
           </SimpleGrid>
 
           <Box as="hr" mt="10" />
           <HStack mt="5" justify="flex-end">
-            <Button variant="ghost" color="gray.500" fontWeight="normal">
+            <Button
+              variant="ghost"
+              color="gray.500"
+              fontWeight="normal"
+              onClick={clearFilters}
+            >
               Clear filters
             </Button>
-            <Button colorScheme="blue">Apply filters</Button>
+            <Button colorScheme="blue" onClick={applyRoleBasedFilters}>
+              Apply filters
+            </Button>
           </HStack>
         </ModalBody>
       </ModalContent>
