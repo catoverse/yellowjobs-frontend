@@ -16,14 +16,13 @@ export default function TweetList() {
       </Center>
     )
 
-//   console.log(data)
   return (
     <Box as="section" my={5}>
       <Container>
         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
           <Masonry gutter="1rem">
             {data.map((tweetObj) => (
-              <Tweet key={tweetObj._id} id={tweetObj.tweet_id} />
+              <Tweet id={tweetObj.tweet_id} ast={tweetObj.tweet_ast} />
             ))}
           </Masonry>
         </ResponsiveMasonry>
