@@ -14,13 +14,31 @@ import {
   ModalContent,
   ModalBody,
   ModalHeader,
+  Center,
+  Spinner,
 } from '@chakra-ui/react'
 import { FiSearch } from 'react-icons/fi'
 import { useModal } from 'contexts/modal-context'
 import { subCategories } from 'lib/design-subcategories'
+import useSWR from 'swr'
+import { API_URL, fetcher } from 'lib/api'
 
-export default function CategoriesMenu() {
+export default function CategoriesMenu({ selectedCategory }) {
   const { isOpen, onClose } = useModal()
+  const { data, error } = useSWR(
+    `${API_URL}/api/categories?name=${selectedCategory}`,
+    fetcher
+  )
+  const capitalizedCategory =
+    selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)
+
+  if (error) return <div>failed to load</div>
+  if (!data)
+    return (
+      <Center minH="100vh">
+        <Spinner />
+      </Center>
+    )
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -28,7 +46,7 @@ export default function CategoriesMenu() {
       <ModalContent maxW="4xl">
         <ModalHeader color="gray.600">
           <HStack justify="space-between">
-            <Text>Options available in Design</Text>
+            <Text>Options available in {capitalizedCategory}</Text>
             <CloseButton onClick={onClose} />
           </HStack>
         </ModalHeader>
@@ -39,7 +57,7 @@ export default function CategoriesMenu() {
             <Input
               variant="flushed"
               fontSize="sm"
-              placeholder="search for design categories..."
+              placeholder={`Search for ${capitalizedCategory} categories...`}
             />
             <InputRightElement children={<FiSearch />} />
           </InputGroup>
@@ -53,7 +71,7 @@ export default function CategoriesMenu() {
             overflowY="auto"
             className="custom-scrollbar"
           >
-            {subCategories.map((category) => (
+            {data[0].roles.map((category) => (
               <Checkbox>{category}</Checkbox>
             ))}
           </SimpleGrid>
