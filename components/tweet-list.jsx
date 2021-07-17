@@ -1,7 +1,7 @@
 import Container from './container'
 import useSWR from 'swr'
 import { Tweet } from 'react-static-tweets'
-import { Box, Center, Spinner } from '@chakra-ui/react'
+import { Box, Text, Skeleton } from '@chakra-ui/react'
 import { API_URL, fetcher } from 'lib/api'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useRouter } from 'next/router'
@@ -27,12 +27,30 @@ export default function TweetList() {
   const { query } = useRouter()
   const { data, error } = useSWR(fetchTweets(query), fetcher)
 
-  if (error) return <div>failed to load</div>
+  if (error)
+    return (
+      <Text align="center" my="4">
+        failed to load
+      </Text>
+    )
   if (!data)
     return (
-      <Center minH="100vh">
-        <Spinner />
-      </Center>
+      <Box as="section" my={5}>
+        <Container>
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+          >
+            <Masonry gutter="1.4rem">
+              <Skeleton h="20rem" w="24rem" endColor="gray.200" />
+              <Skeleton h="22rem" w="24rem" endColor="gray.200" />
+              <Skeleton h="20rem" w="24rem" endColor="gray.200" />
+              <Skeleton h="20rem" w="24rem" endColor="gray.200" />
+              <Skeleton h="20rem" w="24rem" endColor="gray.200" />
+              <Skeleton h="20rem" w="24rem" endColor="gray.200" />
+            </Masonry>
+          </ResponsiveMasonry>
+        </Container>
+      </Box>
     )
 
   return (
