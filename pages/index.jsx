@@ -1,4 +1,4 @@
-import { Box, Center, Spinner } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { useState } from 'react'
 
 import Navbar from 'components/navbar'
@@ -11,21 +11,11 @@ import CategoriesModal from 'components/categories-modal'
 import { ModalProvider } from 'contexts/modal-context'
 import { RolesProvider } from 'contexts/roles-context'
 
-import { API_URL, fetcher } from 'lib/api'
-import useSWR from 'swr'
+import { API_URL } from 'lib/api'
 
-export default function Home() {
+export default function Home({ categories }) {
   const [selectedCategory, setSelectedCategory] = useState('Tech')
-  const { data, error } = useSWR(`${API_URL}/api/categories`, fetcher)
-
-  if (error) return <div>failed to load</div>
-  if (!data)
-    return (
-      <Center minH="100vh">
-        <Spinner />
-      </Center>
-    )
-  const selectedCategoryObject = data.filter(
+  const selectedCategoryObject = categories.filter(
     (item) => item.category === selectedCategory
   )
 
@@ -43,4 +33,13 @@ export default function Home() {
       </ModalProvider>
     </Box>
   )
+}
+
+export async function getStaticProps() {
+  const response = await fetch(`${API_URL}/api/categories`)
+  const categories = await response.json()
+
+  return {
+    props: { categories },
+  }
 }

@@ -30,7 +30,6 @@ import { useRoles } from 'contexts/roles-context'
 export default function CategoriesMenu({ selectedCategory }) {
   const router = useRouter()
   const { isOpen, onClose } = useModal()
-  console.log(selectedCategory)
 
   const capitalizedCategory =
     selectedCategory[0].category.charAt(0).toUpperCase() +
