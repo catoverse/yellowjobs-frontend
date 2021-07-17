@@ -33,7 +33,7 @@ export default function TweetList() {
         failed to load
       </Text>
     )
-  if (true)
+  if (!data)
     return (
       <Box as="section" my={5}>
         <Container>
