@@ -37,12 +37,13 @@ export default function CategoriesMenu({ selectedCategory }) {
     selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)
 
   const { value, setValue } = useCheckboxGroup()
-  
+
   const applyRoleBasedFilters = () => {
+    const lowercaseValues = value.map((v) => v.toLowerCase())
     router.push({
       pathname: '/',
       query: {
-        roles: value.join(','),
+        roles: lowercaseValues.join(','),
       },
     })
 

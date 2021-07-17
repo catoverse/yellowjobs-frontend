@@ -18,9 +18,7 @@ import TechEmoji from './icons/categories/tech.svg'
 import OthersEmoji from './icons/categories/others.svg'
 
 import Container from './container'
-import CategoriesModal from './categories-modal'
-import { ModalProvider, useModal } from 'contexts/modal-context'
-import { useState } from 'react'
+import { useModal } from 'contexts/modal-context'
 
 const Category = ({ icon, title, start, end, setSelectedCategory }) => {
   const { onOpen } = useModal()
@@ -95,61 +93,56 @@ const JobTypes = () => {
   )
 }
 
-export default function JobCategories() {
-  const [selectedCategory, setSelectedCategory] = useState('Tech')
-
+export default function JobCategories({ setSelectedCategory }) {
   return (
     <Box mt="10">
-      <ModalProvider>
-        <Container>
-          <JobTypes />
-          <HStack mt="5" spacing="0" display={{ base: 'none', md: 'flex' }}>
-            <Category
-              start
-              title="Tech"
-              icon={<TechEmoji />}
-              setSelectedCategory={setSelectedCategory}
-            />
-            <Category
-              title="Design"
-              icon={<DesignEmoji />}
-              setSelectedCategory={setSelectedCategory}
-            />
-            <Category
-              title="Management"
-              icon={<ManagementEmoji />}
-              setSelectedCategory={setSelectedCategory}
-            />
-            <Category
-              title="Marketing"
-              icon={<MarketingEmoji />}
-              setSelectedCategory={setSelectedCategory}
-            />
-            <Category
-              title="Sales"
-              icon={<SalesEmoji />}
-              setSelectedCategory={setSelectedCategory}
-            />
-            <Category
-              title="Content"
-              icon={<ContentEmoji />}
-              setSelectedCategory={setSelectedCategory}
-            />
-            <Category
-              title="Support"
-              icon={<SupportEmoji />}
-              setSelectedCategory={setSelectedCategory}
-            />
-            <Category
-              end
-              title="Others"
-              icon={<OthersEmoji />}
-              setSelectedCategory={setSelectedCategory}
-            />
-          </HStack>
-        </Container>
-        <CategoriesModal selectedCategory={selectedCategory} />
-      </ModalProvider>
+      <Container>
+        <JobTypes />
+        <HStack mt="5" spacing="0" display={{ base: 'none', md: 'flex' }}>
+          <Category
+            start
+            title="Tech"
+            icon={<TechEmoji />}
+            setSelectedCategory={setSelectedCategory}
+          />
+          <Category
+            title="Design"
+            icon={<DesignEmoji />}
+            setSelectedCategory={setSelectedCategory}
+          />
+          <Category
+            title="Management"
+            icon={<ManagementEmoji />}
+            setSelectedCategory={setSelectedCategory}
+          />
+          <Category
+            title="Marketing"
+            icon={<MarketingEmoji />}
+            setSelectedCategory={setSelectedCategory}
+          />
+          <Category
+            title="Sales"
+            icon={<SalesEmoji />}
+            setSelectedCategory={setSelectedCategory}
+          />
+          <Category
+            title="Content"
+            icon={<ContentEmoji />}
+            setSelectedCategory={setSelectedCategory}
+          />
+          <Category
+            title="Support"
+            icon={<SupportEmoji />}
+            setSelectedCategory={setSelectedCategory}
+          />
+          <Category
+            end
+            title="Others"
+            icon={<OthersEmoji />}
+            setSelectedCategory={setSelectedCategory}
+          />
+        </HStack>
+      </Container>
     </Box>
   )
 }
