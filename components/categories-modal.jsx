@@ -26,6 +26,7 @@ import useSWR from 'swr'
 import { API_URL, fetcher } from 'lib/api'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
+import Fuse from 'fuse.js'
 import Highlighter from 'react-highlight-words'
 
 export default function CategoriesMenu({ selectedCategory }) {
@@ -39,9 +40,15 @@ export default function CategoriesMenu({ selectedCategory }) {
   const [searchValue, setSearchValue] = useState('')
 
   const renderCheckboxes = () => {
-    const rolesToDisplay = searchValue.trim().length > 0
-      ? selectedCategory[0].roles.filter((role) => role.toLowerCase().includes(searchValue.toLowerCase()))
-      : selectedCategory[0].roles
+    let rolesToDisplay = selectedCategory[0].roles;
+
+    if (searchValue.trim().length > 0) {
+      const fuse = new Fuse(selectedCategory[0].roles, {
+        includeScore: true
+      })
+      const searchResults = fuse.search(searchValue)
+      rolesToDisplay = searchResults.map((result) => result.item)
+    }
 
     return (
       rolesToDisplay.map((category) => (
