@@ -54,7 +54,7 @@ export default function CategoriesMenu({ selectedCategory }) {
 
   const clearFilters = () => {
     setValue([])
-    router.push('/')
+    // router.push('/')
   }
 
   if (error) return <div>failed to load</div>
