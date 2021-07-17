@@ -12,7 +12,6 @@ import {
 
 export default function SearchBar() {
   const router = useRouter()
-  const options = Object.keys(searchKeywords)
 
   const onAutoCompleteSelect = (selectedValue) => {
     if (selectedValue === '') return
@@ -38,13 +37,13 @@ export default function SearchBar() {
           placeholder="search for jobs, skills, techstack...."
         />
         <AutoCompleteList className="custom-scrollbar">
-          {options.map((option, oid) => (
+          {searchKeywords.map((option, oid) => (
             <AutoCompleteItem
               key={`option-${oid}`}
               value={option}
               textTransform="capitalize"
             >
-              {searchKeywords[option]}
+              {option}
             </AutoCompleteItem>
           ))}
         </AutoCompleteList>
