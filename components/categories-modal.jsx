@@ -38,15 +38,24 @@ export default function CategoriesMenu({ selectedCategory }) {
   const [value, setValue] = useRoles()
 
   const applyRoleBasedFilters = () => {
-    const lowercaseValues = value.map((v) => v.toLowerCase())
-    const params = router.query
-    router.push({
-      pathname: '/',
-      query: {
-        ...params,
-        roles: lowercaseValues.join(','),
-      },
-    })
+    if (value.length > 0) {
+      const lowercaseValues = value.map((v) => v.toLowerCase())
+      const params = router.query
+      router.push({
+        pathname: '/',
+        query: {
+          ...params,
+          roles: lowercaseValues.join(','),
+        },
+      })
+    } else {
+      const params = new URLSearchParams(location.search)
+      params.delete('roles')
+      router.replace({
+        pathname: '/',
+        query: params.toString(),
+      })
+    }
 
     onClose() // close the modal after selecting the roles
     setValue([]) // reset the modal values
