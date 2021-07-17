@@ -11,8 +11,8 @@ const fetchTweets = (query) => {
   if (Object.keys(query).length === 0) return `${API_URL}/api/tweets?limit=80`
 
   // fetching when we have role, for searching
-  if (query.keyword) {
-    const keyword = query.keyword.replace(/ /g, '')
+  if (query.s) {
+    const keyword = query.s.replace(/ /g, '')
     return `${API_URL}/api/tweets?limit=80&q=${keyword}`
   }
 

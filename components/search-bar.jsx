@@ -15,7 +15,12 @@ export default function SearchBar() {
 
   const onAutoCompleteSelect = (selectedValue) => {
     if (selectedValue === '') return
-    router.push(`/search/${selectedValue}`)
+    router.push({
+      pathname: '/search',
+      query: {
+        s: selectedValue,
+      },
+    })
   }
 
   return (
