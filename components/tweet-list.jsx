@@ -33,7 +33,7 @@ export default function TweetList() {
         failed to load
       </Text>
     )
-  if (!data)
+  if (true)
     return (
       <Box as="section" my={5}>
         <Container>
@@ -41,12 +41,15 @@ export default function TweetList() {
             columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
           >
             <Masonry gutter="1.4rem">
-              <Skeleton h="20rem" w="24rem" endColor="gray.200" />
-              <Skeleton h="22rem" w="24rem" endColor="gray.200" />
-              <Skeleton h="20rem" w="24rem" endColor="gray.200" />
-              <Skeleton h="20rem" w="24rem" endColor="gray.200" />
-              <Skeleton h="20rem" w="24rem" endColor="gray.200" />
-              <Skeleton h="20rem" w="24rem" endColor="gray.200" />
+              <Skeleton h="20rem" maxW="26rem" w="full" endColor="gray.200" />
+              <Skeleton h="22rem" maxW="26rem" w="full" endColor="gray.200" />
+              <Skeleton h="20rem" maxW="26rem" w="full" endColor="gray.200" />
+              <Skeleton h="20rem" maxW="26rem" w="full" endColor="gray.200" />
+              <Skeleton h="20rem" maxW="26rem" w="full" endColor="gray.200" />
+              <Skeleton h="20rem" maxW="26rem" w="full" endColor="gray.200" />
+              <Skeleton h="20rem" maxW="26rem" w="full" endColor="gray.200" />
+              <Skeleton h="20rem" maxW="26rem" w="full" endColor="gray.200" />
+              <Skeleton h="20rem" maxW="26rem" w="full" endColor="gray.200" />
             </Masonry>
           </ResponsiveMasonry>
         </Container>
