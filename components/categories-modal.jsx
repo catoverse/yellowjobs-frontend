@@ -77,7 +77,7 @@ export default function CategoriesMenu({ selectedCategory }) {
         </ModalHeader>
         <Box as="hr" />
 
-        <ModalBody py="4">
+        <ModalBody>
           <InputGroup maxW="xs" w="100%" mt="5">
             <Input
               variant="flushed"
@@ -92,6 +92,7 @@ export default function CategoriesMenu({ selectedCategory }) {
             columns="4"
             spacing="6"
             mt="10"
+            px="2"
             maxH="3xs"
             overflowY="auto"
             className="custom-scrollbar"
