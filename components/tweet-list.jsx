@@ -7,20 +7,27 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useRouter } from 'next/router'
 
 const fetchTweets = (query) => {
-  // default fetching
-  if (Object.keys(query).length === 0) return `${API_URL}/api/tweets?limit=80`
+  // default url
+  let url = `${API_URL}/api/tweets?limit=80`
 
-  // fetching when we have role, for searching
+  // when we have role, for searching
   if (query.s) {
     const keyword = query.s.replace(/ /g, '')
-    return `${API_URL}/api/tweets?limit=80&q=${keyword}`
+    url += `&q=${keyword}`
   }
 
-  // fetching for query params
+  // for query params
+  if (query.types) {
+    const types = query.types.replace(/ /g, '')
+    url += `&type=${types}`
+  }
+
   if (query.roles) {
     const roles = query.roles.replace(/ /g, '')
-    return `${API_URL}/api/tweets?limit=80&role=${roles}`
+    url += `&role=${roles}`
   }
+
+  return url
 }
 
 export default function TweetList() {

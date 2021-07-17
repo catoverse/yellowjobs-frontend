@@ -6,6 +6,7 @@ import {
   Flex,
   Button,
   Checkbox,
+  CheckboxGroup,
 } from '@chakra-ui/react'
 
 import ContentEmoji from './icons/categories/content.svg'
@@ -19,6 +20,8 @@ import OthersEmoji from './icons/categories/others.svg'
 
 import Container from './container'
 import { useModal } from 'contexts/modal-context'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 const Category = ({ icon, title, start, end, setSelectedCategory }) => {
   const { onOpen } = useModal()
@@ -60,21 +63,49 @@ const Category = ({ icon, title, start, end, setSelectedCategory }) => {
 }
 
 const JobTypes = () => {
+  const router = useRouter()
+  const [selectedType, setSelectedType] = useState([])
+
+  useEffect(() => {
+    if (selectedType.length > 0) {
+      const params = router.query
+      router.push({
+        pathname: '/',
+        query: {
+          ...params,
+          types: selectedType.join(','),
+        },
+      })
+    } else {
+      const params = new URLSearchParams(location.search)
+      params.delete('types')
+      router.replace({
+        pathname: '/',
+        query: params.toString(),
+      })
+    }
+  }, [selectedType])
+
+  const clearFilters = () => {
+    setSelectedType([])
+  }
+
   return (
     <Flex justify="space-between">
       <Flex
         fontSize="sm"
         color="gray.700"
-        gridGap={{ base: '0', md: '6' }}
-        flexDirection={{ base: 'column', md: 'row' }}
       >
-        <Flex gridGap={{ base: '16', md: '6' }}>
-          <Checkbox defaultIsChecked>Full time</Checkbox>
-          <Checkbox>Freelance</Checkbox>
-        </Flex>
-        <Flex gridGap={{ base: '16', md: '6' }}>
-          <Checkbox>Part time</Checkbox>
-          <Checkbox>Internships</Checkbox>
+        <Flex
+          flexDirection={{ base: 'column', sm: 'row' }}
+          gridGap={{ base: '2', sm: '6' }}
+        >
+          <CheckboxGroup value={selectedType} onChange={setSelectedType}>
+            <Checkbox value={'fulltime'}>Full time</Checkbox>
+            <Checkbox value={'freelance'}>Freelance</Checkbox>
+            <Checkbox value={'parttime'}>Part time</Checkbox>
+            <Checkbox value={'internship'}>Internships</Checkbox>
+          </CheckboxGroup>
         </Flex>
       </Flex>
       <Button
@@ -86,6 +117,7 @@ const JobTypes = () => {
         _hover={{ color: 'gray.800' }}
         _active={{ color: 'gray.800' }}
         display={{ base: 'none', md: 'flex' }}
+        onClick={clearFilters}
       >
         Clear filters
       </Button>
