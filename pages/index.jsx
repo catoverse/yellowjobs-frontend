@@ -8,6 +8,7 @@ import ScrollToTop from 'components/scroll-to-top'
 import CategoriesModal from 'components/categories-modal'
 import { ModalProvider } from 'contexts/modal-context'
 import { useState } from 'react'
+import { RolesProvider } from 'contexts/roles-context'
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('Tech')
@@ -15,12 +16,14 @@ export default function Home() {
   return (
     <Box mb="10rem">
       <ModalProvider>
-        <Navbar />
-        <HeroSearch />
-        <JobCategories setSelectedCategory={setSelectedCategory} />
-        <TweetList />
-        <ScrollToTop />
-        <CategoriesModal selectedCategory={selectedCategory} />
+        <RolesProvider>
+          <Navbar />
+          <HeroSearch />
+          <JobCategories setSelectedCategory={setSelectedCategory} />
+          <TweetList />
+          <ScrollToTop />
+          <CategoriesModal selectedCategory={selectedCategory} />
+        </RolesProvider>
       </ModalProvider>
     </Box>
   )

@@ -25,6 +25,7 @@ import { useModal } from 'contexts/modal-context'
 import useSWR from 'swr'
 import { API_URL, fetcher } from 'lib/api'
 import { useRouter } from 'next/router'
+import { useRoles } from 'contexts/roles-context'
 
 export default function CategoriesMenu({ selectedCategory }) {
   const router = useRouter()
@@ -36,7 +37,7 @@ export default function CategoriesMenu({ selectedCategory }) {
   const capitalizedCategory =
     selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)
 
-  const { value, setValue } = useCheckboxGroup()
+  const [value, setValue] = useRoles()
 
   const applyRoleBasedFilters = () => {
     const lowercaseValues = value.map((v) => v.toLowerCase())
@@ -48,6 +49,7 @@ export default function CategoriesMenu({ selectedCategory }) {
     })
 
     onClose() // close the modal after selecting the roles
+    setValue([]) // reset the modal values
   }
 
   const clearFilters = () => {
