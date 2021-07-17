@@ -7,11 +7,11 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useRouter } from 'next/router'
 
 const fetchTweets = (query) => {
-  if (Object.keys(query).length === 0) return `${API_URL}/api/tweets`
+  if (Object.keys(query).length === 0) return `${API_URL}/api/tweets?limit=80`
 
   const roles = query.roles.replace(/ /g, '')
   
-  return `${API_URL}/api/tweets?role=${roles}`
+  return `${API_URL}/api/tweets?limit=80&role=${roles}`
 }
 
 export default function TweetList() {

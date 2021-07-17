@@ -19,6 +19,7 @@ import {
   Center,
   Spinner,
 } from '@chakra-ui/react'
+import { useEffect } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { useModal } from 'contexts/modal-context'
 import useSWR from 'swr'
@@ -36,7 +37,7 @@ export default function CategoriesMenu({ selectedCategory }) {
     selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)
 
   const { value, setValue } = useCheckboxGroup()
-
+  
   const applyRoleBasedFilters = () => {
     router.push({
       pathname: '/',
