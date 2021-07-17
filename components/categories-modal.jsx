@@ -29,7 +29,7 @@ import { useRoles } from 'contexts/roles-context'
 import Fuse from 'fuse.js'
 import Highlighter from 'react-highlight-words'
 
-export default function CategoriesMenu({ selectedCategory }) {
+export default function CategoriesMenu({ selectedCategory, setSelectedRolesCount }) {
   const router = useRouter()
   const { isOpen, onClose } = useModal()
 
@@ -85,6 +85,7 @@ export default function CategoriesMenu({ selectedCategory }) {
       })
     }
 
+    setSelectedRolesCount(value.length)
     onModalClose()
   }
 

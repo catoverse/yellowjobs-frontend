@@ -15,6 +15,7 @@ import { API_URL } from 'lib/api'
 
 export default function Home({ categories }) {
   const [selectedCategory, setSelectedCategory] = useState('Tech')
+  const [selectedRolesCount, setSelectedRolesCount] = useState(0)
   const selectedCategoryObject = categories.filter(
     (item) => item.category === selectedCategory
   )
@@ -25,10 +26,17 @@ export default function Home({ categories }) {
         <RolesProvider>
           <Navbar />
           <HeroSearch />
-          <JobCategories setSelectedCategory={setSelectedCategory} />
+          <JobCategories
+            setSelectedCategory={setSelectedCategory}
+            selectedCategory={selectedCategory}
+            selectedRolesCount={selectedRolesCount}
+          />
           <TweetList />
           <ScrollToTop />
-          <CategoriesModal selectedCategory={selectedCategoryObject} />
+          <CategoriesModal
+            selectedCategory={selectedCategoryObject}
+            setSelectedRolesCount={setSelectedRolesCount}
+          />
         </RolesProvider>
       </ModalProvider>
     </Box>
