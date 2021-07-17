@@ -24,7 +24,7 @@ const Category = ({ icon, title, start, end, setSelectedCategory }) => {
   const { onOpen } = useModal()
 
   const onClickHandler = () => {
-    setSelectedCategory(title.toLowerCase())
+    setSelectedCategory(title)
     onOpen()
   }
 

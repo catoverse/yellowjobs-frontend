@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Center, Spinner } from '@chakra-ui/react'
 import { useState } from 'react'
 
 import Navbar from 'components/navbar'
@@ -11,8 +11,23 @@ import CategoriesModal from 'components/categories-modal'
 import { ModalProvider } from 'contexts/modal-context'
 import { RolesProvider } from 'contexts/roles-context'
 
+import { API_URL, fetcher } from 'lib/api'
+import useSWR from 'swr'
+
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('Tech')
+  const { data, error } = useSWR(`${API_URL}/api/categories`, fetcher)
+
+  if (error) return <div>failed to load</div>
+  if (!data)
+    return (
+      <Center minH="100vh">
+        <Spinner />
+      </Center>
+    )
+  const selectedCategoryObject = data.filter(
+    (item) => item.category === selectedCategory
+  )
 
   return (
     <Box mb="10rem">
@@ -23,7 +38,7 @@ export default function Home() {
           <JobCategories setSelectedCategory={setSelectedCategory} />
           <TweetList />
           <ScrollToTop />
-          <CategoriesModal selectedCategory={selectedCategory} />
+          <CategoriesModal selectedCategory={selectedCategoryObject} />
         </RolesProvider>
       </ModalProvider>
     </Box>

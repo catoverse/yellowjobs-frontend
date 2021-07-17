@@ -30,12 +30,11 @@ import { useRoles } from 'contexts/roles-context'
 export default function CategoriesMenu({ selectedCategory }) {
   const router = useRouter()
   const { isOpen, onClose } = useModal()
-  const { data, error } = useSWR(
-    `${API_URL}/api/categories?name=${selectedCategory}`,
-    fetcher
-  )
+  console.log(selectedCategory)
+
   const capitalizedCategory =
-    selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)
+    selectedCategory[0].category.charAt(0).toUpperCase() +
+    selectedCategory[0].category.slice(1)
 
   const [value, setValue] = useRoles()
 
@@ -56,14 +55,6 @@ export default function CategoriesMenu({ selectedCategory }) {
     setValue([])
     // router.push('/')
   }
-
-  if (error) return <div>failed to load</div>
-  if (!data)
-    return (
-      <Center minH="100vh">
-        <Spinner />
-      </Center>
-    )
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -98,7 +89,7 @@ export default function CategoriesMenu({ selectedCategory }) {
             className="custom-scrollbar"
           >
             <CheckboxGroup value={value} onChange={setValue}>
-              {data[0].roles.map((category) => (
+              {selectedCategory[0].roles.map((category) => (
                 <Checkbox value={category}>{category}</Checkbox>
               ))}
             </CheckboxGroup>
