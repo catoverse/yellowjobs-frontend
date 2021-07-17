@@ -13,7 +13,7 @@ const fetchTweets = (query) => {
   // fetching when we have role, for searching
   if (query.role) {
     const role = query.role.replace(/ /g, '')
-    return `${API_URL}/api/tweets?limit=80&${role}`
+    return `${API_URL}/api/tweets?limit=80&role=${role}`
   }
 
   // fetching for query params
