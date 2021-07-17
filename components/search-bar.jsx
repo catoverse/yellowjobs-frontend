@@ -1,5 +1,6 @@
 import { HStack, IconButton } from '@chakra-ui/react'
 import { FiSearch as SearchIcon } from 'react-icons/fi'
+import { useRouter } from 'next/router'
 import searchKeywords from 'lib/search-keywords'
 
 import {
@@ -10,11 +11,16 @@ import {
 } from '@choc-ui/chakra-autocomplete'
 
 export default function SearchBar() {
+  const router = useRouter()
   const options = Object.keys(searchKeywords)
+
+  const onAutoCompleteSelect = (selectedValue) => {
+    router.push(`/${selectedValue}`)
+  }
 
   return (
     <HStack spacing="0" w="100%" maxW="lg">
-      <AutoComplete rollNavigation w="100%">
+      <AutoComplete rollNavigation w="100%" onChange={onAutoCompleteSelect}>
         <AutoCompleteInput
           w="100%"
           size="lg"
