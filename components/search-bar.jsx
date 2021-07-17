@@ -15,7 +15,8 @@ export default function SearchBar() {
   const options = Object.keys(searchKeywords)
 
   const onAutoCompleteSelect = (selectedValue) => {
-    router.push(`/${selectedValue}`)
+    if (selectedValue === '') return
+    router.push(`/search/${selectedValue}`)
   }
 
   return (

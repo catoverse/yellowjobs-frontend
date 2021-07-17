@@ -11,7 +11,7 @@ import CategoriesModal from 'components/categories-modal'
 import { ModalProvider } from 'contexts/modal-context'
 import { RolesProvider } from 'contexts/roles-context'
 
-export default function Home() {
+export default function Search() {
   const [selectedCategory, setSelectedCategory] = useState('Tech')
 
   return (
