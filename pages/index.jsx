@@ -24,7 +24,7 @@ export default function Home({ categories }) {
           <HeroSearch />
           <SelectedCategoryProvider>
             <SelectedRolesProvider>
-              <JobCategories />
+              <JobCategories categories={categories}/>
               <TweetList />
               <ScrollToTop />
               <CategoriesModal categories={categories} />

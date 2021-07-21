@@ -26,11 +26,11 @@ import { useRouter } from 'next/router'
 import { useSelectedCategory } from 'contexts/selected-category-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
 
-const Category = ({ icon, title, start, end }) => {
+const Category = ({ icon, title, start, end, allRoles }) => {
   const { onOpen } = useModal()
   const [selectedCategory, setSelectedCategory] = useSelectedCategory()
-  const isCategorySelected = selectedCategory === title
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
+  const doesContainSelectedRoles = selectedRoles.some((selectedRole) => allRoles.includes(selectedRole))
 
   const onClickHandler = () => {
     setSelectedCategory(title)
@@ -64,7 +64,7 @@ const Category = ({ icon, title, start, end }) => {
           {title}
         </Text>
         {
-          selectedRoles.length > 0 && isCategorySelected &&
+          selectedRoles.length > 0 && doesContainSelectedRoles &&
           <Badge ml="2" variant="solid" colorScheme="blue">
             {selectedRoles.length}
           </Badge>
@@ -137,7 +137,7 @@ const JobTypes = () => {
   )
 }
 
-export default function JobCategories() {
+export default function JobCategories({ categories }) {
   return (
     <Box mt="10">
       <Container>
@@ -147,35 +147,43 @@ export default function JobCategories() {
             start
             title="Tech"
             icon={<TechEmoji />}
+            allRoles={categories.find((category) => category.category === 'Tech' ).roles}
           />
           <Category
             title="Design"
             icon={<DesignEmoji />}
+            allRoles={categories.find((category) => category.category === 'Design' ).roles}
           />
           <Category
             title="Management"
             icon={<ManagementEmoji />}
+            allRoles={categories.find((category) => category.category === 'Management' ).roles}
           />
           <Category
             title="Marketing"
             icon={<MarketingEmoji />}
+            allRoles={categories.find((category) => category.category === 'Marketing' ).roles}
           />
           <Category
             title="Sales"
             icon={<SalesEmoji />}
+            allRoles={categories.find((category) => category.category === 'Sales' ).roles}
           />
           <Category
             title="Content"
             icon={<ContentEmoji />}
+            allRoles={categories.find((category) => category.category === 'Content' ).roles}
           />
           <Category
             title="Support"
             icon={<SupportEmoji />}
+            allRoles={categories.find((category) => category.category === 'Support' ).roles}
           />
           <Category
             end
             title="Others"
             icon={<OthersEmoji />}
+            allRoles={categories.find((category) => category.category === 'Others' ).roles}
           />
         </HStack>
       </Container>
