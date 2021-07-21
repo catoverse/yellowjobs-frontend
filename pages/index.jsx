@@ -10,15 +10,12 @@ import CategoriesModal from 'components/categories-modal'
 
 import { ModalProvider } from 'contexts/modal-context'
 import { RolesProvider } from 'contexts/roles-context'
+import { SelectedCategoryProvider } from 'contexts/selected-category-context'
 
 import { API_URL } from 'lib/api'
 
 export default function Home({ categories }) {
-  const [selectedCategory, setSelectedCategory] = useState('Tech')
   const [selectedRolesCount, setSelectedRolesCount] = useState(0)
-  const selectedCategoryObject = categories.filter(
-    (item) => item.category === selectedCategory
-  )
 
   return (
     <Box mb="10rem">
@@ -26,17 +23,17 @@ export default function Home({ categories }) {
         <RolesProvider>
           <Navbar />
           <HeroSearch />
-          <JobCategories
-            setSelectedCategory={setSelectedCategory}
-            selectedCategory={selectedCategory}
-            selectedRolesCount={selectedRolesCount}
-          />
-          <TweetList />
-          <ScrollToTop />
-          <CategoriesModal
-            selectedCategory={selectedCategoryObject}
-            setSelectedRolesCount={setSelectedRolesCount}
-          />
+          <SelectedCategoryProvider>
+            <JobCategories
+              selectedRolesCount={selectedRolesCount}
+            />
+            <TweetList />
+            <ScrollToTop />
+            <CategoriesModal
+              categories={categories}
+              setSelectedRolesCount={setSelectedRolesCount}
+            />
+          </SelectedCategoryProvider>
         </RolesProvider>
       </ModalProvider>
     </Box>

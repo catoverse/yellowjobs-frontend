@@ -26,24 +26,28 @@ import useSWR from 'swr'
 import { API_URL, fetcher } from 'lib/api'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
+import { useSelectedCategory } from 'contexts/selected-category-context'
 import Fuse from 'fuse.js'
 import Highlighter from 'react-highlight-words'
 
-export default function CategoriesMenu({ selectedCategory, setSelectedRolesCount }) {
+export default function CategoriesMenu({ categories, setSelectedRolesCount }) {
   const router = useRouter()
   const { isOpen, onClose } = useModal()
+  const [selectedCategory, setSelectedCategory] = useSelectedCategory()
+
+  const selectedCategoryObject = categories.find((item) => item.category === selectedCategory)
 
   const capitalizedCategory =
-    selectedCategory[0].category.charAt(0).toUpperCase() +
-    selectedCategory[0].category.slice(1)
+    selectedCategoryObject.category.charAt(0).toUpperCase() +
+    selectedCategoryObject.category.slice(1)
 
   const [searchValue, setSearchValue] = useState('')
 
   const renderCheckboxes = () => {
-    let rolesToDisplay = selectedCategory[0].roles;
+    let rolesToDisplay = selectedCategoryObject.roles;
 
     if (searchValue.trim().length > 0) {
-      const fuse = new Fuse(selectedCategory[0].roles, {
+      const fuse = new Fuse(selectedCategoryObject.roles, {
         includeScore: true
       })
       const searchResults = fuse.search(searchValue)

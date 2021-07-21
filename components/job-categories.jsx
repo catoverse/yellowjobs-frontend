@@ -23,9 +23,12 @@ import Container from './container'
 import { useModal } from 'contexts/modal-context'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { useSelectedCategory } from 'contexts/selected-category-context'
 
-const Category = ({ icon, title, start, end, setSelectedCategory, isCategorySelected, selectedRolesCount }) => {
+const Category = ({ icon, title, start, end, selectedRolesCount }) => {
   const { onOpen } = useModal()
+  const [selectedCategory, setSelectedCategory] = useSelectedCategory()
+  const isCategorySelected = selectedCategory === title
 
   const onClickHandler = () => {
     setSelectedCategory(title)
@@ -132,7 +135,7 @@ const JobTypes = () => {
   )
 }
 
-export default function JobCategories({ setSelectedCategory, selectedCategory, selectedRolesCount }) {
+export default function JobCategories({ selectedRolesCount }) {
   return (
     <Box mt="10">
       <Container>
@@ -142,58 +145,42 @@ export default function JobCategories({ setSelectedCategory, selectedCategory, s
             start
             title="Tech"
             icon={<TechEmoji />}
-            setSelectedCategory={setSelectedCategory}
-            isCategorySelected={selectedCategory === 'Tech'}
             selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Design"
             icon={<DesignEmoji />}
-            setSelectedCategory={setSelectedCategory}
-            isCategorySelected={selectedCategory === 'Design'}
             selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Management"
             icon={<ManagementEmoji />}
-            setSelectedCategory={setSelectedCategory}
-            isCategorySelected={selectedCategory === 'Management'}
             selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Marketing"
             icon={<MarketingEmoji />}
-            setSelectedCategory={setSelectedCategory}
-            isCategorySelected={selectedCategory === 'Marketing'}
             selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Sales"
             icon={<SalesEmoji />}
-            setSelectedCategory={setSelectedCategory}
-            isCategorySelected={selectedCategory === 'Sales'}
             selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Content"
             icon={<ContentEmoji />}
-            setSelectedCategory={setSelectedCategory}
-            isCategorySelected={selectedCategory === 'Content'}
             selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Support"
             icon={<SupportEmoji />}
-            setSelectedCategory={setSelectedCategory}
-            isCategorySelected={selectedCategory === 'Support'}
             selectedRolesCount={selectedRolesCount}
           />
           <Category
             end
             title="Others"
             icon={<OthersEmoji />}
-            setSelectedCategory={setSelectedCategory}
-            isCategorySelected={selectedCategory === 'Others'}
             selectedRolesCount={selectedRolesCount}
           />
         </HStack>
