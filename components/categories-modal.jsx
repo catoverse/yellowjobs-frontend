@@ -56,12 +56,12 @@ export default function CategoriesMenu({ categories }) {
     }
 
     return (
-      rolesToDisplay.map((category) => (
-        <Checkbox value={category}>
+      rolesToDisplay.map((role) => (
+        <Checkbox value={role}>
           <Highlighter
             searchWords={[searchValue]}
             autoEscape={true}
-            textToHighlight={category}
+            textToHighlight={role}
           />
         </Checkbox>
       ))
