@@ -96,7 +96,8 @@ export default function CategoriesMenu({ categories }) {
   }
 
   const clearFilters = () => {
-    setValue([])
+    const filteredRoles = value.filter((role) => !selectedCategoryObject.roles.includes(role))
+    setValue(filteredRoles)
     setSearchValue('')
     // router.push('/')
   }

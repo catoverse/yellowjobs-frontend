@@ -23,17 +23,23 @@ import Container from './container'
 import { useModal } from 'contexts/modal-context'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { useRoles } from 'contexts/roles-context'
 import { useSelectedCategory } from 'contexts/selected-category-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
 
 const Category = ({ icon, title, start, end, allRoles }) => {
   const { onOpen } = useModal()
+  const [value, setValue] = useRoles()
   const [selectedCategory, setSelectedCategory] = useSelectedCategory()
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
-  const doesContainSelectedRoles = selectedRoles.some((selectedRole) => allRoles.includes(selectedRole))
+
+  const selectedRolesInThisCategory = selectedRoles.filter((selectedRole) =>
+    allRoles.includes(selectedRole)
+  )
 
   const onClickHandler = () => {
     setSelectedCategory(title)
+    setValue(selectedRoles)
     onOpen()
   }
 
@@ -64,9 +70,9 @@ const Category = ({ icon, title, start, end, allRoles }) => {
           {title}
         </Text>
         {
-          selectedRoles.length > 0 && doesContainSelectedRoles &&
+          selectedRolesInThisCategory.length > 0 &&
           <Badge ml="2" variant="solid" colorScheme="blue">
-            {selectedRoles.length}
+            {selectedRolesInThisCategory.length}
           </Badge>
         }
       </Button>
