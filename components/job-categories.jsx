@@ -24,11 +24,13 @@ import { useModal } from 'contexts/modal-context'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useSelectedCategory } from 'contexts/selected-category-context'
+import { useSelectedRoles } from 'contexts/selected-roles-context'
 
-const Category = ({ icon, title, start, end, selectedRolesCount }) => {
+const Category = ({ icon, title, start, end }) => {
   const { onOpen } = useModal()
   const [selectedCategory, setSelectedCategory] = useSelectedCategory()
   const isCategorySelected = selectedCategory === title
+  const [selectedRoles, setSelectedRoles] = useSelectedRoles()
 
   const onClickHandler = () => {
     setSelectedCategory(title)
@@ -62,9 +64,9 @@ const Category = ({ icon, title, start, end, selectedRolesCount }) => {
           {title}
         </Text>
         {
-          selectedRolesCount > 0 && isCategorySelected &&
+          selectedRoles.length > 0 && isCategorySelected &&
           <Badge ml="2" variant="solid" colorScheme="blue">
-            {selectedRolesCount}
+            {selectedRoles.length}
           </Badge>
         }
       </Button>
@@ -135,7 +137,7 @@ const JobTypes = () => {
   )
 }
 
-export default function JobCategories({ selectedRolesCount }) {
+export default function JobCategories() {
   return (
     <Box mt="10">
       <Container>
@@ -145,43 +147,35 @@ export default function JobCategories({ selectedRolesCount }) {
             start
             title="Tech"
             icon={<TechEmoji />}
-            selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Design"
             icon={<DesignEmoji />}
-            selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Management"
             icon={<ManagementEmoji />}
-            selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Marketing"
             icon={<MarketingEmoji />}
-            selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Sales"
             icon={<SalesEmoji />}
-            selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Content"
             icon={<ContentEmoji />}
-            selectedRolesCount={selectedRolesCount}
           />
           <Category
             title="Support"
             icon={<SupportEmoji />}
-            selectedRolesCount={selectedRolesCount}
           />
           <Category
             end
             title="Others"
             icon={<OthersEmoji />}
-            selectedRolesCount={selectedRolesCount}
           />
         </HStack>
       </Container>

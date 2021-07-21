@@ -27,10 +27,11 @@ import { API_URL, fetcher } from 'lib/api'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
 import { useSelectedCategory } from 'contexts/selected-category-context'
+import { useSelectedRoles } from 'contexts/selected-roles-context'
 import Fuse from 'fuse.js'
 import Highlighter from 'react-highlight-words'
 
-export default function CategoriesMenu({ categories, setSelectedRolesCount }) {
+export default function CategoriesMenu({ categories }) {
   const router = useRouter()
   const { isOpen, onClose } = useModal()
   const [selectedCategory, setSelectedCategory] = useSelectedCategory()
@@ -68,6 +69,7 @@ export default function CategoriesMenu({ categories, setSelectedRolesCount }) {
   }
 
   const [value, setValue] = useRoles()
+  const [selectedRoles, setSelectedRoles] = useSelectedRoles()
 
   const applyRoleBasedFilters = () => {
     if (value.length > 0) {
@@ -89,7 +91,7 @@ export default function CategoriesMenu({ categories, setSelectedRolesCount }) {
       })
     }
 
-    setSelectedRolesCount(value.length)
+    setSelectedRoles(value)
     onModalClose()
   }
 

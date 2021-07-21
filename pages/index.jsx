@@ -11,12 +11,11 @@ import CategoriesModal from 'components/categories-modal'
 import { ModalProvider } from 'contexts/modal-context'
 import { RolesProvider } from 'contexts/roles-context'
 import { SelectedCategoryProvider } from 'contexts/selected-category-context'
+import { SelectedRolesProvider } from 'contexts/selected-roles-context'
 
 import { API_URL } from 'lib/api'
 
 export default function Home({ categories }) {
-  const [selectedRolesCount, setSelectedRolesCount] = useState(0)
-
   return (
     <Box mb="10rem">
       <ModalProvider>
@@ -24,15 +23,12 @@ export default function Home({ categories }) {
           <Navbar />
           <HeroSearch />
           <SelectedCategoryProvider>
-            <JobCategories
-              selectedRolesCount={selectedRolesCount}
-            />
-            <TweetList />
-            <ScrollToTop />
-            <CategoriesModal
-              categories={categories}
-              setSelectedRolesCount={setSelectedRolesCount}
-            />
+            <SelectedRolesProvider>
+              <JobCategories />
+              <TweetList />
+              <ScrollToTop />
+              <CategoriesModal categories={categories} />
+            </SelectedRolesProvider>
           </SelectedCategoryProvider>
         </RolesProvider>
       </ModalProvider>
