@@ -10,6 +10,7 @@ import {
   CheckboxGroup,
 } from '@chakra-ui/react'
 
+import { FiRefreshCcw } from 'react-icons/fi'
 import ContentEmoji from './icons/categories/content.svg'
 import DesignEmoji from './icons/categories/design.svg'
 import ManagementEmoji from './icons/categories/management.svg'
@@ -80,18 +81,18 @@ const Category = ({ icon, title, start, end, allRoles }) => {
   )
 }
 
-const JobTypes = () => {
+const JobTypes = ({selectedType,setSelectedType}) => {
   const router = useRouter()
-  const [selectedType, setSelectedType] = useState([])
 
-  useEffect(() => {
-    if (selectedType.length > 0) {
+  const onTypeChange = (selectedTypes) => {
+    setSelectedType(selectedTypes)
+    if (selectedTypes.length > 0) {
       const params = router.query
       router.push({
         pathname: '/',
         query: {
           ...params,
-          types: selectedType.join(','),
+          types: selectedTypes.join(','),
         },
       })
     } else {
@@ -102,52 +103,59 @@ const JobTypes = () => {
         query: params.toString(),
       })
     }
-  }, [selectedType])
-
-  const clearFilters = () => {
-    setSelectedType([])
   }
 
   return (
-    <Flex justify="space-between">
+    <Flex
+      fontSize="sm"
+      color="gray.700"
+    >
       <Flex
-        fontSize="sm"
-        color="gray.700"
+        flexDirection={{ base: 'column', sm: 'row' }}
+        gridGap={{ base: '2', sm: '6' }}
       >
-        <Flex
-          flexDirection={{ base: 'column', sm: 'row' }}
-          gridGap={{ base: '2', sm: '6' }}
-        >
-          <CheckboxGroup value={selectedType} onChange={setSelectedType}>
-            <Checkbox value={'fulltime'}>Full time</Checkbox>
-            <Checkbox value={'freelance'}>Freelance</Checkbox>
-            <Checkbox value={'parttime'}>Part time</Checkbox>
-            <Checkbox value={'internship'}>Internships</Checkbox>
-          </CheckboxGroup>
-        </Flex>
+        <CheckboxGroup value={selectedType} onChange={onTypeChange}>
+          <Checkbox value={'fulltime'}>Full time</Checkbox>
+          <Checkbox value={'freelance'}>Freelance</Checkbox>
+          <Checkbox value={'parttime'}>Part time</Checkbox>
+          <Checkbox value={'internship'}>Internships</Checkbox>
+        </CheckboxGroup>
       </Flex>
-      <Button
-        px="0"
-        variant="ghost"
-        fontSize="sm"
-        fontWeight="normal"
-        color="gray.500"
-        _hover={{ color: 'gray.800' }}
-        _active={{ color: 'gray.800' }}
-        display={{ base: 'none', md: 'flex' }}
-        onClick={clearFilters}
-      >
-        Clear filters
-      </Button>
     </Flex>
   )
 }
 
 export default function JobCategories({ categories }) {
+  const router = useRouter()
+  const [selectedType, setSelectedType] = useState([])
+  const [selectedCategory, setSelectedCategory] = useSelectedCategory()
+  const [selectedRoles, setSelectedRoles] = useSelectedRoles()
+  const clearFilters = () => {
+    setSelectedType([])
+    setSelectedCategory('Tech')
+    setSelectedRoles([])
+    router.push('/')
+  }
   return (
     <Box mt="10">
       <Container>
-        <JobTypes />
+        <Flex justify="space-between">
+          <JobTypes selectedType={selectedType} setSelectedType={setSelectedType} />
+          <Button
+            px="0"
+            variant="ghost"
+            fontSize="sm"
+            fontWeight="normal"
+            color="gray.500"
+            _hover={{ color: 'gray.800' }}
+            _active={{ color: 'gray.800' }}
+            display={{ base: 'none', md: 'flex' }}
+            onClick={clearFilters}
+            leftIcon={<FiRefreshCcw />}
+          >
+            Reset filters
+          </Button>
+        </Flex>
         <HStack mt="5" spacing="0" display={{ base: 'none', md: 'flex' }}>
           <Category
             start
