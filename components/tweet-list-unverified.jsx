@@ -39,7 +39,7 @@ export default function UnverifiedTweetList() {
           <Masonry gutter="1rem">
             {data.map((tweetObj) => (
               <>
-                <Tweet key={tweetObj._id} id={tweetObj.tweet_id} />
+                <Tweet id={tweetObj.tweet_id} ast={tweetObj.tweet_ast} />
                 <VerificationButtons key={tweetObj.tweet_id} id={tweetObj.tweet_id} />
               </>
             ))}
