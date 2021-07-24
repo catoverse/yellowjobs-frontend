@@ -68,8 +68,8 @@ export default function TweetList() {
       <Container>
         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
           <Masonry gutter="1rem">
-            {data.map((tweetObj) => (
-              <Tweet id={tweetObj.tweet_id} ast={tweetObj.tweet_ast} />
+            {data.map((tweetObj, index) => (
+              <Tweet id={tweetObj.tweet_id} ast={tweetObj.tweet_ast} key={index} />
             ))}
           </Masonry>
         </ResponsiveMasonry>
