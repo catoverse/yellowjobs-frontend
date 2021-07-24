@@ -42,7 +42,22 @@ export async function getStaticProps() {
   const response = await fetch(`${API_URL}/api/categories`)
   const categories = await response.json()
 
+  // Ordering categories to display
+  const orderedCategoryNames = [
+    'Tech',
+    'Design',
+    'Management',
+    'Marketing',
+    'Sales',
+    'Content',
+    'Support',
+    'Others',
+  ]
+  const orderedCategories = []
+  orderedCategoryNames.forEach((categoryName) => {
+    orderedCategories.push(categories.find((category) => category.category === categoryName))
+  })
   return {
-    props: { categories },
+    props: { categories: orderedCategories },
   }
 }
