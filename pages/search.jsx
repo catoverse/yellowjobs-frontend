@@ -6,6 +6,7 @@ import HeroSearch from 'components/hero-search'
 import JobCategories from 'components/job-categories'
 import TweetList from 'components/tweet-list'
 import ScrollToTop from 'components/scroll-to-top'
+import CategoriesDrawer from 'components/categories-drawer'
 import CategoriesModal from 'components/categories-modal'
 
 import { ModalProvider } from 'contexts/modal-context'
@@ -26,6 +27,7 @@ export default function Search({ categories }) {
             <SelectedRolesProvider>
               <JobCategories categories={categories}/>
               <TweetList />
+              <CategoriesDrawer categories={categories} />
               <ScrollToTop />
               <CategoriesModal categories={categories} />
             </SelectedRolesProvider>
