@@ -8,6 +8,7 @@ import {
   Button,
   Checkbox,
   CheckboxGroup,
+  SimpleGrid,
 } from '@chakra-ui/react'
 
 import { FiRefreshCcw } from 'react-icons/fi'
@@ -110,9 +111,9 @@ const JobTypes = ({selectedType,setSelectedType}) => {
       fontSize="sm"
       color="gray.700"
     >
-      <Flex
-        flexDirection={{ base: 'column', sm: 'row' }}
-        gridGap={{ base: '2', sm: '6' }}
+      <SimpleGrid
+        columns={{ base: '2', md: '4' }}
+        spacing="2"
       >
         <CheckboxGroup value={selectedType} onChange={onTypeChange}>
           <Checkbox value={'fulltime'}>Full time</Checkbox>
@@ -120,7 +121,7 @@ const JobTypes = ({selectedType,setSelectedType}) => {
           <Checkbox value={'parttime'}>Part time</Checkbox>
           <Checkbox value={'internship'}>Internships</Checkbox>
         </CheckboxGroup>
-      </Flex>
+      </SimpleGrid>
     </Flex>
   )
 }
