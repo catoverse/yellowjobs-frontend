@@ -62,14 +62,17 @@ export default function Headers() {
         variant="ghost"
         _hover={{ bg: 'white', textDecoration: 'underline' }}
       >
-        About
+        <Link href="/about">About Us</Link>
+        
       </Button>
       <Button
         w="full"
         variant="ghost"
         _hover={{ bg: 'white', textDecoration: 'underline' }}
-      >
+      >  
+       <Link href="/disclaimer">
         Disclaimer
+           </Link>
       </Button>
     </VStack>
   )
@@ -107,8 +110,8 @@ export default function Headers() {
               align="center"
               display={{ base: 'none', md: 'flex' }}
             >
-              <Link _hover={{ color: 'gray.500' }}>About Us</Link>
-              <Link _hover={{ color: 'gray.500' }}>Disclaimer</Link>
+              <Link href="/about" _hover={{ color: 'gray.500' } }>About Us</Link>
+              <Link href="/disclaimer" _hover={{ color: 'gray.500' } }>Disclaimer</Link>
             </HStack>
             <IconButton
               display={{ base: 'flex', md: 'none' }}
