@@ -22,7 +22,6 @@ import {
   VStack,
   useDisclosure,
 } from '@chakra-ui/react'
-import { Components } from 'react'
 import { FiArrowLeft as BackIcon } from 'react-icons/fi'
 import ContentEmoji from './icons/categories/content.svg'
 import DesignEmoji from './icons/categories/design.svg'
@@ -171,9 +170,14 @@ export default function FiltersDrawer({ categories }) {
   return (
     <div>
       <AddFiltersButton onOpen={onOpen} />
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="full">
+      <Drawer
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        size="full"
+      >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent h="100% !important">
           <DrawerHeader px="0" py="1" shadow="sm">
             <Flex align="baseline" justify="space-between">
               <Flex align="baseline">
