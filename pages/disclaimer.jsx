@@ -1,8 +1,10 @@
 import * as React from 'react'
 import Navbar from 'components/navbar'
+import Footer from 'components/footer'
 import { Box, Text, Heading } from "@chakra-ui/react"
 import path from 'path'
 import fs from 'fs'
+
 
 
 const DisclaimerPage = ({ disclaimer }) => {
@@ -19,7 +21,7 @@ const DisclaimerPage = ({ disclaimer }) => {
           </Text>
         ))}
       </Box>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
