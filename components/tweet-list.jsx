@@ -69,17 +69,17 @@ export default function TweetList() {
               })}
             </Masonry>
           </ResponsiveMasonry>
+          <Button
+            colorScheme="yellow"
+            isFullWidth="true"
+            size="lg"
+            mt="2rem"
+            rightIcon={<BsChevronDoubleDown />}
+            onClick={showMore}
+          >
+            Load More
+          </Button>
         </Container>
-        <Button
-          colorScheme="yellow"
-          isFullWidth="true"
-          size="lg"
-          m="2rem"
-          rightIcon={<BsChevronDoubleDown />}
-          onClick={showMore}
-        >
-          Load More
-        </Button>
       </Box>
     )
   else
