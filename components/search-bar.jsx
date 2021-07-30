@@ -1,7 +1,6 @@
 import { HStack, IconButton } from '@chakra-ui/react'
 import { FiSearch as SearchIcon } from 'react-icons/fi'
 import { useRouter } from 'next/router'
-import searchKeywords from 'lib/search-keywords'
 
 import {
   AutoComplete,
@@ -10,8 +9,13 @@ import {
   AutoCompleteList,
 } from '@choc-ui/chakra-autocomplete'
 
-export default function SearchBar() {
+export default function SearchBar({ categories }) {
   const router = useRouter()
+
+  const allRoles = [];
+  categories.forEach((category) => {
+    allRoles.push(...category.roles)
+  })
 
   const onAutoCompleteSelect = (selectedValue) => {
     if (selectedValue === '') return
@@ -42,7 +46,7 @@ export default function SearchBar() {
           placeholder="search for jobs, skills, techstack...."
         />
         <AutoCompleteList className="custom-scrollbar">
-          {searchKeywords.map((option, oid) => (
+          {allRoles.map((option, oid) => (
             <AutoCompleteItem
               key={`option-${oid}`}
               value={option}

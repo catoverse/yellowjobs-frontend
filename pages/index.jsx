@@ -22,10 +22,10 @@ export default function Home({ categories }) {
       <ModalProvider>
         <RolesProvider>
           <Navbar />
-          <HeroSearch />
+          <HeroSearch categories={categories} />
           <SelectedCategoryProvider>
             <SelectedRolesProvider>
-              <JobCategories categories={categories}/>
+              <JobCategories categories={categories} />
               <TweetList />
               <CategoriesDrawer categories={categories} />
               <ScrollToTop />

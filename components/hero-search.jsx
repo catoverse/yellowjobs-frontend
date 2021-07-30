@@ -5,7 +5,7 @@ import LoopHeading from './loop-heading'
 import PopularButton from './popular-button'
 import SearchBar from './search-bar'
 
-export default function HeroSearch() {
+export default function HeroSearch({ categories }) {
   return (
     <Box
       as="main"
@@ -16,7 +16,7 @@ export default function HeroSearch() {
         <SimpleGrid columns={{ base: 1, md: 2 }}>
           <VStack justify="center" align="flex-start" spacing="4" my={12}>
             <LoopHeading />
-            <SearchBar />
+            <SearchBar categories={categories} />
             <Flex gridColumnGap="2" direction={{ base: 'column', md: 'row' }}>
               <Text>popular :</Text>
               <HStack gridRowGap={2}>
