@@ -74,6 +74,7 @@ export default function CategoriesMenu({ categories }) {
   const applyRoleBasedFilters = () => {
     if (value.length > 0) {
       const params = router.query
+      delete params.s
       router.push({
         pathname: '/',
         query: {

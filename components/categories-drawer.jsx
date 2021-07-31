@@ -141,6 +141,7 @@ export default function FiltersDrawer({ categories }) {
   const applyFilters = () => {
     if (roles.length > 0) {
       const params = router.query
+      delete params.s
       router.push({
         pathname: '/',
         query: {
