@@ -2,10 +2,36 @@ import { Box, Flex, SimpleGrid, VStack, HStack, Text } from '@chakra-ui/react'
 import NextImage from 'next/image'
 import Container from './container'
 import LoopHeading from './loop-heading'
-import PopularButton from './popular-button'
+import SearchedRoleButton from './searched-role-button'
 import SearchBar from './search-bar'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function HeroSearch({ categories }) {
+  const router = useRouter()
+  const [searchedRoles, setSearchedRoles] = useState([])
+
+  useEffect(() => {
+    if (router.query.s) {
+      const keyword = router.query.s.replace(/ /g, ' ')
+      setSearchedRoles(keyword.split(','))
+    }
+  }, [router.query])
+
+  const removeRole = (index) => {
+    const searchedValues = searchedRoles
+    searchedValues.splice(index, 1)
+    router.push({
+      pathname: '/search',
+      query:
+        searchedValues.length === 0
+          ? {}
+          : {
+              s: searchedValues.join(','),
+            },
+    })
+  }
+
   return (
     <Box
       as="main"
@@ -17,13 +43,16 @@ export default function HeroSearch({ categories }) {
           <VStack justify="center" align="flex-start" spacing="4" my={12}>
             <LoopHeading />
             <SearchBar categories={categories} />
-            <Flex gridColumnGap="2" direction={{ base: 'column', md: 'row' }}>
-              <Text>popular :</Text>
-              <HStack gridRowGap={2}>
-                <PopularButton text="UI/UX" />
-                <PopularButton text="Machine Learning" />
-                <PopularButton text="Data Science" />
-              </HStack>
+            <Flex flexWrap="wrap">
+              {searchedRoles.map((searchedRole, index) => {
+                return (
+                  <SearchedRoleButton
+                    text={searchedRole}
+                    onClose={() => removeRole(index)}
+                    key={index}
+                  />
+                )
+              })}
             </Flex>
           </VStack>
         </SimpleGrid>
