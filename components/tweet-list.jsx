@@ -14,7 +14,7 @@ export default function TweetList() {
   const { query } = useRouter()
   const { data, error, size, setSize } = useTweets({ query })
   // const data = _data[0]
-  console.log('Length:', data)
+
 
   if (error)
     return (

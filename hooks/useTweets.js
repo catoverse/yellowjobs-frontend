@@ -29,7 +29,7 @@ export const useTweets = ({ query }) => {
     const o = 40 * pageIndex
 
     if (previousPageData && !previousPageData.length) return null
-    console.log(`${url}&limit=${l}&offset=${o}`)
+
     return `${url}&limit=${l}&offset=${o}`
   }
 
