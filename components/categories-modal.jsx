@@ -73,13 +73,12 @@ export default function CategoriesMenu({ categories }) {
 
   const applyRoleBasedFilters = () => {
     if (value.length > 0) {
-      const lowercaseValues = value.map((v) => v.toLowerCase())
       const params = router.query
       router.push({
         pathname: '/',
         query: {
           ...params,
-          roles: lowercaseValues.join(','),
+          roles: value.join(','),
         },
       })
     } else {
@@ -91,7 +90,6 @@ export default function CategoriesMenu({ categories }) {
       })
     }
 
-    setSelectedRoles(value)
     onModalClose()
   }
 

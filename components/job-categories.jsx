@@ -137,6 +137,19 @@ export default function JobCategories({ categories }) {
     setSelectedRoles([])
     router.push('/')
   }
+
+  useEffect(() => {
+    if (router.query.s) {
+      const keyword = router.query.s.replace(/ /g, ' ')
+      setSelectedRoles(keyword.split(','))
+    } else if (router.query.roles) {
+      const roles = router.query.roles.replace(/ /g, ' ')
+      setSelectedRoles(roles.split(','))
+    } else if (!router.query.roles && selectedRoles.length > 0) {
+      setSelectedRoles([])
+    }
+  }, [router.query])
+
   return (
     <Box mt="10">
       <Container>

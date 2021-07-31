@@ -140,13 +140,12 @@ export default function FiltersDrawer({ categories }) {
 
   const applyFilters = () => {
     if (roles.length > 0) {
-      const lowercaseRoles = roles.map((v) => v.toLowerCase())
       const params = router.query
       router.push({
         pathname: '/',
         query: {
           ...params,
-          roles: lowercaseRoles.join(','),
+          roles: roles.join(','),
         },
       })
     } else {
@@ -158,7 +157,6 @@ export default function FiltersDrawer({ categories }) {
       })
     }
 
-    setSelectedRoles(roles)
     clearFilters()
     onClose()
   }
