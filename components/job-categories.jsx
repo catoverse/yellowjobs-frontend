@@ -39,6 +39,11 @@ const Category = ({ icon, title, start, end, allRoles }) => {
     allRoles.includes(selectedRole)
   )
 
+  const selectedRolesInThisCategoryCountText =
+    allRoles.length === selectedRolesInThisCategory.length
+      ? 'All'
+      : selectedRolesInThisCategory.length
+
   const onClickHandler = () => {
     setSelectedCategory(title)
     setValue(selectedRoles)
@@ -73,8 +78,8 @@ const Category = ({ icon, title, start, end, allRoles }) => {
         </Text>
         {
           selectedRolesInThisCategory.length > 0 &&
-          <Badge ml="2" variant="solid" colorScheme="blue">
-            {selectedRolesInThisCategory.length}
+          <Badge ml="2" variant="solid" colorScheme="blue" borderRadius="full" fontSize="0.8em">
+            {selectedRolesInThisCategoryCountText}
           </Badge>
         }
       </Button>

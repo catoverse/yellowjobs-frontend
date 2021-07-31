@@ -72,7 +72,7 @@ const AddFiltersButton = ({ onOpen }) => {
     >
       Add filters by skill/position
       {selectedRoles.length > 0 && (
-        <Badge ml="2" colorScheme="blue">
+        <Badge ml="2" colorScheme="blue" borderRadius="full" fontSize="0.8em">
           {selectedRoles.length}
         </Badge>
       )}
@@ -88,6 +88,10 @@ const CateoriesTabs = ({ categories, roles, setRoles }) => {
           const selectedRolesInThisCategory = roles.filter((selectedRole) =>
             category.roles.includes(selectedRole)
           )
+          const selectedRolesInThisCategoryCountText =
+            category.roles.length === selectedRolesInThisCategory.length
+              ? 'All'
+              : selectedRolesInThisCategory.length
           const CategoryEmoji = categoryEmojis[category.category]
           return (
             <Tab
@@ -101,8 +105,8 @@ const CateoriesTabs = ({ categories, roles, setRoles }) => {
                 <CategoryEmoji />
                 <Text>{category.category}</Text>
                 {selectedRolesInThisCategory.length > 0 && (
-                  <Badge ml="2" variant="solid" colorScheme="blue">
-                    {selectedRolesInThisCategory.length}
+                  <Badge ml="2" variant="solid" colorScheme="blue" borderRadius="full" fontSize="0.8em">
+                    {selectedRolesInThisCategoryCountText}
                   </Badge>
                 )}
               </HStack>

@@ -57,7 +57,7 @@ export default function CategoriesMenu({ categories }) {
 
     return (
       rolesToDisplay.map((role, index) => (
-        <Checkbox value={role} key={index}>
+        <Checkbox isDisabled={isAllSelected} value={role} key={index}>
           <Highlighter
             searchWords={[searchValue]}
             autoEscape={true}
@@ -69,6 +69,19 @@ export default function CategoriesMenu({ categories }) {
   }
 
   const [value, setValue] = useRoles()
+
+  const [isAllSelected, setIsAllSelected] = useState(false)
+
+  const onAllSelected = () => {
+    if (event.target.checked) {
+      setValue(selectedCategoryObject.roles)
+      setIsAllSelected(true)
+    } else {
+      setValue([])
+      setIsAllSelected(false)
+    }
+  }
+
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
 
   const applyRoleBasedFilters = () => {
@@ -102,6 +115,7 @@ export default function CategoriesMenu({ categories }) {
   }
 
   const onModalClose = () => {
+    setIsAllSelected(false)
     clearFilters()
     onClose()
   }
@@ -119,18 +133,21 @@ export default function CategoriesMenu({ categories }) {
         <Box as="hr" />
 
         <ModalBody>
-          <InputGroup maxW="xs" w="100%" mt="5">
-            <Input
-              variant="flushed"
-              fontSize="sm"
-              placeholder={`Search for ${capitalizedCategory} categories...`}
-              value={searchValue}
-              onChange={({ currentTarget }) =>
-                setSearchValue(currentTarget.value)
-              }
-            />
-            <InputRightElement children={<FiSearch />} />
-          </InputGroup>
+          <HStack spacing="2rem" align="baseline">
+            <InputGroup maxW="xs" w="100%" mt="5">
+              <Input
+                variant="flushed"
+                fontSize="sm"
+                placeholder={`Search for ${capitalizedCategory} categories...`}
+                value={searchValue}
+                onChange={({ currentTarget }) =>
+                  setSearchValue(currentTarget.value)
+                }
+              />
+              <InputRightElement children={<FiSearch />} />
+            </InputGroup>
+            <Checkbox onChange={onAllSelected}>Select all</Checkbox>
+          </HStack>
 
           {/* grid */}
           <SimpleGrid
