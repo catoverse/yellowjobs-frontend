@@ -31,9 +31,9 @@ import SalesEmoji from './icons/categories/sales.svg'
 import SupportEmoji from './icons/categories/support.svg'
 import TechEmoji from './icons/categories/tech.svg'
 import OthersEmoji from './icons/categories/others.svg'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
-import { useSelectedCategory } from 'contexts/selected-category-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
 
 const categoryEmojis = {
@@ -81,8 +81,37 @@ const AddFiltersButton = ({ onOpen }) => {
 }
 
 const CateoriesTabs = ({ categories, roles, setRoles }) => {
+  const [isAllSelected, setIsAllSelected] = useState(new Array(categories.length))
+  const [selectedCategory, setSelectedCategory] = useState(categories[0])
+
+  const onTabsChange = (index) => {
+    setSelectedCategory(categories[index])
+    setIsAllSelected
+  }
+
+  const onAllSelected = (index) => {
+    if (event.target.checked) {
+      const newIsAllSelected = isAllSelected
+      newIsAllSelected[index] = true
+      setIsAllSelected(newIsAllSelected)
+      const newRoles = [...new Set([...roles, ...selectedCategory.roles])]
+      setRoles(newRoles)
+    } else {
+      const newIsAllSelected = isAllSelected
+      newIsAllSelected[index] = false
+      setIsAllSelected(newIsAllSelected)
+      const newRoles = []
+      roles.forEach((role) => {
+        if (!selectedCategory.roles.includes(role)) {
+          newRoles.push(role)
+        }
+      })
+      setRoles(newRoles)
+    }
+  }
+
   return (
-    <Tabs h="full" orientation="vertical" variant="ghost">
+    <Tabs h="full" orientation="vertical" variant="ghost" onChange={onTabsChange}>
       <TabList pt="2" bg="gray.50">
         {categories.map((category, index) => {
           const selectedRolesInThisCategory = roles.filter((selectedRole) =>
@@ -120,9 +149,10 @@ const CateoriesTabs = ({ categories, roles, setRoles }) => {
           return (
             <TabPanel py="0" key={index}>
               <VStack align="start">
+                <Checkbox onChange={() => onAllSelected(index)}>Select all</Checkbox>
                 <CheckboxGroup value={roles} onChange={setRoles}>
-                  {category.roles.map((role, index) => (
-                    <Checkbox py="2" value={role} key={index}>
+                  {category.roles.map((role, roleIndex) => (
+                    <Checkbox isDisabled={isAllSelected[index]} py="2" value={role} key={roleIndex}>
                       {role}
                     </Checkbox>
                   ))}
