@@ -14,12 +14,17 @@ export const useTweets = ({ query }) => {
   // for query params
   if (query.types) {
     const types = query.types.replace(/ /g, '')
-    url += `&type=${types}`
+    url += `&types=${types}`
+  }
+
+  if (query.categories) {
+    const categories = query.categories.replace(/ /g, '')
+    url += `&categories=${categories}`
   }
 
   if (query.roles) {
     const roles = query.roles.replace(/ /g, '')
-    url += `&role=${roles}`
+    url += `&roles=${roles}`
   }
   const getKey = (pageIndex, previousPageData) => {
     // not send a request if location or resource are not empty
