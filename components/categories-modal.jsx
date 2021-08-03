@@ -81,10 +81,12 @@ export default function CategoriesMenu({ categories }) {
 
   const onAllSelected = () => {
     if (event.target.checked) {
-      setValue(selectedCategoryObject.roles)
+      const newRoles = [...new Set([...value, ...selectedCategoryObject.roles])]
+      setValue(newRoles)
       setIsAllSelected(true)
     } else {
-      setValue([])
+      const newRoles = value.filter((role) => !selectedCategoryObject.roles.includes(role))
+      setValue(newRoles)
       setIsAllSelected(false)
     }
   }
