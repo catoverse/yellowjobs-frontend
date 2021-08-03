@@ -31,7 +31,7 @@ import SalesEmoji from './icons/categories/sales.svg'
 import SupportEmoji from './icons/categories/support.svg'
 import TechEmoji from './icons/categories/tech.svg'
 import OthersEmoji from './icons/categories/others.svg'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
@@ -88,6 +88,13 @@ const CateoriesTabs = ({ categories, roles, setRoles }) => {
     setSelectedCategory(categories[index])
     setIsAllSelected
   }
+
+  useEffect(() => {
+    const newIsAllSelected = categories.map((category) =>
+      category.roles.every((role) => roles.includes(role))
+    )
+    setIsAllSelected(newIsAllSelected)
+  }, [roles])
 
   const onAllSelected = (index) => {
     if (event.target.checked) {
@@ -149,7 +156,7 @@ const CateoriesTabs = ({ categories, roles, setRoles }) => {
           return (
             <TabPanel py="0" key={index}>
               <VStack align="start">
-                <Checkbox onChange={() => onAllSelected(index)}>Select all</Checkbox>
+                <Checkbox isChecked={isAllSelected[index]} onChange={() => onAllSelected(index)}>Select all</Checkbox>
                 <CheckboxGroup value={roles} onChange={setRoles}>
                   {category.roles.map((role, roleIndex) => (
                     <Checkbox isDisabled={isAllSelected[index]} py="2" value={role} key={roleIndex}>

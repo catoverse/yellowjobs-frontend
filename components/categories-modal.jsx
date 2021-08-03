@@ -19,7 +19,7 @@ import {
   Center,
   Spinner,
 } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { useModal } from 'contexts/modal-context'
 import useSWR from 'swr'
@@ -71,6 +71,13 @@ export default function CategoriesMenu({ categories }) {
   const [value, setValue] = useRoles()
 
   const [isAllSelected, setIsAllSelected] = useState(false)
+
+  useEffect(() => {
+    const areAllRolesSelected = selectedCategoryObject.roles.every((role) =>
+      value.includes(role)
+    )
+    setIsAllSelected(areAllRolesSelected)
+  }, [value])
 
   const onAllSelected = () => {
     if (event.target.checked) {
@@ -146,7 +153,7 @@ export default function CategoriesMenu({ categories }) {
               />
               <InputRightElement children={<FiSearch />} />
             </InputGroup>
-            <Checkbox onChange={onAllSelected}>Select all</Checkbox>
+            <Checkbox isChecked={isAllSelected} onChange={onAllSelected}>Select all</Checkbox>
           </HStack>
 
           {/* grid */}
