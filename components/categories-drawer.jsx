@@ -82,10 +82,13 @@ const AddFiltersButton = ({ onOpen }) => {
 
 const CateoriesTabs = ({ categories, roles, setRoles }) => {
   const [isAllSelected, setIsAllSelected] = useState(new Array(categories.length))
-  const [selectedCategory, setSelectedCategory] = useState(categories[0])
+  /*
+    here openedCategory is local, unlike with modal as the it need not be used across components
+  */
+  const [openedCategory, setOpenedCategory] = useState(categories[0])
 
   const onTabsChange = (index) => {
-    setSelectedCategory(categories[index])
+    setOpenedCategory(categories[index])
     setIsAllSelected
   }
 
@@ -101,7 +104,7 @@ const CateoriesTabs = ({ categories, roles, setRoles }) => {
       const newIsAllSelected = isAllSelected
       newIsAllSelected[index] = true
       setIsAllSelected(newIsAllSelected)
-      const newRoles = [...new Set([...roles, ...selectedCategory.roles])]
+      const newRoles = [...new Set([...roles, ...openedCategory.roles])]
       setRoles(newRoles)
     } else {
       const newIsAllSelected = isAllSelected
@@ -109,7 +112,7 @@ const CateoriesTabs = ({ categories, roles, setRoles }) => {
       setIsAllSelected(newIsAllSelected)
       const newRoles = []
       roles.forEach((role) => {
-        if (!selectedCategory.roles.includes(role)) {
+        if (!openedCategory.roles.includes(role)) {
           newRoles.push(role)
         }
       })

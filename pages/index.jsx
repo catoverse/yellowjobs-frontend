@@ -11,7 +11,7 @@ import CategoriesModal from 'components/categories-modal'
 
 import { ModalProvider } from 'contexts/modal-context'
 import { RolesProvider } from 'contexts/roles-context'
-import { SelectedCategoryProvider } from 'contexts/selected-category-context'
+import { OpenedCategoryProvider } from 'contexts/opened-category-context'
 import { SelectedRolesProvider } from 'contexts/selected-roles-context'
 
 import { API_URL } from 'lib/api'
@@ -22,7 +22,7 @@ export default function Home({ categories }) {
       <ModalProvider>
         <RolesProvider>
           <Navbar />
-          <SelectedCategoryProvider>
+          <OpenedCategoryProvider categories={categories}>
             <SelectedRolesProvider>
               <HeroSearch categories={categories} />
               <JobCategories categories={categories} />
@@ -31,7 +31,7 @@ export default function Home({ categories }) {
               <ScrollToTop />
               <CategoriesModal categories={categories} />
             </SelectedRolesProvider>
-          </SelectedCategoryProvider>
+          </OpenedCategoryProvider>
         </RolesProvider>
       </ModalProvider>
     </Box>

@@ -26,27 +26,27 @@ import { useModal } from 'contexts/modal-context'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
-import { useSelectedCategory } from 'contexts/selected-category-context'
+import { useOpenedCategory } from 'contexts/opened-category-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
 
-const Category = ({ icon, title, start, end, allRoles }) => {
+const Category = ({ icon, category, start, end }) => {
   const { onOpen } = useModal()
-  const [value, setValue] = useRoles()
-  const [selectedCategory, setSelectedCategory] = useSelectedCategory()
+  const [roles, setRoles] = useRoles()
+  const [openedCategory, setOpenedCategory] = useOpenedCategory()
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
 
   const selectedRolesInThisCategory = selectedRoles.filter((selectedRole) =>
-    allRoles.includes(selectedRole)
+    category.roles.includes(selectedRole)
   )
 
   const selectedRolesInThisCategoryCountText =
-    allRoles.length === selectedRolesInThisCategory.length
+    category.roles.length === selectedRolesInThisCategory.length
       ? 'All'
       : selectedRolesInThisCategory.length
 
   const onClickHandler = () => {
-    setSelectedCategory(title)
-    setValue(selectedRoles)
+    setOpenedCategory(category)
+    setRoles(selectedRoles)
     onOpen()
   }
 
@@ -74,7 +74,7 @@ const Category = ({ icon, title, start, end, allRoles }) => {
           {icon}
         </Center>
         <Text ml="2" fontSize="sm" fontWeight="normal" color="gray.600">
-          {title}
+          {category.category}
         </Text>
         {
           selectedRolesInThisCategory.length > 0 &&
@@ -134,11 +134,11 @@ const JobTypes = ({selectedType,setSelectedType}) => {
 export default function JobCategories({ categories }) {
   const router = useRouter()
   const [selectedType, setSelectedType] = useState([])
-  const [selectedCategory, setSelectedCategory] = useSelectedCategory()
+  const [openedCategory, setOpenedCategory] = useOpenedCategory()
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
   const clearFilters = () => {
     setSelectedType([])
-    setSelectedCategory('Tech')
+    setOpenedCategory(categories[0])
     setSelectedRoles([])
     router.push('/')
   }
@@ -178,45 +178,37 @@ export default function JobCategories({ categories }) {
         <HStack mt="5" spacing="0" display={{ base: 'none', md: 'flex' }}>
           <Category
             start
-            title="Tech"
+            category={categories[0]}
             icon={<TechEmoji />}
-            allRoles={categories.find((category) => category.category === 'Tech' ).roles}
           />
           <Category
-            title="Design"
+            category={categories[1]}
             icon={<DesignEmoji />}
-            allRoles={categories.find((category) => category.category === 'Design' ).roles}
           />
           <Category
-            title="Management"
+            category={categories[2]}
             icon={<ManagementEmoji />}
-            allRoles={categories.find((category) => category.category === 'Management' ).roles}
           />
           <Category
-            title="Marketing"
+            category={categories[3]}
             icon={<MarketingEmoji />}
-            allRoles={categories.find((category) => category.category === 'Marketing' ).roles}
           />
           <Category
-            title="Sales"
+            category={categories[4]}
             icon={<SalesEmoji />}
-            allRoles={categories.find((category) => category.category === 'Sales' ).roles}
           />
           <Category
-            title="Content"
+            category={categories[5]}
             icon={<ContentEmoji />}
-            allRoles={categories.find((category) => category.category === 'Content' ).roles}
           />
           <Category
-            title="Support"
+            category={categories[6]}
             icon={<SupportEmoji />}
-            allRoles={categories.find((category) => category.category === 'Support' ).roles}
           />
           <Category
             end
-            title="Others"
+            category={categories[7]}
             icon={<OthersEmoji />}
-            allRoles={categories.find((category) => category.category === 'Others' ).roles}
           />
         </HStack>
       </Container>

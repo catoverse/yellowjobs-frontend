@@ -26,29 +26,27 @@ import useSWR from 'swr'
 import { API_URL, fetcher } from 'lib/api'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
-import { useSelectedCategory } from 'contexts/selected-category-context'
+import { useOpenedCategory } from 'contexts/opened-category-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
 import Fuse from 'fuse.js'
 import Highlighter from 'react-highlight-words'
 
-export default function CategoriesMenu({ categories }) {
+export default function CategoriesModal({ categories }) {
   const router = useRouter()
   const { isOpen, onClose } = useModal()
-  const [selectedCategory, setSelectedCategory] = useSelectedCategory()
-
-  const selectedCategoryObject = categories.find((item) => item.category === selectedCategory)
+  const [openedCategory, setOpenedCategory] = useOpenedCategory()
 
   const capitalizedCategory =
-    selectedCategoryObject.category.charAt(0).toUpperCase() +
-    selectedCategoryObject.category.slice(1)
+    openedCategory.category.charAt(0).toUpperCase() +
+    openedCategory.category.slice(1)
 
   const [searchValue, setSearchValue] = useState('')
 
   const renderCheckboxes = () => {
-    let rolesToDisplay = selectedCategoryObject.roles;
+    let rolesToDisplay = openedCategory.roles;
 
     if (searchValue.trim().length > 0) {
-      const fuse = new Fuse(selectedCategoryObject.roles, {
+      const fuse = new Fuse(openedCategory.roles, {
         includeScore: true
       })
       const searchResults = fuse.search(searchValue)
@@ -68,25 +66,25 @@ export default function CategoriesMenu({ categories }) {
     )
   }
 
-  const [value, setValue] = useRoles()
+  const [roles, setRoles] = useRoles()
 
   const [isAllSelected, setIsAllSelected] = useState(false)
 
   useEffect(() => {
-    const areAllRolesSelected = selectedCategoryObject.roles.every((role) =>
-      value.includes(role)
+    const areAllRolesSelected = openedCategory.roles.every((role) =>
+      roles.includes(role)
     )
     setIsAllSelected(areAllRolesSelected)
-  }, [value])
+  }, [roles])
 
   const onAllSelected = () => {
     if (event.target.checked) {
-      const newRoles = [...new Set([...value, ...selectedCategoryObject.roles])]
-      setValue(newRoles)
+      const newRoles = [...new Set([...roles, ...openedCategory.roles])]
+      setRoles(newRoles)
       setIsAllSelected(true)
     } else {
-      const newRoles = value.filter((role) => !selectedCategoryObject.roles.includes(role))
-      setValue(newRoles)
+      const newRoles = roles.filter((role) => !openedCategory.roles.includes(role))
+      setRoles(newRoles)
       setIsAllSelected(false)
     }
   }
@@ -94,14 +92,14 @@ export default function CategoriesMenu({ categories }) {
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
 
   const applyRoleBasedFilters = () => {
-    if (value.length > 0) {
+    if (roles.length > 0) {
       const params = router.query
       delete params.s
       router.push({
         pathname: '/',
         query: {
           ...params,
-          roles: value.join(','),
+          roles: roles.join(','),
         },
       })
     } else {
@@ -117,8 +115,8 @@ export default function CategoriesMenu({ categories }) {
   }
 
   const clearFilters = () => {
-    const filteredRoles = value.filter((role) => !selectedCategoryObject.roles.includes(role))
-    setValue(filteredRoles)
+    const filteredRoles = roles.filter((role) => !openedCategory.roles.includes(role))
+    setRoles(filteredRoles)
     setSearchValue('')
     // router.push('/')
   }
@@ -168,7 +166,7 @@ export default function CategoriesMenu({ categories }) {
             overflowY="auto"
             className="custom-scrollbar"
           >
-            <CheckboxGroup value={value} onChange={setValue}>
+            <CheckboxGroup value={roles} onChange={setRoles}>
               {renderCheckboxes()}
             </CheckboxGroup>
           </SimpleGrid>
