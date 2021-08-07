@@ -89,18 +89,18 @@ const Category = ({ icon, category, start, end }) => {
   )
 }
 
-const JobTypes = ({selectedType,setSelectedType}) => {
+const JobTypes = ({selectedTypes, setSelectedTypes}) => {
   const router = useRouter()
 
-  const onTypeChange = (selectedTypes) => {
-    setSelectedType(selectedTypes)
-    if (selectedTypes.length > 0) {
+  const onTypeChange = (types) => {
+    setSelectedTypes(types)
+    if (types.length > 0) {
       const params = router.query
       router.push({
         pathname: '/',
         query: {
           ...params,
-          types: selectedTypes.join(','),
+          types: types.join(','),
         },
       })
     } else {
@@ -122,7 +122,7 @@ const JobTypes = ({selectedType,setSelectedType}) => {
         columns={{ base: '2', md: '4' }}
         spacing="2"
       >
-        <CheckboxGroup value={selectedType} onChange={onTypeChange}>
+        <CheckboxGroup value={selectedTypes} onChange={onTypeChange}>
           <Checkbox value={'fulltime'}>Full time</Checkbox>
           <Checkbox value={'freelance'}>Freelance</Checkbox>
           <Checkbox value={'parttime'}>Part time</Checkbox>
@@ -135,18 +135,23 @@ const JobTypes = ({selectedType,setSelectedType}) => {
 
 export default function JobCategories({ categories }) {
   const router = useRouter()
-  const [selectedType, setSelectedType] = useState([])
+  const [selectedTypes, setSelectedTypes] = useState([])
   const [openedCategory, setOpenedCategory] = useOpenedCategory()
   const [selectedCategories, setSelectedCategories] = useSelectedCategories()
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
   const clearFilters = () => {
-    setSelectedType([])
-    setOpenedCategory(categories[0])
+    setSelectedTypes([])
+    setOpenedCategory()
     setSelectedRoles([])
     router.push('/')
   }
 
   useEffect(() => {
+    if (router.query.types) {
+      const typesInUrl = router.query.types.replace(/ /g, ' ')
+      setSelectedTypes(typesInUrl.split(','))
+    }
+
     if (router.query.s) {
       const keyword = router.query.s.replace(/ /g, ' ')
       setSelectedRoles(keyword.split(','))
@@ -173,7 +178,7 @@ export default function JobCategories({ categories }) {
     <Box mt="10">
       <Container>
         <Flex justify="space-between">
-          <JobTypes selectedType={selectedType} setSelectedType={setSelectedType} />
+          <JobTypes selectedTypes={selectedTypes} setSelectedTypes={setSelectedTypes} />
           <Button
             px="0"
             variant="ghost"

@@ -119,7 +119,7 @@ export default function CategoriesModal({ categories }) {
       if (selectedCategories.includes(openedCategory.category)) {
         params.categories = selectedCategories.filter((category) => category !== openedCategory.category).join(',')
       }
-      if (params.categories.length === 0) {
+      if (params.categories && params.categories.length === 0) {
         delete params.categories
       }
       router.push({
