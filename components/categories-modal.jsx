@@ -27,6 +27,7 @@ import { API_URL, fetcher } from 'lib/api'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
 import { useOpenedCategory } from 'contexts/opened-category-context'
+import { useSelectedCategories } from 'contexts/selected-categories-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
 import Fuse from 'fuse.js'
 import Highlighter from 'react-highlight-words'
@@ -35,6 +36,8 @@ export default function CategoriesModal({ categories }) {
   const router = useRouter()
   const { isOpen, onClose } = useModal()
   const [openedCategory, setOpenedCategory] = useOpenedCategory()
+
+  if (!openedCategory) return null
 
   const capitalizedCategory =
     openedCategory.category.charAt(0).toUpperCase() +
@@ -67,15 +70,17 @@ export default function CategoriesModal({ categories }) {
   }
 
   const [roles, setRoles] = useRoles()
-
-  const [isAllSelected, setIsAllSelected] = useState(false)
+  const [selectedCategories, setSelectedCategories] = useSelectedCategories()
+  const [isAllSelected, setIsAllSelected] = useState(selectedCategories.includes(openedCategory.category))
 
   useEffect(() => {
-    const areAllRolesSelected = openedCategory.roles.every((role) =>
-      roles.includes(role)
-    )
-    setIsAllSelected(areAllRolesSelected)
-  }, [roles])
+    const isOpened = selectedCategories.includes(openedCategory.category)
+    if (isOpened) {
+      const newRoles = [...new Set([...roles, ...openedCategory.roles])]
+      setRoles(newRoles)
+    }
+    setIsAllSelected(isOpened)
+  }, [openedCategory])
 
   const onAllSelected = () => {
     if (event.target.checked) {
@@ -92,9 +97,31 @@ export default function CategoriesModal({ categories }) {
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
 
   const applyRoleBasedFilters = () => {
-    if (roles.length > 0) {
+    if (isAllSelected) {
       const params = router.query
       delete params.s
+      params.roles = roles.filter((role) => !openedCategory.roles.includes(role)).join(',')
+      if (params.roles.length === 0) {
+        delete params.roles
+      }
+      router.push({
+        pathname: '/',
+        query: {
+          ...params,
+          categories: !selectedCategories.includes(openedCategory.category)
+            ? [...selectedCategories,  openedCategory.category].join(',')
+            : openedCategory.category,
+        },
+      })
+    } else if (roles.length > 0) {
+      const params = router.query
+      delete params.s
+      if (selectedCategories.includes(openedCategory.category)) {
+        params.categories = selectedCategories.filter((category) => category !== openedCategory.category).join(',')
+      }
+      if (params.categories.length === 0) {
+        delete params.categories
+      }
       router.push({
         pathname: '/',
         query: {
@@ -118,11 +145,12 @@ export default function CategoriesModal({ categories }) {
     const filteredRoles = roles.filter((role) => !openedCategory.roles.includes(role))
     setRoles(filteredRoles)
     setSearchValue('')
+    setOpenedCategory()
+    setIsAllSelected(false)
     // router.push('/')
   }
 
   const onModalClose = () => {
-    setIsAllSelected(false)
     clearFilters()
     onClose()
   }

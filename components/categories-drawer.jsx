@@ -34,6 +34,7 @@ import OthersEmoji from './icons/categories/others.svg'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
+import { useSelectedCategories } from 'contexts/selected-categories-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
 
 const categoryEmojis = {
@@ -47,12 +48,24 @@ const categoryEmojis = {
   Others: OthersEmoji,
 }
 
-const AddFiltersButton = ({ onOpen }) => {
+const AddFiltersButton = ({ isOpen, onOpen, categories }) => {
+  const [selectedCategories, setSelectedCategories] = useSelectedCategories()
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
   const [roles, setRoles] = useRoles()
+  const [totalRoles, setTotalRoles] = useState(0)
+
+  useEffect(() => {
+    const totalRoles = [...selectedRoles]
+    categories.forEach((category) => {
+      if (selectedCategories.includes(category.category)) {
+        totalRoles.push(...category.roles)
+      }
+    })
+    setTotalRoles(totalRoles)
+  }, [selectedRoles, selectedCategories])
 
   const onDrawerOpen = () => {
-    setRoles(selectedRoles)
+    setRoles(totalRoles)
     onOpen()
   }
 
@@ -71,17 +84,16 @@ const AddFiltersButton = ({ onOpen }) => {
       onClick={onDrawerOpen}
     >
       Add filters by skill/position
-      {selectedRoles.length > 0 && (
+      {totalRoles.length > 0 && (
         <Badge ml="2" colorScheme="blue" borderRadius="full" fontSize="0.8em">
-          {selectedRoles.length}
+          {totalRoles.length}
         </Badge>
       )}
     </Center>
   )
 }
 
-const CateoriesTabs = ({ categories, roles, setRoles }) => {
-  const [isAllSelected, setIsAllSelected] = useState(new Array(categories.length))
+const CateoriesTabs = ({ categories, roles, setRoles, isAllSelected, setIsAllSelected }) => {
   /*
     here openedCategory is local, unlike with modal as the it need not be used across components
   */
@@ -89,7 +101,6 @@ const CateoriesTabs = ({ categories, roles, setRoles }) => {
 
   const onTabsChange = (index) => {
     setOpenedCategory(categories[index])
-    setIsAllSelected
   }
 
   useEffect(() => {
@@ -179,6 +190,7 @@ const CateoriesTabs = ({ categories, roles, setRoles }) => {
 export default function FiltersDrawer({ categories }) {
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [isAllSelected, setIsAllSelected] = useState(new Array(categories.length))
   const [roles, setRoles] = useRoles()
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
 
@@ -186,16 +198,32 @@ export default function FiltersDrawer({ categories }) {
     if (roles.length > 0) {
       const params = router.query
       delete params.s
+      const filteredCategories = []
+      isAllSelected.forEach((areAllRolesSelected, index) => {
+        if (areAllRolesSelected) {
+          filteredCategories.push(categories[index])
+        }
+      })
+      params.roles = roles.filter((role) => {
+        return filteredCategories.every((category) => !category.roles.includes(role))
+      }).join(',')
+      if (params.roles.length === 0) {
+        delete params.roles
+      }
+      params.categories = filteredCategories.map((category) => category.category).join(',')
+      if (params.categories.length === 0) {
+        delete params.categories
+      }
       router.push({
         pathname: '/',
         query: {
           ...params,
-          roles: roles.join(','),
         },
       })
     } else {
       const params = new URLSearchParams(location.search)
       params.delete('roles')
+      params.delete('categories')
       router.replace({
         pathname: '/',
         query: params.toString(),
@@ -208,11 +236,12 @@ export default function FiltersDrawer({ categories }) {
 
   const clearFilters = () => {
     setRoles([])
+    setIsAllSelected(new Array(categories.length))
   }
 
   return (
     <div>
-      <AddFiltersButton onOpen={onOpen} />
+      <AddFiltersButton isOpen={isOpen} onOpen={onOpen} categories={categories} />
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -250,6 +279,8 @@ export default function FiltersDrawer({ categories }) {
               categories={categories}
               roles={roles}
               setRoles={setRoles}
+              isAllSelected={isAllSelected}
+              setIsAllSelected={setIsAllSelected}
             />
           </DrawerBody>
 

@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react'
 const OpenedCategoryContext = createContext()
 
 function OpenedCategoryProvider({ children, categories }) {
-  const [openedCategory, setOpenedCategory] = useState(categories[0])
+  const [openedCategory, setOpenedCategory] = useState()
 
   return (
     <OpenedCategoryContext.Provider value={[ openedCategory, setOpenedCategory ]}>

@@ -27,12 +27,14 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
 import { useOpenedCategory } from 'contexts/opened-category-context'
+import { useSelectedCategories } from 'contexts/selected-categories-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
 
 const Category = ({ icon, category, start, end }) => {
   const { onOpen } = useModal()
   const [roles, setRoles] = useRoles()
   const [openedCategory, setOpenedCategory] = useOpenedCategory()
+  const [selectedCategories, setSelectedCategories] = useSelectedCategories()
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
 
   const selectedRolesInThisCategory = selectedRoles.filter((selectedRole) =>
@@ -40,7 +42,7 @@ const Category = ({ icon, category, start, end }) => {
   )
 
   const selectedRolesInThisCategoryCountText =
-    category.roles.length === selectedRolesInThisCategory.length
+    category.roles.length === selectedRolesInThisCategory.length || selectedCategories.includes(category.category)
       ? 'All'
       : selectedRolesInThisCategory.length
 
@@ -77,7 +79,7 @@ const Category = ({ icon, category, start, end }) => {
           {category.category}
         </Text>
         {
-          selectedRolesInThisCategory.length > 0 &&
+          (selectedRolesInThisCategory.length > 0 || selectedCategories.includes(category.category)) &&
           <Badge ml="2" variant="solid" colorScheme="blue" borderRadius="full" fontSize="0.8em">
             {selectedRolesInThisCategoryCountText}
           </Badge>
@@ -135,6 +137,7 @@ export default function JobCategories({ categories }) {
   const router = useRouter()
   const [selectedType, setSelectedType] = useState([])
   const [openedCategory, setOpenedCategory] = useOpenedCategory()
+  const [selectedCategories, setSelectedCategories] = useSelectedCategories()
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
   const clearFilters = () => {
     setSelectedType([])
@@ -147,10 +150,21 @@ export default function JobCategories({ categories }) {
     if (router.query.s) {
       const keyword = router.query.s.replace(/ /g, ' ')
       setSelectedRoles(keyword.split(','))
-    } else if (router.query.roles) {
-      const roles = router.query.roles.replace(/ /g, ' ')
-      setSelectedRoles(roles.split(','))
-    } else if (!router.query.roles && selectedRoles.length > 0) {
+    } else if (router.query.categories || router.query.roles) {
+      if (router.query.categories) {
+        const categoriesInUrl = router.query.categories.replace(/ /g, ' ').split(',')
+        setSelectedCategories(categoriesInUrl)
+      }
+      if (router.query.roles) {
+        const rolesInUrl = router.query.roles.replace(/ /g, ' ').split(',')
+        setSelectedRoles(rolesInUrl)
+      }
+    }
+
+    if (!router.query.categories && selectedCategories.length > 0) {
+      setSelectedCategories([])
+    }
+    if (!router.query.roles && selectedRoles.length > 0) {
       setSelectedRoles([])
     }
   }, [router.query])
