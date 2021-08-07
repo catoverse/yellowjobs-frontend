@@ -173,7 +173,7 @@ const CateoriesTabs = ({ categories, roles, setRoles, isAllSelected, setIsAllSel
                 <Checkbox isChecked={isAllSelected[index]} onChange={() => onAllSelected(index)}>Select all</Checkbox>
                 <CheckboxGroup value={roles} onChange={setRoles}>
                   {category.roles.map((role, roleIndex) => (
-                    <Checkbox isDisabled={isAllSelected[index]} py="2" value={role} key={roleIndex}>
+                    <Checkbox width="full" isDisabled={isAllSelected[index]} py="2" value={role} key={roleIndex}>
                       {role}
                     </Checkbox>
                   ))}
