@@ -110,8 +110,12 @@ export default function Headers() {
               align="center"
               display={{ base: 'none', md: 'flex' }}
             >
-              <Link href="/about" _hover={{ color: 'gray.500' } }>About Us</Link>
-              <Link href="/disclaimer" _hover={{ color: 'gray.500' } }>Disclaimer</Link>
+              <Box _hover={{ color: 'gray.500' } }>
+                <NextLink href="/about">About Us</NextLink>
+              </Box>
+              <Box _hover={{ color: 'gray.500' } }>
+                <NextLink href="/disclaimer">Disclaimer</NextLink>
+              </Box>
             </HStack>
             <IconButton
               display={{ base: 'flex', md: 'none' }}

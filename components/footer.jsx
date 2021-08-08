@@ -36,13 +36,13 @@ export default function Footer() {
           </NextLink>
           <Spacer />
           <Flex p="4" w="full" justify="space-between">
-            <NextLink href="/about" aria-label="About Us">
-              <Link mx="5">About Us</Link>
-            </NextLink>
+            <Box _hover={{ color: 'gray.500' }} mx="5">
+              <NextLink href="/about" aria-label="About Us">About Us</NextLink>
+            </Box>
             <Spacer />
-            <NextLink href="/disclaimer" aria-label="Disclaimer">
-              <Link mx="5">Disclaimer</Link>
-            </NextLink>
+            <Box _hover={{ color: 'gray.500' }} mx="5">
+              <NextLink href="/disclaimer" aria-label="Disclaimer">Disclaimer</NextLink>
+            </Box>
           </Flex>
         </Flex>
         <Divider display={{ base: 'block', md: 'none' }} />
