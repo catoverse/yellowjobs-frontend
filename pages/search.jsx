@@ -2,6 +2,7 @@ import { Box } from '@chakra-ui/react'
 import { useState } from 'react'
 
 import Navbar from 'components/navbar'
+import Footer from 'components/footer'
 import HeroSearch from 'components/hero-search'
 import JobCategories from 'components/job-categories'
 import TweetList from 'components/tweet-list'
@@ -19,7 +20,7 @@ import { API_URL } from 'lib/api'
 
 export default function Search({ categories }) {
   return (
-    <Box mb="10rem">
+    <Box>
       <ModalProvider>
         <RolesProvider>
           <Navbar />
@@ -37,6 +38,7 @@ export default function Search({ categories }) {
           </OpenedCategoryProvider>
         </RolesProvider>
       </ModalProvider>
+      <Footer />
     </Box>
   )
 }

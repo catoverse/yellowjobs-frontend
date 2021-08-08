@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Navbar from 'components/navbar'
+import Footer from 'components/footer'
 import Profile from 'components/profile'
 import { Box, Text, Heading, Center, Image, Button } from '@chakra-ui/react'
 import { SimpleGrid } from '@chakra-ui/react'
@@ -91,7 +92,7 @@ const AboutPage = () => {
         </SimpleGrid>
       </Box>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
