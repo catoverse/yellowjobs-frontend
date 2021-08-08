@@ -132,6 +132,7 @@ export default function CategoriesModal({ categories }) {
     } else {
       const params = new URLSearchParams(location.search)
       params.delete('roles')
+      params.delete('categories')
       router.replace({
         pathname: '/',
         query: params.toString(),
