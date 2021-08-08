@@ -2,22 +2,27 @@ import * as React from 'react'
 import Navbar from 'components/navbar'
 import Profile from 'components/profile'
 import { Box, Text, Heading, Center, Image, Button } from '@chakra-ui/react'
-import { Flex, Spacer, SimpleGrid, Circle } from '@chakra-ui/react'
-
+import { SimpleGrid } from '@chakra-ui/react'
+import { TeamData } from 'lib/TeamProfile'
 const AboutPage = () => {
   return (
     <>
       <Navbar />
 
       {/* //about us */}
-      <Box bg="#FAFAFA" p="3.5rem">
-        <Center h="100px">
-          <Heading as="h2" size="2xl" p="1rem">
+      <Box bg="#FAFAFA" p="3rem">
+        <Center>
+          <Heading as="h2" size="2xl" p="3rem">
             About Us
           </Heading>
         </Center>
-        <Center h="100px" p={['2rem', '5rem']}>
-          <Text fontSize="lgs">
+        <Center>
+          <Text
+            fontSize="lgs"
+            ml={['1rem', '5rem', '7rem']}
+            mr={['1rem', '5rem', '7rem']}
+            align="center"
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -29,39 +34,60 @@ const AboutPage = () => {
       </Box>
 
       {/* //partners */}
-      <Box p="3.5rem" bg="#FFFFFF">
-        <Center h="100px">
-          <Heading as="h2" size="2xl" p="1rem">
+      <Box p="3rem" bg="#FFFFFF">
+        <Center>
+          <Heading as="h2" size="2xl" p="3rem">
             Our Partners
           </Heading>
         </Center>
-        <Box p="5rem">
-          <SimpleGrid columns={[1, 2, 3, 4]} spacing="5rem">
-            <Image src="partners/pfolk.svg" />
-            <Image src="partners/pfolk.svg" />
-            <Image src="partners/pfolk.svg" />
-            <Image src="partners/pfolk.svg" />
-            <Image src="partners/pfolk.svg" />
-            <Image src="partners/pfolk.svg" />
-            <Image src="partners/pfolk.svg" />
-            <Image src="partners/pfolk.svg" />
+        <Box pl="2.5rem" pr="2.5rem">
+          <SimpleGrid columns={[1, 2, 3, 4]} spacing="3rem">
+            <Center>
+              <Image src="partners/pfolk.svg" />
+            </Center>
+            <Center>
+              <Image src="partners/pfolk.svg" />
+            </Center>
+            <Center>
+              <Image src="partners/pfolk.svg" />
+            </Center>{' '}
+            <Center>
+              <Image src="partners/pfolk.svg" />
+            </Center>
+            <Center>
+              <Image src="partners/pfolk.svg" />
+            </Center>
+            <Center>
+              <Image src="partners/pfolk.svg" />
+            </Center>{' '}
+            <Center>
+              <Image src="partners/pfolk.svg" />
+            </Center>
+            <Center>
+              <Image src="partners/pfolk.svg" />
+            </Center>
           </SimpleGrid>
         </Box>
       </Box>
 
-      <Box bg="#FAFAFA" p="3.5rem">
-        <Center h="100px">
-          <Heading as="h2" size="2xl" p="1rem">
+      {/* //collaborators */}
+      <Box bg="#FAFAFA" p="3rem">
+        <Center>
+          <Heading as="h2" size="2xl" p="3rem">
             Our Team
           </Heading>
         </Center>
         <SimpleGrid columns={[1, 2, 3]} spacing="30px">
-          <Profile name="Anshul" url="" image="" type="" />
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
+          {TeamData.map((member) => {
+            return (
+              <Profile
+                name={member.name}
+                profileLink={member.profileLink}
+                imageLink={member.imageLink}
+                socialType={member.socialType}
+              />
+            )
+          })}
         </SimpleGrid>
       </Box>
 

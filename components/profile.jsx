@@ -1,7 +1,20 @@
 import React from 'react'
-import { Box, Circle, Center, Image, Button } from '@chakra-ui/react'
-import { FaTwitter } from 'react-icons/fa'
-export default function Profile({ name, url, socialType, imagelink }) {
+import { Box, Circle, Center, Image, Button, Link } from '@chakra-ui/react'
+import { FaTwitter, FaLinkedin, FaFirefoxBrowser } from 'react-icons/fa'
+export default function Profile({ name, profileLink, imageLink, socialType }) {
+  function getIcon() {
+    switch (socialType) {
+      case 'twitter':
+        return <FaTwitter />
+      case 'linkedin':
+        return <FaLinkedin />
+      case 'website':
+        return <FaFirefoxBrowser />
+      default:
+        return null
+    }
+  }
+
   return (
     <Box
       h="304px"
@@ -12,7 +25,7 @@ export default function Profile({ name, url, socialType, imagelink }) {
     >
       <Center p="2.5rem">
         <Circle size="140px" borderWidth="3px" borderColor="yellow">
-          <img src="collaborators/dev.png" borderRadius="50%" />
+          <img src={imageLink} borderRadius="50%" />
         </Circle>
       </Center>
       <Center>
@@ -21,9 +34,12 @@ export default function Profile({ name, url, socialType, imagelink }) {
           ml="3rem"
           mr="3rem"
           colorScheme="twitter"
-          leftIcon={<FaTwitter />}
+          leftIcon={getIcon()}
+          onClick={() => {
+            window.location.href = profileLink
+          }}
         >
-          Twitter
+          {name}
         </Button>
       </Center>
     </Box>
