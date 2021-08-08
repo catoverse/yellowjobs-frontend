@@ -1,27 +1,28 @@
 import React from 'react'
 import { Box, Circle, Center, Image, Button } from '@chakra-ui/react'
 import { FaTwitter } from 'react-icons/fa'
-export default function Profile(props) {
+export default function Profile({ name, url, socialType, imagelink }) {
   return (
     <Box
-      w="413px"
       h="304px"
       bg="#FFFFFF"
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
     >
-      <Center p="3rem">
+      <Center p="2.5rem">
         <Circle size="140px" borderWidth="3px" borderColor="yellow">
-          <Image
-            src="https://bit.ly/sage-adebayo"
-            alt="Segun Adebayo"
-            borderRadius="50%"
-          />
+          <img src="collaborators/dev.png" borderRadius="50%" />
         </Circle>
       </Center>
       <Center>
-        <Button w="280px" colorScheme="twitter" leftIcon={<FaTwitter />}>
+        <Button
+          isFullWidth
+          ml="3rem"
+          mr="3rem"
+          colorScheme="twitter"
+          leftIcon={<FaTwitter />}
+        >
           Twitter
         </Button>
       </Center>

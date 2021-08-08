@@ -3,7 +3,6 @@ import Navbar from 'components/navbar'
 import Profile from 'components/profile'
 import { Box, Text, Heading, Center, Image, Button } from '@chakra-ui/react'
 import { Flex, Spacer, SimpleGrid, Circle } from '@chakra-ui/react'
-import PfIcon from '../components/icons/logo.svg'
 
 const AboutPage = () => {
   return (
@@ -37,15 +36,15 @@ const AboutPage = () => {
           </Heading>
         </Center>
         <Box p="5rem">
-          <SimpleGrid columns={[1, 2, 4]} spacing="5rem">
-            <PfIcon />
-            <PfIcon />
-            <PfIcon />
-            <PfIcon />
-            <PfIcon />
-            <PfIcon />
-            <PfIcon />
-            <PfIcon />
+          <SimpleGrid columns={[1, 2, 3, 4]} spacing="5rem">
+            <Image src="partners/pfolk.svg" />
+            <Image src="partners/pfolk.svg" />
+            <Image src="partners/pfolk.svg" />
+            <Image src="partners/pfolk.svg" />
+            <Image src="partners/pfolk.svg" />
+            <Image src="partners/pfolk.svg" />
+            <Image src="partners/pfolk.svg" />
+            <Image src="partners/pfolk.svg" />
           </SimpleGrid>
         </Box>
       </Box>
@@ -56,8 +55,8 @@ const AboutPage = () => {
             Our Team
           </Heading>
         </Center>
-        <SimpleGrid columns={[1, null, 3]} spacing="5rem">
-          <Profile />
+        <SimpleGrid columns={[1, 2, 3]} spacing="30px">
+          <Profile name="Anshul" url="" image="" type="" />
           <Profile />
           <Profile />
           <Profile />
