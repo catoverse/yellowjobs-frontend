@@ -10,7 +10,6 @@ export default function LoopHeading() {
     >
       <TextLoop>
         <Text>Search for remote jobs here</Text>
-        <Text>Search for startups here</Text>
         <Text>Search for full-time jobs here</Text>
       </TextLoop>
     </Heading>

@@ -13,7 +13,7 @@ const AboutPage = () => {
       {/* //about us */}
       <Box bg="#FAFAFA" p="3rem">
         <Center>
-          <Heading as="h2" size="2xl" p="3rem">
+          <Heading as="h2" size="2xl" pt="3rem" pb="3rem">
             About Us
           </Heading>
         </Center>
@@ -34,17 +34,17 @@ const AboutPage = () => {
       {/* //partners */}
       <Box p="3rem" bg="#FFFFFF">
         <Center>
-          <Heading as="h2" size="2xl" p="3rem">
+          <Heading as="h2" size="2xl" pt="3rem" pb="3rem">
             Our Partners
           </Heading>
         </Center>
         <Box pl="2.5rem" pr="2.5rem">
           <SimpleGrid columns={[1, null, 2]} spacing="3rem">
             <Center>
-              <Image src="partners/navgurukul.png" w="sm" />
+              <Image src="partners/pfolk1.png" w="50%" />
             </Center>
             <Center>
-              <Image src="partners/pfolk.png" />
+              <Image src="partners/navgurukul.png" w="50%" />
             </Center>
           </SimpleGrid>
         </Box>

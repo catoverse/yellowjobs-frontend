@@ -14,7 +14,7 @@ import GitHubIcon from './icons/github.svg'
 import TwitterIcon from './icons/twitter.svg'
 import LinkedInIcon from './icons/linkedin.svg'
 import VercelLogo from './icons/vercel.svg'
-
+import DOLogo from './icons/DO.svg'
 export default function Footer() {
   return (
     <Box>
@@ -89,24 +89,29 @@ export default function Footer() {
             py={{ base: '4', md: '6' }}
             fontSize="xs"
           >
-            Made with ❤ &nbsp; in India️
+            Made with ❤ in India️
           </Text>
           <Spacer />
           <Divider display={{ base: 'block', md: 'none' }} />
           <Spacer />
-          <Link
-            href="https://vercel.com/?utm_source=Yellowjobs&utm_campaign=oss"
-            isExternal
-            px={{ base: '8', md: '20' }}
-            py={{ base: '4', md: '6' }}
-          >
-            <Flex align="center">
-              Powered by{' '}
+
+          <Flex align="center">
+            Powered by
+            <Link
+              href="https://vercel.com/?utm_source=Yellowjobs&utm_campaign=oss"
+              isExternal
+            >
               <Box ml="2">
                 <VercelLogo />
               </Box>
-            </Flex>
-          </Link>
+            </Link>
+            &nbsp; &
+            <Link href="https://digitalocean.com" isExternal>
+              <Box ml="2">
+                <DOLogo />
+              </Box>
+            </Link>
+          </Flex>
         </Flex>
       </Container>
     </Box>
