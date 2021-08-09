@@ -23,12 +23,9 @@ const AboutPage = () => {
             mr={['1rem', '5rem', '7rem']}
             align="center"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
+            YellowJobs is an open source project by NavGurukul Labs. NavGurukul
+            Labs is a venture studio working on high impact open source
+            experiments in the education and future of work space.
           </Text>
         </Center>
       </Box>
@@ -41,30 +38,12 @@ const AboutPage = () => {
           </Heading>
         </Center>
         <Box pl="2.5rem" pr="2.5rem">
-          <SimpleGrid columns={[1, 2, 3, 4]} spacing="3rem">
+          <SimpleGrid columns={[1, null, 2]} spacing="3rem">
             <Center>
-              <Image src="partners/pfolk.svg" />
+              <Image src="partners/navgurukul.png" w="sm" />
             </Center>
             <Center>
-              <Image src="partners/pfolk.svg" />
-            </Center>
-            <Center>
-              <Image src="partners/pfolk.svg" />
-            </Center>{' '}
-            <Center>
-              <Image src="partners/pfolk.svg" />
-            </Center>
-            <Center>
-              <Image src="partners/pfolk.svg" />
-            </Center>
-            <Center>
-              <Image src="partners/pfolk.svg" />
-            </Center>{' '}
-            <Center>
-              <Image src="partners/pfolk.svg" />
-            </Center>
-            <Center>
-              <Image src="partners/pfolk.svg" />
+              <Image src="partners/pfolk.png" />
             </Center>
           </SimpleGrid>
         </Box>

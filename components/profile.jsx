@@ -25,7 +25,7 @@ export default function Profile({ name, profileLink, imageLink, socialType }) {
     >
       <Center p="2.5rem">
         <Circle size="140px" borderWidth="3px" borderColor="yellow">
-          <img src={imageLink} borderRadius="50%" />
+          <Image src={imageLink} borderRadius="50%" />
         </Circle>
       </Center>
       <Center>
