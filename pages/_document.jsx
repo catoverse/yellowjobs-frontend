@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
           <meta property="twitter:url" content="https://www.yellowjobs.org/" />
           <meta
             name="twitter:title"
-            content="YellowJobs - Helping you find your dream remote gig #remotejob"
+            content="YellowJobs-Helping you find your dream remote gig #remotejob"
           />
           <meta
             name="twitter:description"
