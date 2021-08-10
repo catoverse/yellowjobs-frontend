@@ -32,7 +32,7 @@ const AboutPage = () => {
       </Box>
 
       {/* //partners */}
-      <Box p="3rem" bg="#FFFFFF">
+      {/* <Box p="3rem" bg="#FFFFFF">
         <Center>
           <Heading as="h2" size="2xl" pt="3rem" pb="3rem">
             Our Partners
@@ -48,7 +48,7 @@ const AboutPage = () => {
             </Center>
           </SimpleGrid>
         </Box>
-      </Box>
+      </Box> */}
 
       {/* //collaborators */}
       <Box bg="#FAFAFA" p="3rem">
