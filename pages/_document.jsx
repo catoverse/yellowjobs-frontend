@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta
             name="description"
-            content="Curated remote job posts updated every 5 minutes. Across tech, design, sales, content and a lot more!"
+            content="Curated remote job posts updated every minutes. Across tech, design, sales, content and a lot more!"
           />
 
           <meta property="og:url" content="https://www.yellowjobs.org/" />
@@ -20,7 +20,7 @@ export default class MyDocument extends Document {
           />
           <meta
             property="og:description"
-            content="Curated remote job posts updated every 5 minutes. Across tech, design, sales, content and a lot more!"
+            content="Curated remote job posts updated every minutes. Across tech, design, sales, content and a lot more!"
           />
           <meta
             property="og:image"
@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
           />
           <meta
             name="twitter:description"
-            content="Curated remote job posts updated every 5 minutes. Across tech, design, sales, content and a lot more!"
+            content="Curated remote job posts updated every minutes. Across tech, design, sales, content and a lot more!"
           />
           <meta
             name="twitter:image"
