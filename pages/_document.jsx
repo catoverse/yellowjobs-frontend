@@ -20,11 +20,11 @@ export default class MyDocument extends Document {
           />
           <meta
             property="og:description"
-            content="Curated remote job posts updated every 5 minutes. Across tech, design, sales, content and a lot more!"
+            content="Curated remote job posts updated every 10 minutes. Across tech, design, sales, content and a lot more!"
           />
           <meta
             property="og:image"
-            content="https://www.yellowjobs.com/preview.png"
+            content="https://via.placeholder.com/300x200.png/09f/fff%20C/O%20https://placeholder.com/"
           />
 
           <meta name="twitter:card" content="summary_large_image" />
@@ -32,15 +32,15 @@ export default class MyDocument extends Document {
           <meta property="twitter:url" content="https://www.yellowjobs.org/" />
           <meta
             name="twitter:title"
-            content="YellowJobs-Helping you find your dream remote gig #remotejob"
+            content="YellowJobs - Helping you find your dream remote gig #remotejob"
           />
           <meta
             name="twitter:description"
-            content="Curated remote job posts updated every 5 minutes. Across tech, design, sales, content and a lot more!"
+            content="Curated remote job posts updated every 10 minutes. Across tech, design, sales, content and a lot more!"
           />
           <meta
             name="twitter:image"
-            content="https://www.yellowjobs.com/preview.png"
+            content="https://via.placeholder.com/1200x630.png/09f/fff%20C/O%20https://placeholder.com/"
           />
 
           {/* Global Site Tag (gtag.js) - Google Analytics */}
