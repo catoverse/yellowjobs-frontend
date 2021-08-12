@@ -63,15 +63,15 @@ export default function Footer() {
           </Link>
           <Spacer />*/}
             <Flex p="4" w="full" justify="space-between">
-              <Link mx="5" href="https://github.com/catoverse/">
+              <Link mx="5" href="https://github.com/catoverse/" isExternal>
                 <GitHubIcon />
               </Link>
               <Spacer />
-              <Link mx="5" href="https://twitter.com/yellowjobsorg">
+              <Link mx="5" href="https://twitter.com/yellowjobsorg" isExternal>
                 <TwitterIcon />
               </Link>
               <Spacer />
-              <Link mx="5" href="https://www.linkedin.com/company/navgurukul/">
+              <Link mx="5" href="https://www.linkedin.com/company/navgurukul/" isExternal>
                 <LinkedInIcon />
               </Link>
             </Flex>
