@@ -9,8 +9,8 @@ export default function LoopHeading() {
       fontFamily="Darker Grotesque"
     >
       <TextLoop>
-        <Text>Search for remote jobs here</Text>
-        <Text>Search for full-time jobs here</Text>
+        <Text as="h1">Search for remote jobs here</Text>
+        <Text as="h1">Search for full-time jobs here</Text>
       </TextLoop>
     </Heading>
   )
