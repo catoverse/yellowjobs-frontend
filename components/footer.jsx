@@ -95,7 +95,7 @@ export default function Footer() {
           <Divider display={{ base: 'block', md: 'none' }} />
           <Spacer />
 
-          <Flex align="center">
+          <Flex align="center" py='2'>
             Powered by
             <Link
               href="https://vercel.com/?utm_source=Yellowjobs&utm_campaign=oss"

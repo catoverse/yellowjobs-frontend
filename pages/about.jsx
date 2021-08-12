@@ -2,7 +2,7 @@ import * as React from 'react'
 import Navbar from 'components/navbar'
 import Footer from 'components/footer'
 import Profile from 'components/profile'
-import { Box, Text, Heading, Center, Image, Button } from '@chakra-ui/react'
+import { Box, Container, Text, Heading, Center, Image, Button } from '@chakra-ui/react'
 import { SimpleGrid } from '@chakra-ui/react'
 import { TeamData } from 'lib/TeamProfile'
 
@@ -12,13 +12,13 @@ const AboutPage = () => {
       <Navbar />
 
       {/* //about us */}
-      <Box bg="#FAFAFA" p="3rem">
+      <Container bg="#FAFAFA" maxW="container.xl" px={{base: '6', '2xl': '0'}} mb="16" centerContent>
         <Center>
           <Heading as="h2" size="2xl" pt="3rem" pb="3rem">
             About Us
           </Heading>
         </Center>
-        <Center>
+        <Center maxW={{base: '100%', md:'75%'}}>
           <Text
             fontSize="lgs"
             ml={['1rem', '5rem', '7rem']}
@@ -30,17 +30,17 @@ const AboutPage = () => {
             experiments in the education and future of work space.
           </Text>
         </Center>
-      </Box>
+      </Container>
 
       {/* //partners */}
-      <Box p="3rem" bg="#FFFFFF">
+      <Container bg="#FFFFFF" maxW="container.xl" px={{base: '6', '2xl': '0'}} mb="8">
         <Center>
           <Heading as="h2" size="2xl" pt="3rem" pb="3rem">
             Our Partners
           </Heading>
         </Center>
-        <Box pl="2.5rem" pr="2.5rem">
-          <SimpleGrid columns={[1, null, 2]} spacing="3rem">
+        <Box px="5" pb="10">
+          <SimpleGrid columns={[1, null, 2]}>
             <Center>
               <Image src="partners/pfolk1.png" w="50%" />
             </Center>
@@ -49,28 +49,29 @@ const AboutPage = () => {
             </Center>
           </SimpleGrid>
         </Box>
-      </Box>
+      </Container>
 
       {/* //collaborators */}
-      <Box bg="#FAFAFA" p="3rem">
+      <Container bg="#FAFAFA" maxW="container.xl" px={{base: '6', '2xl': '0'}} mb="8">
         <Center>
           <Heading as="h2" size="2xl" p="3rem">
             Our Team
           </Heading>
         </Center>
         <SimpleGrid columns={[1, 2, 3]} spacing="30px">
-          {TeamData.map((member) => {
+          {TeamData.map((member, index) => {
             return (
               <Profile
                 name={member.name}
                 profileLink={member.profileLink}
                 imageLink={member.imageLink}
                 socialType={member.socialType}
+                key={index}
               />
             )
           })}
         </SimpleGrid>
-      </Box>
+      </Container>
 
       <Footer />
     </>
