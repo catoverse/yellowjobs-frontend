@@ -6,6 +6,8 @@ import { Box, Text, Skeleton, Button } from '@chakra-ui/react'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import Link from 'next/link'
+
 import { useTweets } from '../hooks/useTweets'
 import { BsChevronDoubleDown } from 'react-icons/bs'
 
@@ -14,7 +16,6 @@ export default function TweetList() {
   const { query } = useRouter()
   const { data, error, size, setSize } = useTweets({ query })
   // const data = _data[0]
-
 
   if (error)
     return (
@@ -60,11 +61,18 @@ export default function TweetList() {
             <Masonry gutter="1rem">
               {data.map((page, key) => {
                 return page.map((tweetObj, index) => (
-                  <Tweet
-                    id={tweetObj.tweet_id}
-                    ast={tweetObj.tweet_ast}
-                    key={index}
-                  />
+                  <Box
+                    onClick={() => {
+                      console.log(tweetObj.tweet_url)
+                      window.open(tweetObj.tweet_url)
+                    }}
+                  >
+                    <Tweet
+                      id={tweetObj.tweet_id}
+                      ast={tweetObj.tweet_ast}
+                      key={index}
+                    />
+                  </Box>
                 ))
               })}
             </Masonry>
