@@ -7,42 +7,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta
-            name="description"
-            content="Curated remote job posts updated every minutes. Across tech, design, sales, content and a lot more!"
-          />
-
-          <meta property="og:url" content="https://www.yellowjobs.org/" />
-          <meta property="og:type" content="website" />
-          <meta
-            property="og:title"
-            content="YellowJobs-Helping you find your dream remote gig #remotejob"
-          />
-          <meta
-            property="og:description"
-            content="Curated remote job posts updated every minutes. Across tech, design, sales, content and a lot more!"
-          />
-          <meta
-            property="og:image"
-            content="https://www.yellowjobs.org/preview.png"
-          />
-
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta property="twitter:domain" content="yellowjobs.org" />
-          <meta property="twitter:url" content="https://www.yellowjobs.org/" />
-          <meta
-            name="twitter:title"
-            content="YellowJobs-Helping you find your dream remote gig #remotejob"
-          />
-          <meta
-            name="twitter:description"
-            content="Curated remote job posts updated every minutes. Across tech, design, sales, content and a lot more!"
-          />
-          <meta
-            name="twitter:image"
-            content="https://www.yellowjobs.org/preview.png"
-          />
-
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
