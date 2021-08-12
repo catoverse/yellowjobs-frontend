@@ -36,7 +36,7 @@ export default function Profile({ name, profileLink, imageLink, socialType }) {
           colorScheme="twitter"
           leftIcon={getIcon()}
           onClick={() => {
-            window.location.href = profileLink
+            window.open(profileLink, "_blank");
           }}
         >
           {name}
