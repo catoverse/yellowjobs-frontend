@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "HOST=0.0.0.0 next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "format": "prettier --write ./src/**/*.{js,jsx}"
