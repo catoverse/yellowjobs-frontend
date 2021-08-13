@@ -169,7 +169,7 @@ export default function JobCategories({ categories }) {
     if (!router.query.categories && selectedCategories.length > 0) {
       setSelectedCategories([])
     }
-    if (!router.query.roles && selectedRoles.length > 0) {
+    if (!router.query.roles && selectedRoles.length > 0 && !router.query.s) {
       setSelectedRoles([])
     }
   }, [router.query])

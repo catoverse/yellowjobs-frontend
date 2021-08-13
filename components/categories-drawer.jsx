@@ -222,6 +222,7 @@ export default function FiltersDrawer({ categories }) {
       })
     } else {
       const params = new URLSearchParams(location.search)
+      params.delete('s')
       params.delete('roles')
       params.delete('categories')
       router.replace({
