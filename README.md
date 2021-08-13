@@ -7,7 +7,7 @@ Curating job posts from Twitter to make it easier to find the right startup remo
 
 - Production Frontend: https://www.yellowjobs.org/
 - Frontend Repo: https://github.com/catoverse/yellowjobs-frontend
-- Backend API: https://www.api.yellowjobs.org/
+- Backend API: https://api.yellowjobs.org/
 - Backend Repo: https://github.com/catoverse/yellowjobs-backend-service
 
 
