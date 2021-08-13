@@ -69,6 +69,7 @@ export default function NextHead({
         name="twitter:image"
         content="https://www.yellowjobs.org/preview.png"
       />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     </Head>
   )
 }
