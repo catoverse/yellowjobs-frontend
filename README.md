@@ -1,7 +1,7 @@
 The YellowJobs
 www.yellowjobs.org
 
-API: www.api.yellowjobs.org
+API: https://api.yellowjobs.org
 
 backend repo: https://github.com/catoverse/yellowjobs-backend-service
 
