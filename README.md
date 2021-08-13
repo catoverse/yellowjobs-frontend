@@ -1,42 +1,42 @@
-The YellowJobs
-www.yellowjobs.org
+![](https://www.yellowjobs.org/preview.png)
 
-API: https://api.yellowjobs.org
 
-backend repo: https://github.com/catoverse/yellowjobs-backend-service
+# YellowJobs Frontend Repo
 
-#NextJS guide
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Curating job posts from Twitter to make it easier to find the right startup remote job.
 
-## Getting Started
 
-First, run the development server:
+- Production Frontend: https://www.yellowjobs.org/
+- Frontend Repo: https://github.com/catoverse/yellowjobs-frontend
+- Backend API: https://api.yellowjobs.org/
+- Backend Repo: https://github.com/catoverse/yellowjobs-backend-service
 
-```bash
-npm run dev
-# or
-yarn dev
+
+
+## Installation
+clone this repo
+```
+git clone https://github.com/catoverse/yellowjobs-frontend
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Move to the project dir
+```
+cd yellowjobs-frontend
+```
+To install all of the files, run the following script from the root of your project's directory:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+npm i
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+After the installation is completed use this to start the server
+```
+npm start
+```
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Primary Maintainers
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. [Kush](https://twitter.com/kush_mish_)
+2. [Jai](https://jaisharma.dev/)
+3. [Anshul](https://twitter.com/anshulagx)
