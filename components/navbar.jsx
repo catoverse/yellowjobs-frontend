@@ -10,6 +10,7 @@ import {
   chakra,
   useDisclosure,
   useColorModeValue,
+  Text,
 } from '@chakra-ui/react'
 
 import NextLink from 'next/link'
@@ -63,16 +64,13 @@ export default function Headers() {
         _hover={{ bg: 'white', textDecoration: 'underline' }}
       >
         <Link href="/about">About Us</Link>
-        
       </Button>
       <Button
         w="full"
         variant="ghost"
         _hover={{ bg: 'white', textDecoration: 'underline' }}
-      >  
-       <Link href="/disclaimer">
-        Disclaimer
-           </Link>
+      >
+        <Link href="/disclaimer">Disclaimer</Link>
       </Button>
     </VStack>
   )
@@ -97,6 +95,11 @@ export default function Headers() {
                 <Link>
                   <HStack>
                     <YellowJobsLogo />
+                    {process.env.VERCEL_ENV == 'production' ? (
+                      ''
+                    ) : (
+                      <Text>Staging</Text>
+                    )}
                   </HStack>
                 </Link>
               </NextLink>
@@ -110,10 +113,10 @@ export default function Headers() {
               align="center"
               display={{ base: 'none', md: 'flex' }}
             >
-              <Box _hover={{ color: 'gray.500' } }>
+              <Box _hover={{ color: 'gray.500' }}>
                 <NextLink href="/about">About Us</NextLink>
               </Box>
-              <Box _hover={{ color: 'gray.500' } }>
+              <Box _hover={{ color: 'gray.500' }}>
                 <NextLink href="/disclaimer">Disclaimer</NextLink>
               </Box>
             </HStack>
