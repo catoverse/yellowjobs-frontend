@@ -12,7 +12,7 @@ import {
   useColorModeValue,
   Text,
 } from '@chakra-ui/react'
-
+import { signIn, signOut, useSession } from 'next-auth/client'
 import NextLink from 'next/link'
 import { useRef, useState, useEffect } from 'react'
 
@@ -33,6 +33,8 @@ export default function Headers() {
   useEffect(() => {
     return scrollY.onChange(() => setY(scrollY.get()))
   }, [scrollY])
+
+  const [session, loading] = useSession()
 
   const MobileNavContent = (
     <VStack
@@ -123,6 +125,23 @@ export default function Headers() {
               <Box _hover={{ color: 'gray.500' }}>
                 <NextLink href="/disclaimer">Disclaimer</NextLink>
               </Box>
+              {!session && (
+                <>
+                  <Button colorScheme="blue" onClick={() => signIn()}>
+                    Sign in
+                  </Button>
+                </>
+              )}
+              {session && (
+                <>
+                  <Text>
+                    {session.user.name.split(' ').slice(0, -1).join(' ')}
+                  </Text>
+                  <Button colorScheme="red" onClick={() => signOut()}>
+                    Sign out
+                  </Button>
+                </>
+              )}
             </HStack>
             <IconButton
               display={{ base: 'flex', md: 'none' }}
