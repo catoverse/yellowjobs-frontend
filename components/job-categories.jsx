@@ -127,6 +127,7 @@ const JobTypes = ({selectedTypes, setSelectedTypes}) => {
           <Checkbox value={'freelance'}>Freelance</Checkbox>
           <Checkbox value={'parttime'}>Part time</Checkbox>
           <Checkbox value={'internship'}>Internships</Checkbox>
+          <Checkbox value={'freshers'}>Freshers</Checkbox>
         </CheckboxGroup>
       </SimpleGrid>
     </Flex>
