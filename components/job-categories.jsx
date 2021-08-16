@@ -119,7 +119,7 @@ const JobTypes = ({selectedTypes, setSelectedTypes}) => {
       color="gray.700"
     >
       <SimpleGrid
-        columns={{ base: '2', md: '4' }}
+        columns={{ base: '2', md: '5' }}
         spacing="2"
       >
         <CheckboxGroup value={selectedTypes} onChange={onTypeChange}>
