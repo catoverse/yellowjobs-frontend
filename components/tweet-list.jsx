@@ -13,6 +13,7 @@ import {
   useToast,
 } from '@chakra-ui/react'
 
+
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -120,7 +121,7 @@ export default function TweetList() {
                         color="yellow.400"
                         border="2px"
                         borderColor="yellow.400"
-                        _hover={{ bg: 'yellow.400', color: '#FFF' }}
+                        _hover={{ bg: "yellow.400", color: "#FFF" }}
                         variant="outline"
                         w="full"
                         onClick={() => {
@@ -142,6 +143,7 @@ export default function TweetList() {
                             'https://staging-yellowjobs-backend-h7ypy.ondigitalocean.app/api/feedback',
                             requestOptions
                           )
+
                         }}
                       >
                         Apply Now
@@ -175,6 +177,7 @@ export default function TweetList() {
                           )
                         }}
                       /> */}
+
                     </HStack>
                   </Box>
                 ))
