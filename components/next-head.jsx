@@ -10,6 +10,15 @@ export default function NextHead({
 }) {
   return (
     <Head>
+      {/* PWA Tags */}
+      <link rel="manifest" href="manifest.json" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="application-name" content="YellowJobs" />
+      <meta name="apple-mobile-web-app-title" content="YellowJobs" />
+      <meta name="theme-color" content="#FFDD00" />
+      <link rel="apple-touch-icon" href="logo-192.png" />
+
       {/* <!-- primary meta tags --> */}
       <title>{title}</title>
       <link rel="icon" type="image/svg+xml" href={favicon} />
@@ -69,7 +78,10 @@ export default function NextHead({
         name="twitter:image"
         content="https://www.yellowjobs.org/preview.png"
       />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
     </Head>
   )
 }
