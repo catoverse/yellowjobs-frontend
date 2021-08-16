@@ -95,7 +95,11 @@ export default function Headers() {
                 <Link>
                   <HStack>
                     <YellowJobsLogo />
-                    {process.env.VERCEL_ENV == 'production' ? (
+                    {console.log(
+                      'FE Running in ',
+                      process.env.NEXT_PUBLIC_VERCEL_ENV
+                    )}
+                    {process.env.NEXT_PUBLIC_VERCEL_ENV == 'production' ? (
                       ''
                     ) : (
                       <Text>Staging</Text>
