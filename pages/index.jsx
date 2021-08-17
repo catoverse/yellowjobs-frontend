@@ -60,7 +60,9 @@ export async function getStaticProps() {
   ]
   const orderedCategories = []
   orderedCategoryNames.forEach((categoryName) => {
-    orderedCategories.push(categories.find((category) => category.category === categoryName))
+    orderedCategories.push(
+      categories.find((category) => category.category === categoryName)
+    )
   })
   return {
     props: { categories: orderedCategories },

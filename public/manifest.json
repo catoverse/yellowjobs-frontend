@@ -1,6 +1,7 @@
 {
-    "name": "YellowJobs - Helping you find your dream remote gig",
+    "name": "YellowJobs",
     "short_name": "YellowJobs",
+    "description":"Curated remote job posts updated every 5 minutes. Across tech, design, sales, content and a lot more!",
     "icons": [
       {
         "src": "/logo-192.png",
