@@ -10,66 +10,41 @@ export default function NextHead({
 }) {
   return (
     <Head>
-      {/* <!-- primary meta tags --> */}
       <title>{title}</title>
+
+      {/* <!-- primary meta tags --> */}
       <link rel="icon" type="image/svg+xml" href={favicon} />
-
-      {/* meta content */}
       <meta name="google" value="notranslate" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      {/*SEO meta content */}
       <meta name="title" content={title} />
-      {/* <meta name="description" content={desc} /> */}
+      <meta name="description" content={desc} />
 
-      {/* <!-- open graph --> */}
-      {/* <meta property="og:site_name" content="YellowJobs" />
-      <meta property="og:type" content="website" />
+      {/* PWA Tags */}
+      <link rel="manifest" href="manifest.json" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="application-name" content="YellowJobs" />
+      <meta name="apple-mobile-web-app-title" content="YellowJobs" />
+      <meta name="theme-color" content="#FFDD00" />
+      <link rel="apple-touch-icon" href="logo-192.png" />
+
+      {/*OG meta Tags*/}
       <meta property="og:url" content={url} />
+      <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={desc} />
-      <meta property="og:image" content={seoImage} /> */}
-
-      {/* <!-- twitter --> */}
-      {/* <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={desc} />
-      <meta property="twitter:image" content={seoImage}></meta> */}
-
-      <meta
-        name="description"
-        content="Curated remote job posts updated every minutes. Across tech, design, sales, content and a lot more!"
-      />
-
-      <meta property="og:url" content="https://www.yellowjobs.org/" />
-      <meta property="og:type" content="website" />
-      <meta
-        property="og:title"
-        content="YellowJobs-Helping you find your dream remote gig #remotejob"
-      />
-      <meta
-        property="og:description"
-        content="Curated remote job posts updated every minutes. Across tech, design, sales, content and a lot more!"
-      />
-      <meta
-        property="og:image"
-        content="https://www.yellowjobs.org/preview.png"
-      />
+      <meta property="og:image" content={seoImage} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="twitter:domain" content="yellowjobs.org" />
-      <meta property="twitter:url" content="https://www.yellowjobs.org/" />
-      <meta
-        name="twitter:title"
-        content="YellowJobs-Helping you find your dream remote gig #remotejob"
-      />
-      <meta
-        name="twitter:description"
-        content="Curated remote job posts updated every minutes. Across tech, design, sales, content and a lot more!"
-      />
-      <meta
-        name="twitter:image"
-        content="https://www.yellowjobs.org/preview.png"
-      />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+      <meta property="twitter:url" content={url} />
+      <meta name="twitter:title" content={url} />
+      <meta name="twitter:description" content={desc} />
+      <meta name="twitter:image" content={seoImage} />
     </Head>
   )
 }
