@@ -12,11 +12,12 @@ import {
   useColorModeValue,
   Text,
 } from '@chakra-ui/react'
-import { signIn, signOut, useSession } from 'next-auth/client'
+
 import NextLink from 'next/link'
 import { useRef, useState, useEffect } from 'react'
 
 import Container from 'components/container'
+import NavbarAuth from 'components/navbar-auth'
 import YellowJobsLogo from './icons/logo.svg'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { useViewportScroll } from 'framer-motion'
@@ -33,8 +34,6 @@ export default function Headers() {
   useEffect(() => {
     return scrollY.onChange(() => setY(scrollY.get()))
   }, [scrollY])
-
-  const [session, loading] = useSession()
 
   const MobileNavContent = (
     <VStack
@@ -74,6 +73,7 @@ export default function Headers() {
       >
         <Link href="/disclaimer">Disclaimer</Link>
       </Button>
+      <NavbarAuth isMobileView="true" />
     </VStack>
   )
 
@@ -125,23 +125,7 @@ export default function Headers() {
               <Box _hover={{ color: 'gray.500' }}>
                 <NextLink href="/disclaimer">Disclaimer</NextLink>
               </Box>
-              {!session && (
-                <>
-                  <Button colorScheme="blue" onClick={() => signIn()}>
-                    Sign in
-                  </Button>
-                </>
-              )}
-              {session && (
-                <>
-                  <Text>
-                    {session.user.name.split(' ').slice(0, -1).join(' ')}
-                  </Text>
-                  <Button colorScheme="red" onClick={() => signOut()}>
-                    Sign out
-                  </Button>
-                </>
-              )}
+              <NavbarAuth />
             </HStack>
             <IconButton
               display={{ base: 'flex', md: 'none' }}
