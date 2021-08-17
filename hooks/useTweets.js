@@ -30,7 +30,7 @@ export const useTweets = ({ query }) => {
     // not send a request if location or resource are not empty
     // if (!query.s || !query.types || !query.roles) return null
 
-    const l = 80
+    const l = 42
     const o = 40 * pageIndex
 
     if (previousPageData && !previousPageData.length) return null
