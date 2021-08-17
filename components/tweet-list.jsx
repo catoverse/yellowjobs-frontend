@@ -1,7 +1,7 @@
 import Container from './container'
 import useSWR from 'swr'
 import { Tweet } from 'react-static-tweets'
-import { Box, Text, Skeleton, Button } from '@chakra-ui/react'
+import { Box, IconButton, Text, Skeleton, Button, Flex, HStack } from '@chakra-ui/react'
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useRouter } from 'next/router'
@@ -10,6 +10,8 @@ import Link from 'next/link'
 
 import { useTweets } from '../hooks/useTweets'
 import { BsChevronDoubleDown } from 'react-icons/bs'
+import { FiShare2 as ShareIcon } from 'react-icons/fi'
+import { FiBookmark as SaveIcon } from 'react-icons/fi'
 
 export default function TweetList() {
   const [pageNo, setPageNo] = useState(1)
@@ -62,16 +64,52 @@ export default function TweetList() {
               {data.map((page, key) => {
                 return page.map((tweetObj, index) => (
                   <Box
-                    onClick={() => {
-                      console.log(tweetObj.tweet_url)
-                      window.open(tweetObj.tweet_url)
-                    }}
+                    rounded="md"
+                    p="4"
+                    bg="white"
+                    border="1px"
+                    borderColor="gray.100"
                   >
+                    <Flex justify="flex-end" mb="4">
+                      <IconButton
+                        size="sm"
+                        variant="outline"
+                        icon={<ShareIcon />}
+                        onClick={() => {
+                          if (navigator.share) {
+                            navigator.share({
+                              text: `Check out this job I found on yellowjobs.org\n`,
+                              url: tweetObj.tweet_url,
+                            })
+                          }
+                        }}
+                      />
+                    </Flex>
                     <Tweet
                       id={tweetObj.tweet_id}
                       ast={tweetObj.tweet_ast}
                       key={index}
                     />
+                    <HStack mt="4">
+                      <Button
+                        color="yellow.400"
+                        border="2px"
+                        borderColor="yellow.400"
+                        _hover={{ bg: "yellow.400", color: "#FFF" }}
+                        variant="outline"
+                        w="full"
+                        onClick={() => {
+                          if (tweetObj.urls[0]) {
+                            window.open(tweetObj.urls[0])
+                          } else {
+                            window.open(tweetObj.tweet_url)
+                          }
+                        }}
+                      >
+                        Apply Now
+                      </Button>
+                      {/*<IconButton size="sm" variant="outline" icon={<SaveIcon />} />*/}
+                    </HStack>
                   </Box>
                 ))
               })}
