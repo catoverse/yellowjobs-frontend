@@ -19,10 +19,6 @@ import { SelectedRolesProvider } from 'contexts/selected-roles-context'
 import { API_URL } from 'lib/api'
 
 export default function Home({ categories }) {
-  if (process.env.NEXT_PUBLIC_VERCEL_URL)
-    process.env['NEXTAUTH_URL'] = process.env.NEXT_PUBLIC_VERCEL_URL
-  console.log(process.env.NEXTAUTH_URL)
-
   return (
     <Box>
       <ModalProvider>
