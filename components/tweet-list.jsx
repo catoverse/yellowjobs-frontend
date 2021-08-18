@@ -126,14 +126,28 @@ export default function TweetList() {
                         variant="outline"
                         icon={<SaveIcon />}
                         isDisabled={!session}
-                        onClick={() =>
-                          toast({
-                            title: `Saved`,
-                            status: 'success',
-                            isClosable: true,
-                            duration: 2000,
-                          })
-                        }
+                        onClick={() => {
+                          const requestOptions = {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                              userId: session.user.userId,
+                              tweetId: tweetObj.tweet_id,
+                              action: 'save',
+                            }),
+                          }
+                          fetch(
+                            'https://staging-yellowjobs-backend-h7ypy.ondigitalocean.app/api/feedback',
+                            requestOptions
+                          ).then((response) =>
+                            toast({
+                              title: `Saved`,
+                              status: 'success',
+                              isClosable: true,
+                              duration: 2000,
+                            })
+                          )
+                        }}
                       />
                     </HStack>
                   </Box>
