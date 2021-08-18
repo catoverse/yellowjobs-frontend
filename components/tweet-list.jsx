@@ -1,24 +1,36 @@
 import Container from './container'
 import useSWR from 'swr'
 import { Tweet } from 'react-static-tweets'
-import { Box, IconButton, Text, Skeleton, Button, Flex, HStack } from '@chakra-ui/react'
+import {
+  Box,
+  IconButton,
+  Text,
+  Skeleton,
+  Button,
+  Flex,
+  HStack,
+  useDisclosure,
+  useToast,
+} from '@chakra-ui/react'
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Link from 'next/link'
-
+import { useSession } from 'next-auth/client'
 import { useTweets } from '../hooks/useTweets'
 import { BsChevronDoubleDown } from 'react-icons/bs'
 import { FiShare2 as ShareIcon } from 'react-icons/fi'
 import { FiBookmark as SaveIcon } from 'react-icons/fi'
 
+import LoginModal from './login-modal'
 export default function TweetList() {
+  const [session, loading] = useSession()
   const [pageNo, setPageNo] = useState(1)
   const { query } = useRouter()
   const { data, error, size, setSize } = useTweets({ query })
   // const data = _data[0]
-
+  const toast = useToast()
   if (error)
     return (
       <Text align="center" my="4">
@@ -95,7 +107,7 @@ export default function TweetList() {
                         color="yellow.400"
                         border="2px"
                         borderColor="yellow.400"
-                        _hover={{ bg: "yellow.400", color: "#FFF" }}
+                        _hover={{ bg: 'yellow.400', color: '#FFF' }}
                         variant="outline"
                         w="full"
                         onClick={() => {
@@ -108,7 +120,21 @@ export default function TweetList() {
                       >
                         Apply Now
                       </Button>
-                      {/*<IconButton size="sm" variant="outline" icon={<SaveIcon />} />*/}
+
+                      <IconButton
+                        size="sm"
+                        variant="outline"
+                        icon={<SaveIcon />}
+                        isDisabled={!session}
+                        onClick={() =>
+                          toast({
+                            title: `Saved`,
+                            status: 'success',
+                            isClosable: true,
+                            duration: 2000,
+                          })
+                        }
+                      />
                     </HStack>
                   </Box>
                 ))

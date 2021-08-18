@@ -13,21 +13,25 @@ import {
   useDisclosure,
   useColorModeValue,
   Text,
+  Image,
 } from '@chakra-ui/react'
+
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
 } from '@chakra-ui/react'
-import NewWindow from 'react-new-window'
-import GoogleButton from 'react-google-button'
+
+import LoginModal from './login-modal'
+
 export default function NavbarAuth({ isMobileView }) {
   const [session, loading] = useSession()
-  const [popup, setPopUp] = useState(false)
+
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
@@ -35,10 +39,30 @@ export default function NavbarAuth({ isMobileView }) {
         <p>loading...</p>
       ) : session ? (
         <>
-          <Text>Hey {session.user.name.split(' ').slice(0, -1).join(' ')}</Text>
-          <Button colorScheme="red" onClick={() => signOut()}>
-            Logout
-          </Button>
+          <Popover>
+            <PopoverTrigger>
+              <Image
+                boxSize="40px"
+                borderRadius="full"
+                src={session.user.image}
+                alt="dp"
+              />
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>
+                <Text>Signed in as {session.user.name}</Text>
+              </PopoverHeader>
+              <PopoverBody>
+                {' '}
+                <Button colorScheme="red" onClick={() => signOut()}>
+                  Logout
+                </Button>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+          {/* <Text>Hey {session.user.name.split(' ').slice(0, -1).join(' ')}</Text> */}
         </>
       ) : (
         <Button colorScheme="blue" onClick={onOpen}>
@@ -46,32 +70,8 @@ export default function NavbarAuth({ isMobileView }) {
         </Button>
       )}
 
-      {/* {popup && !session ? (
-        <NewWindow url="/sign-in" onUnload={() => setPopUp(false)} />
-      ) : null} */}
-
       {isOpen && !session ? (
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Please Log In</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              You can save tweets after login
-              <GoogleButton
-                onClick={() => {
-                  signIn('google')
-                }}
-              />
-            </ModalBody>
-
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Close
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
+        <LoginModal isOpen={isOpen} onClose={onClose} />
       ) : null}
     </>
   )
