@@ -29,7 +29,7 @@ export default function TweetList() {
   const [session, loading] = useSession()
   const [pageNo, setPageNo] = useState(1)
   const { query } = useRouter()
-  const { data, error, size, setSize } = useTweets({ query })
+  const { data, error, size, setSize, isReachingEnd } = useTweets({ query })
   // const data = _data[0]
   const toast = useToast()
   if (error)
@@ -65,7 +65,6 @@ export default function TweetList() {
     setSize(size + 1)
     console.log(size)
   }
-
   if (data[0].length > 0)
     return (
       <Box as="section" my={5}>
@@ -121,7 +120,7 @@ export default function TweetList() {
                         color="yellow.400"
                         border="2px"
                         borderColor="yellow.400"
-                        _hover={{ bg: "yellow.400", color: "#FFF" }}
+                        _hover={{ bg: 'yellow.400', color: '#FFF' }}
                         variant="outline"
                         w="full"
                         onClick={() => {
@@ -191,6 +190,7 @@ export default function TweetList() {
             mt="2rem"
             rightIcon={<BsChevronDoubleDown />}
             onClick={showMore}
+            disabled={isReachingEnd}
           >
             Load More
           </Button>
