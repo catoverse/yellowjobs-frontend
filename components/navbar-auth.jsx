@@ -15,7 +15,7 @@ import {
   Text,
   Image,
 } from '@chakra-ui/react'
-
+import NextLink from 'next/link'
 import {
   Popover,
   PopoverTrigger,
@@ -39,6 +39,9 @@ export default function NavbarAuth({ isMobileView }) {
         <p>loading...</p>
       ) : session ? (
         <>
+          <Box _hover={{ color: 'gray.500' }}>
+            <NextLink href="/saved">Pinned</NextLink>
+          </Box>
           <Popover>
             <PopoverTrigger>
               <Image

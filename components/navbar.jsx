@@ -125,6 +125,7 @@ export default function Headers() {
               <Box _hover={{ color: 'gray.500' }}>
                 <NextLink href="/disclaimer">Disclaimer</NextLink>
               </Box>
+
               <NavbarAuth />
             </HStack>
             <IconButton
