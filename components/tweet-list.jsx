@@ -94,6 +94,19 @@ export default function TweetList() {
                               url: tweetObj.tweet_url,
                             })
                           }
+                          const requestOptions = {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                              userId: session ? session.user.userId : null,
+                              tweetId: tweetObj.tweet_id,
+                              action: 'share',
+                            }),
+                          }
+                          fetch(
+                            'https://staging-yellowjobs-backend-h7ypy.ondigitalocean.app/api/feedback',
+                            requestOptions
+                          )
                         }}
                       />
                     </Flex>
@@ -116,13 +129,26 @@ export default function TweetList() {
                           } else {
                             window.open(tweetObj.tweet_url)
                           }
+                          const requestOptions = {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                              userId: session ? session.user.userId : null,
+                              tweetId: tweetObj.tweet_id,
+                              action: 'apply',
+                            }),
+                          }
+                          fetch(
+                            'https://staging-yellowjobs-backend-h7ypy.ondigitalocean.app/api/feedback',
+                            requestOptions
+                          )
                         }}
                       >
                         Apply Now
                       </Button>
 
                       <IconButton
-                        size="sm"
+                        size="md"
                         variant="outline"
                         icon={<SaveIcon />}
                         isDisabled={!session}
