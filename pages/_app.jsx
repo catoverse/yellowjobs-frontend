@@ -9,7 +9,7 @@ import { TwitterContextProvider } from 'react-static-tweets'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
-
+import { Provider as AuthProvider } from 'next-auth/client'
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter()
   useEffect(() => {
@@ -22,18 +22,20 @@ export default function MyApp({ Component, pageProps }) {
     }
   }, [router.events])
   return (
-    <ChakraProvider>
-      <GlobalCSS />
-      <NextHead></NextHead>
-      <TwitterContextProvider
-        value={{
-          swrOptions: {
-            fetcher: () => null,
-          },
-        }}
-      >
-        <Component {...pageProps} />
-      </TwitterContextProvider>
-    </ChakraProvider>
+    <AuthProvider session={pageProps.session}>
+      <ChakraProvider>
+        <GlobalCSS />
+        <NextHead></NextHead>
+        <TwitterContextProvider
+          value={{
+            swrOptions: {
+              fetcher: () => null,
+            },
+          }}
+        >
+          <Component {...pageProps} />
+        </TwitterContextProvider>
+      </ChakraProvider>
+    </AuthProvider>
   )
 }
