@@ -4,6 +4,7 @@ import { API_URL, fetcher } from 'lib/api'
 export const useTweets = ({ query }) => {
   // default url
   let url = `${API_URL}/api/tweets/?`
+  const PAGE_LIMIT = 42
 
   // when we have role, for searching
   if (query.s) {
@@ -30,14 +31,18 @@ export const useTweets = ({ query }) => {
     // not send a request if location or resource are not empty
     // if (!query.s || !query.types || !query.roles) return null
 
-    const l = 42
     const o = 40 * pageIndex
 
     if (previousPageData && !previousPageData.length) return null
 
-    return `${url}&limit=${l}&offset=${o}`
+    return `${url}&limit=${PAGE_LIMIT}&offset=${o}`
   }
 
   const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher)
-  return { data, error, size, setSize }
+
+  const isEmpty = data?.[0]?.length === 0
+  const isReachingEnd =
+    isEmpty || (data && data[data.length - 1]?.length < PAGE_LIMIT)
+
+  return { data, error, size, setSize, isReachingEnd }
 }
