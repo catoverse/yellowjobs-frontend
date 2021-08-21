@@ -147,7 +147,7 @@ export default function TweetList() {
                         Apply Now
                       </Button>
 
-                      <IconButton
+                      {/* <IconButton
                         size="md"
                         variant="outline"
                         icon={<SaveIcon />}
@@ -174,7 +174,7 @@ export default function TweetList() {
                             })
                           )
                         }}
-                      />
+                      /> */}
                     </HStack>
                   </Box>
                 ))
