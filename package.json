@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "prepare": "husky install",
-    "format": "prettier --write ./src/**/*.{js,jsx}"
+    "format": "prettier --write ./**/*.{js,jsx}"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.3",
