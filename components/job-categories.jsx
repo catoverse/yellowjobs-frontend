@@ -58,7 +58,7 @@ const Category = ({ icon, category, start, end }) => {
         bg="gray.50"
         py="2"
         px="8"
-        w="10rem"
+        w="full"
         height="10"
         bg="white"
         borderWidth="1px"
