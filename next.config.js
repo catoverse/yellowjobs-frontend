@@ -1,11 +1,14 @@
-const withPWA = require('next-pwa')
-if (process.env.NEXT_PUBLIC_VERCEL_URL)
+if (process.env.NEXT_PUBLIC_VERCEL_URL) {
   process.env['NEXTAUTH_URL'] = 'http://' + process.env.NEXT_PUBLIC_VERCEL_URL
+}
 console.log('NEXTAUTH_URL: ', process.env.NEXTAUTH_URL)
+
+const withPWA = require('next-pwa')
 module.exports = withPWA({
   pwa: {
-    dest: 'public',
     // register: false,
+    dest: 'public',
+    disable: process.env.NODE_ENV === 'development',
     skipWaiting: false,
   },
   images: {
