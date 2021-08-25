@@ -1,24 +1,26 @@
 import * as React from 'react'
 import Navbar from 'components/navbar'
-import { Box, Text, Heading } from "@chakra-ui/react"
+import { Text, Heading } from '@chakra-ui/react'
 import path from 'path'
 import fs from 'fs'
 import Footer from 'components/footer'
+import Container from 'components/container'
 
 const DisclaimerPage = ({ disclaimer }) => {
-
   return (
     <>
-      <Navbar/>
-      <Box m="1.5rem">
-        <Heading as="h2" size="2xl" p="1rem">DISCLAIMER</Heading>
-        
+      <Navbar />
+      <Container>
+        <Heading as="h2" my="4" size="2xl">
+          DISCLAIMER
+        </Heading>
+
         {disclaimer.split('\n').map((x, idx) => (
-          <Text  fontSize="md" key={idx} p="0.5rem">
+          <Text fontSize="md" key={idx} p="0.5rem">
             {x}
           </Text>
         ))}
-      </Box>
+      </Container>
       <Footer />
     </>
   )
