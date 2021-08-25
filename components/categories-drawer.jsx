@@ -93,7 +93,13 @@ const AddFiltersButton = ({ isOpen, onOpen, categories }) => {
   )
 }
 
-const CateoriesTabs = ({ categories, roles, setRoles, isAllSelected, setIsAllSelected }) => {
+const CateoriesTabs = ({
+  categories,
+  roles,
+  setRoles,
+  isAllSelected,
+  setIsAllSelected,
+}) => {
   /*
     here openedCategory is local, unlike with modal as the it need not be used across components
   */
@@ -132,7 +138,12 @@ const CateoriesTabs = ({ categories, roles, setRoles, isAllSelected, setIsAllSel
   }
 
   return (
-    <Tabs h="full" orientation="vertical" variant="ghost" onChange={onTabsChange}>
+    <Tabs
+      h="full"
+      orientation="vertical"
+      variant="ghost"
+      onChange={onTabsChange}
+    >
       <TabList pt="2" bg="gray.50">
         {categories.map((category, index) => {
           const selectedRolesInThisCategory = roles.filter((selectedRole) =>
@@ -155,7 +166,13 @@ const CateoriesTabs = ({ categories, roles, setRoles, isAllSelected, setIsAllSel
                 <CategoryEmoji />
                 <Text>{category.category}</Text>
                 {selectedRolesInThisCategory.length > 0 && (
-                  <Badge ml="2" variant="solid" colorScheme="blue" borderRadius="full" fontSize="0.8em">
+                  <Badge
+                    ml="2"
+                    variant="solid"
+                    colorScheme="blue"
+                    borderRadius="full"
+                    fontSize="0.8em"
+                  >
                     {selectedRolesInThisCategoryCountText}
                   </Badge>
                 )}
@@ -170,10 +187,21 @@ const CateoriesTabs = ({ categories, roles, setRoles, isAllSelected, setIsAllSel
           return (
             <TabPanel py="0" key={index}>
               <VStack align="start">
-                <Checkbox isChecked={isAllSelected[index]} onChange={() => onAllSelected(index)}>Select all</Checkbox>
+                <Checkbox
+                  isChecked={isAllSelected[index]}
+                  onChange={() => onAllSelected(index)}
+                >
+                  Select all
+                </Checkbox>
                 <CheckboxGroup value={roles} onChange={setRoles}>
                   {category.roles.map((role, roleIndex) => (
-                    <Checkbox width="full" isDisabled={isAllSelected[index]} py="2" value={role} key={roleIndex}>
+                    <Checkbox
+                      width="full"
+                      isDisabled={isAllSelected[index]}
+                      py="2"
+                      value={role}
+                      key={roleIndex}
+                    >
                       {role}
                     </Checkbox>
                   ))}
@@ -190,7 +218,9 @@ const CateoriesTabs = ({ categories, roles, setRoles, isAllSelected, setIsAllSel
 export default function FiltersDrawer({ categories }) {
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [isAllSelected, setIsAllSelected] = useState(new Array(categories.length))
+  const [isAllSelected, setIsAllSelected] = useState(
+    new Array(categories.length)
+  )
   const [roles, setRoles] = useRoles()
   const [selectedRoles, setSelectedRoles] = useSelectedRoles()
 
@@ -204,13 +234,19 @@ export default function FiltersDrawer({ categories }) {
           filteredCategories.push(categories[index])
         }
       })
-      params.roles = roles.filter((role) => {
-        return filteredCategories.every((category) => !category.roles.includes(role))
-      }).join(',')
+      params.roles = roles
+        .filter((role) => {
+          return filteredCategories.every(
+            (category) => !category.roles.includes(role)
+          )
+        })
+        .join(',')
       if (params.roles.length === 0) {
         delete params.roles
       }
-      params.categories = filteredCategories.map((category) => category.category).join(',')
+      params.categories = filteredCategories
+        .map((category) => category.category)
+        .join(',')
       if (params.categories.length === 0) {
         delete params.categories
       }
@@ -242,13 +278,12 @@ export default function FiltersDrawer({ categories }) {
 
   return (
     <div>
-      <AddFiltersButton isOpen={isOpen} onOpen={onOpen} categories={categories} />
-      <Drawer
+      <AddFiltersButton
         isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        size="full"
-      >
+        onOpen={onOpen}
+        categories={categories}
+      />
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="full">
         <DrawerOverlay />
         <DrawerContent h="100% !important">
           <DrawerHeader px="0" py="1" shadow="sm">

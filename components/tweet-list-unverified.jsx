@@ -3,19 +3,23 @@ import VerificationButtons from './verification-button'
 import useSWR from 'swr'
 import { Tweet } from 'react-static-tweets'
 import {
-  Box, Center, Spinner, FormControl,
+  Box,
+  Center,
+  Spinner,
+  FormControl,
   FormLabel,
   FormErrorMessage,
   FormHelperText,
-  Input
+  Input,
 } from '@chakra-ui/react'
 import { API_URL, fetcher } from 'lib/api'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
-
-
 export default function UnverifiedTweetList() {
-  const { data, error } = useSWR(`${API_URL}/api/tweets/?unverified=true`, fetcher)
+  const { data, error } = useSWR(
+    `${API_URL}/api/tweets/?unverified=true`,
+    fetcher
+  )
 
   if (error) return <div>failed to load</div>
   if (!data)
@@ -25,11 +29,9 @@ export default function UnverifiedTweetList() {
       </Center>
     )
 
-
   //   console.log(data)
   return (
     <Box as="section" my={5}>
-
       <Container>
         <FormControl mb="3rem" id="auth">
           <FormLabel>Auth Token</FormLabel>
@@ -40,7 +42,10 @@ export default function UnverifiedTweetList() {
             {data.map((tweetObj) => (
               <>
                 <Tweet id={tweetObj.tweet_id} ast={tweetObj.tweet_ast} />
-                <VerificationButtons key={tweetObj.tweet_id} id={tweetObj.tweet_id} />
+                <VerificationButtons
+                  key={tweetObj.tweet_id}
+                  id={tweetObj.tweet_id}
+                />
               </>
             ))}
           </Masonry>

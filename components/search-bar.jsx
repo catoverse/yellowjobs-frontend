@@ -12,7 +12,7 @@ import {
 export default function SearchBar({ categories }) {
   const router = useRouter()
 
-  const allRoles = [];
+  const allRoles = []
   categories.forEach((category) => {
     allRoles.push(...category.roles)
   })
@@ -20,7 +20,9 @@ export default function SearchBar({ categories }) {
   const onAutoCompleteSelect = (selectedValue) => {
     if (selectedValue === '') return
     const oldSearchQuery = router.query.s
-    const searchValue = oldSearchQuery ? [...oldSearchQuery.split(','), selectedValue] : [selectedValue]
+    const searchValue = oldSearchQuery
+      ? [...oldSearchQuery.split(','), selectedValue]
+      : [selectedValue]
     router.push({
       pathname: '/search',
       query: {

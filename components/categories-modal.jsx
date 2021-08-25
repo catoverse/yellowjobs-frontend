@@ -46,32 +46,32 @@ export default function CategoriesModal({ categories }) {
   const [searchValue, setSearchValue] = useState('')
 
   const renderCheckboxes = () => {
-    let rolesToDisplay = openedCategory.roles;
+    let rolesToDisplay = openedCategory.roles
 
     if (searchValue.trim().length > 0) {
       const fuse = new Fuse(openedCategory.roles, {
-        includeScore: true
+        includeScore: true,
       })
       const searchResults = fuse.search(searchValue)
       rolesToDisplay = searchResults.map((result) => result.item)
     }
 
-    return (
-      rolesToDisplay.map((role, index) => (
-        <Checkbox isDisabled={isAllSelected} value={role} key={index}>
-          <Highlighter
-            searchWords={[searchValue]}
-            autoEscape={true}
-            textToHighlight={role}
-          />
-        </Checkbox>
-      ))
-    )
+    return rolesToDisplay.map((role, index) => (
+      <Checkbox isDisabled={isAllSelected} value={role} key={index}>
+        <Highlighter
+          searchWords={[searchValue]}
+          autoEscape={true}
+          textToHighlight={role}
+        />
+      </Checkbox>
+    ))
   }
 
   const [roles, setRoles] = useRoles()
   const [selectedCategories, setSelectedCategories] = useSelectedCategories()
-  const [isAllSelected, setIsAllSelected] = useState(selectedCategories.includes(openedCategory.category))
+  const [isAllSelected, setIsAllSelected] = useState(
+    selectedCategories.includes(openedCategory.category)
+  )
 
   useEffect(() => {
     const isOpened = selectedCategories.includes(openedCategory.category)
@@ -88,7 +88,9 @@ export default function CategoriesModal({ categories }) {
       setRoles(newRoles)
       setIsAllSelected(true)
     } else {
-      const newRoles = roles.filter((role) => !openedCategory.roles.includes(role))
+      const newRoles = roles.filter(
+        (role) => !openedCategory.roles.includes(role)
+      )
       setRoles(newRoles)
       setIsAllSelected(false)
     }
@@ -100,7 +102,9 @@ export default function CategoriesModal({ categories }) {
     if (isAllSelected) {
       const params = router.query
       delete params.s
-      params.roles = roles.filter((role) => !openedCategory.roles.includes(role)).join(',')
+      params.roles = roles
+        .filter((role) => !openedCategory.roles.includes(role))
+        .join(',')
       if (params.roles.length === 0) {
         delete params.roles
       }
@@ -109,7 +113,7 @@ export default function CategoriesModal({ categories }) {
         query: {
           ...params,
           categories: !selectedCategories.includes(openedCategory.category)
-            ? [...selectedCategories,  openedCategory.category].join(',')
+            ? [...selectedCategories, openedCategory.category].join(',')
             : openedCategory.category,
         },
       })
@@ -117,7 +121,9 @@ export default function CategoriesModal({ categories }) {
       const params = router.query
       delete params.s
       if (selectedCategories.includes(openedCategory.category)) {
-        params.categories = selectedCategories.filter((category) => category !== openedCategory.category).join(',')
+        params.categories = selectedCategories
+          .filter((category) => category !== openedCategory.category)
+          .join(',')
       }
       if (params.categories && params.categories.length === 0) {
         delete params.categories
@@ -143,7 +149,9 @@ export default function CategoriesModal({ categories }) {
   }
 
   const clearFilters = () => {
-    const filteredRoles = roles.filter((role) => !openedCategory.roles.includes(role))
+    const filteredRoles = roles.filter(
+      (role) => !openedCategory.roles.includes(role)
+    )
     setRoles(filteredRoles)
     setSearchValue('')
     setOpenedCategory()
@@ -182,7 +190,9 @@ export default function CategoriesModal({ categories }) {
               />
               <InputRightElement children={<FiSearch />} />
             </InputGroup>
-            <Checkbox isChecked={isAllSelected} onChange={onAllSelected}>Select all</Checkbox>
+            <Checkbox isChecked={isAllSelected} onChange={onAllSelected}>
+              Select all
+            </Checkbox>
           </HStack>
 
           {/* grid */}

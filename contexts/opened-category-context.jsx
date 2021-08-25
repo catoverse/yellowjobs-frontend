@@ -6,7 +6,7 @@ function OpenedCategoryProvider({ children, categories }) {
   const [openedCategory, setOpenedCategory] = useState()
 
   return (
-    <OpenedCategoryContext.Provider value={[ openedCategory, setOpenedCategory ]}>
+    <OpenedCategoryContext.Provider value={[openedCategory, setOpenedCategory]}>
       {children}
     </OpenedCategoryContext.Provider>
   )

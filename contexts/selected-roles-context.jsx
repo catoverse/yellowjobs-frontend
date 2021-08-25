@@ -6,7 +6,7 @@ function SelectedRolesProvider({ children }) {
   const [selectedRoles, setSelectedRoles] = useState([])
 
   return (
-    <SelectedRolesContext.Provider value={[ selectedRoles, setSelectedRoles ]}>
+    <SelectedRolesContext.Provider value={[selectedRoles, setSelectedRoles]}>
       {children}
     </SelectedRolesContext.Provider>
   )

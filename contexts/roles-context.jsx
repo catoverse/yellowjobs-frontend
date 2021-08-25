@@ -7,7 +7,7 @@ function RolesProvider({ children }) {
   const { value, setValue } = useCheckboxGroup()
 
   return (
-    <RolesContext.Provider value={[ value, setValue ]}>
+    <RolesContext.Provider value={[value, setValue]}>
       {children}
     </RolesContext.Provider>
   )

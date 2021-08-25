@@ -2,7 +2,15 @@ import * as React from 'react'
 import Navbar from 'components/navbar'
 import Footer from 'components/footer'
 import Profile from 'components/profile'
-import { Box, Container, Text, Heading, Center, Image, Button } from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  Text,
+  Heading,
+  Center,
+  Image,
+  Button,
+} from '@chakra-ui/react'
 import { SimpleGrid } from '@chakra-ui/react'
 import { TeamData } from 'lib/TeamProfile'
 
@@ -12,13 +20,19 @@ const AboutPage = () => {
       <Navbar />
 
       {/* //about us */}
-      <Container bg="#FAFAFA" maxW="container.xl" px={{base: '6', '2xl': '0'}} mb="16" centerContent>
+      <Container
+        bg="#FAFAFA"
+        maxW="container.xl"
+        px={{ base: '6', '2xl': '0' }}
+        mb="16"
+        centerContent
+      >
         <Center>
           <Heading as="h2" size="2xl" pt="3rem" pb="3rem">
             About Us
           </Heading>
         </Center>
-        <Center maxW={{base: '100%', md:'75%'}}>
+        <Center maxW={{ base: '100%', md: '75%' }}>
           <Text
             fontSize="lgs"
             ml={['1rem', '5rem', '7rem']}
@@ -33,7 +47,12 @@ const AboutPage = () => {
       </Container>
 
       {/* //partners */}
-      <Container bg="#FFFFFF" maxW="container.xl" px={{base: '6', '2xl': '0'}} mb="8">
+      <Container
+        bg="#FFFFFF"
+        maxW="container.xl"
+        px={{ base: '6', '2xl': '0' }}
+        mb="8"
+      >
         <Center>
           <Heading as="h2" size="2xl" pt="3rem" pb="3rem">
             Our Partners
@@ -52,7 +71,12 @@ const AboutPage = () => {
       </Container>
 
       {/* //collaborators */}
-      <Container bg="#FAFAFA" maxW="container.xl" px={{base: '6', '2xl': '0'}} mb="8">
+      <Container
+        bg="#FAFAFA"
+        maxW="container.xl"
+        px={{ base: '6', '2xl': '0' }}
+        mb="8"
+      >
         <Center>
           <Heading as="h2" size="2xl" p="3rem">
             Our Team
