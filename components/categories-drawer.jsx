@@ -222,10 +222,9 @@ export default function FiltersDrawer({ categories }) {
     new Array(categories.length)
   )
   const [roles, setRoles] = useRoles()
-  const [selectedRoles, setSelectedRoles] = useSelectedRoles()
 
-  const applyFilters = () => {
-    if (roles.length > 0) {
+  const applyFilters = (selectedRoles) => {
+    if (selectedRoles.length > 0) {
       const params = router.query
       delete params.s
       const filteredCategories = []
@@ -234,7 +233,7 @@ export default function FiltersDrawer({ categories }) {
           filteredCategories.push(categories[index])
         }
       })
-      params.roles = roles
+      params.roles = selectedRoles
         .filter((role) => {
           return filteredCategories.every(
             (category) => !category.roles.includes(role)
@@ -267,13 +266,13 @@ export default function FiltersDrawer({ categories }) {
       })
     }
 
-    clearFilters()
     onClose()
   }
 
   const clearFilters = () => {
     setRoles([])
     setIsAllSelected(new Array(categories.length))
+    applyFilters([])
   }
 
   return (
@@ -332,7 +331,7 @@ export default function FiltersDrawer({ categories }) {
               fontSize="sm"
               fontWeight="bold"
               display={{ base: 'flex', md: 'none' }}
-              onClick={applyFilters}
+              onClick={() => applyFilters(roles)}
             >
               Apply filters
             </Center>
