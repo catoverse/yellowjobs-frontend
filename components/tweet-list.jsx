@@ -13,6 +13,7 @@ import {
   useToast,
 } from '@chakra-ui/react'
 
+
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -28,7 +29,7 @@ export default function TweetList() {
   const [session, loading] = useSession()
   const [pageNo, setPageNo] = useState(1)
   const { query } = useRouter()
-  const { data, error, size, setSize } = useTweets({ query })
+  const { data, error, size, setSize, isReachingEnd } = useTweets({ query })
   // const data = _data[0]
   const toast = useToast()
   if (error)
@@ -64,7 +65,6 @@ export default function TweetList() {
     setSize(size + 1)
     console.log(size)
   }
-
   if (data[0].length > 0)
     return (
       <Box as="section" my={5}>
@@ -94,6 +94,7 @@ export default function TweetList() {
                               url: tweetObj.tweet_url,
                             })
                           }
+
                           const requestOptions = {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -107,6 +108,7 @@ export default function TweetList() {
                             'https://staging-yellowjobs-backend-h7ypy.ondigitalocean.app/api/feedback',
                             requestOptions
                           )
+
                         }}
                       />
                     </Flex>
@@ -129,6 +131,7 @@ export default function TweetList() {
                           } else {
                             window.open(tweetObj.tweet_url)
                           }
+
                           const requestOptions = {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -142,6 +145,7 @@ export default function TweetList() {
                             'https://staging-yellowjobs-backend-h7ypy.ondigitalocean.app/api/feedback',
                             requestOptions
                           )
+
                         }}
                       >
                         Apply Now
@@ -175,6 +179,7 @@ export default function TweetList() {
                           )
                         }}
                       /> */}
+
                     </HStack>
                   </Box>
                 ))
@@ -188,6 +193,7 @@ export default function TweetList() {
             mt="2rem"
             rightIcon={<BsChevronDoubleDown />}
             onClick={showMore}
+            disabled={isReachingEnd}
           >
             Load More
           </Button>
