@@ -94,6 +94,7 @@ export default function TweetList() {
                               url: tweetObj.tweet_url,
                             })
                           }
+
                           const requestOptions = {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -107,6 +108,7 @@ export default function TweetList() {
                             'https://staging-yellowjobs-backend-h7ypy.ondigitalocean.app/api/feedback',
                             requestOptions
                           )
+
                         }}
                       />
                     </Flex>
@@ -129,6 +131,7 @@ export default function TweetList() {
                           } else {
                             window.open(tweetObj.tweet_url)
                           }
+
                           const requestOptions = {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
