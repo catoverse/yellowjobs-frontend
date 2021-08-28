@@ -73,7 +73,7 @@ export default function Headers() {
       >
         <Link href="/disclaimer">Disclaimer</Link>
       </Button>
-      {/* <NavbarAuth isMobileView="true" /> */}
+      <NavbarAuth isMobileView="true" />
     </VStack>
   )
 
@@ -126,7 +126,7 @@ export default function Headers() {
                 <NextLink href="/disclaimer">Disclaimer</NextLink>
               </Box>
 
-              {/* <NavbarAuth /> */}
+              <NavbarAuth />
             </HStack>
             <IconButton
               display={{ base: 'flex', md: 'none' }}
