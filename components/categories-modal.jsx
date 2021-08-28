@@ -136,12 +136,12 @@ export default function CategoriesModal({ categories }) {
         },
       })
     } else {
-      const params = new URLSearchParams(location.search)
-      params.delete('roles')
-      params.delete('categories')
-      router.replace({
+      const params = router.query
+      delete params.roles
+      delete params.categories
+      router.push({
         pathname: '/',
-        query: params.toString(),
+        query: params,
       })
     }
 
@@ -149,18 +149,23 @@ export default function CategoriesModal({ categories }) {
   }
 
   const clearFilters = () => {
-    const filteredRoles = roles.filter(
-      (role) => !openedCategory.roles.includes(role)
-    )
-    setRoles(filteredRoles)
-    setSearchValue('')
+    const params = router.query
+    params.categories = selectedCategories.filter((category) => category !== openedCategory.category).join(',')
+    if (params.categories.length === 0) {
+      delete params.categories
+    }
+    params.roles = selectedRoles.filter((role) => !openedCategory.roles.includes(role)).join(',')
+    if (params.roles.length === 0) {
+      delete params.roles
+    }
+    router.push({
+      pathname: '/',
+      query: params,
+    })
     setOpenedCategory()
-    setIsAllSelected(false)
-    // router.push('/')
   }
 
   const onModalClose = () => {
-    clearFilters()
     onClose()
   }
 
