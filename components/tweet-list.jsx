@@ -13,6 +13,7 @@ import {
   useToast,
 } from '@chakra-ui/react'
 
+
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -24,8 +25,6 @@ import { FiShare2 as ShareIcon } from 'react-icons/fi'
 import { FiBookmark as SaveIcon } from 'react-icons/fi'
 
 import LoginModal from './login-modal'
-import { API_URL } from 'lib/api'
-const FEEDBACK_URL = API_URL + '/api/feedback'
 export default function TweetList() {
   const [session, loading] = useSession()
   const [pageNo, setPageNo] = useState(1)
@@ -105,7 +104,11 @@ export default function TweetList() {
                               action: 'share',
                             }),
                           }
-                          fetch(FEEDBACK_URL, requestOptions)
+                          fetch(
+                            'https://staging-yellowjobs-backend-h7ypy.ondigitalocean.app/api/feedback',
+                            requestOptions
+                          )
+
                         }}
                       />
                     </Flex>
@@ -135,10 +138,14 @@ export default function TweetList() {
                             body: JSON.stringify({
                               userId: session ? session.user.userId : null,
                               tweetId: tweetObj.tweet_id,
-                              action: 'click',
+                              action: 'apply',
                             }),
                           }
-                          fetch(FEEDBACK_URL, requestOptions)
+                          fetch(
+                            'https://staging-yellowjobs-backend-h7ypy.ondigitalocean.app/api/feedback',
+                            requestOptions
+                          )
+
                         }}
                       >
                         Apply Now
@@ -157,10 +164,12 @@ export default function TweetList() {
                               userId: session.user.userId,
                               tweetId: tweetObj.tweet_id,
                               action: 'save',
-                              value: 1,
                             }),
                           }
-                          fetch(FEEDBACK_URL, requestOptions).then((response) =>
+                          fetch(
+                            'https://staging-yellowjobs-backend-h7ypy.ondigitalocean.app/api/feedback',
+                            requestOptions
+                          ).then((response) =>
                             toast({
                               title: `Saved`,
                               status: 'success',
@@ -170,6 +179,7 @@ export default function TweetList() {
                           )
                         }}
                       /> */}
+
                     </HStack>
                   </Box>
                 ))
