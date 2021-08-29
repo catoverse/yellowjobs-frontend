@@ -29,9 +29,9 @@ export default function LoginModal({ isOpen, onClose, action }) {
   }
 
   return isOpen && !session ? (
-    <Modal isOpen={isOpen} onClose={onClose} scrollBehavior="inside" isCentered>
+    <Modal isOpen={isOpen} onClose={onClose} isCentered={{base: 'false', md: 'true'}} scrollBehavior="inside">
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent mt={{base: 'auto', md: '0'}} mb="0">
         <ModalHeader>
           <Center>{headerMessage()}</Center>
         </ModalHeader>
