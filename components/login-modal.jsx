@@ -1,4 +1,5 @@
 import {
+  Button,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -11,8 +12,8 @@ import {
   Image,
   Heading,
 } from '@chakra-ui/react'
-import React, { useState } from 'react'
-import GoogleButton from 'react-google-button'
+import GoogleIcon from './icons/google.svg'
+import { useState } from 'react'
 import { signIn, signOut, useSession } from 'next-auth/client'
 
 export default function LoginModal({ isOpen, onClose }) {
@@ -30,13 +31,14 @@ export default function LoginModal({ isOpen, onClose }) {
         <ModalCloseButton />
         <ModalBody p="2rem">
           <Text pb="0.5rem">Log in using</Text>
-          <Image
+          <Button
             w="100%"
-            src="/google-button.png"
-            onClick={() => {
-              signIn('google')
-            }}
-          />
+            variant="outline"
+            leftIcon={<GoogleIcon />}
+            onClick={() => signIn('google')}
+          >
+            Google
+          </Button>
           <Heading pt="2rem" as="h5" size="sm">
             Why log in is needed you ask?
           </Heading>
