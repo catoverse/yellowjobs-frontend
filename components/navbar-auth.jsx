@@ -35,21 +35,28 @@ export default function NavbarAuth({ isMobileView }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      {loading ? (
-        <p>loading...</p>
-      ) : session ? (
+      {!session ? (
+        <Button colorScheme="blue" onClick={onOpen} isLoading={loading}>
+          Login
+        </Button>
+      ) : (
         <>
           <Box _hover={{ color: 'gray.500' }}>
             <NextLink href="/saved">Pinned</NextLink>
           </Box>
           <Popover>
             <PopoverTrigger>
-              <Image
-                boxSize="40px"
-                borderRadius="full"
-                src={session.user.image}
-                alt="dp"
-              />
+              <Box
+                as="button"
+                boxSize="10"
+                _hover={{ opacity: "80%" }}
+              >
+                <Image
+                  borderRadius="full"
+                  src={session.user.image}
+                  alt="Profile Picture"
+                />
+              </Box>
             </PopoverTrigger>
             <PopoverContent>
               <PopoverArrow />
@@ -67,10 +74,6 @@ export default function NavbarAuth({ isMobileView }) {
           </Popover>
           {/* <Text>Hey {session.user.name.split(' ').slice(0, -1).join(' ')}</Text> */}
         </>
-      ) : (
-        <Button colorScheme="blue" onClick={onOpen}>
-          Login
-        </Button>
       )}
 
       {isOpen && !session ? (
