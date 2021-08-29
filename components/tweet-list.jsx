@@ -31,6 +31,7 @@ export default function TweetList() {
   const [pageNo, setPageNo] = useState(1)
   const { query } = useRouter()
   const { data, error, size, setSize, isReachingEnd } = useTweets({ query })
+  const { isOpen, onOpen, onClose } = useDisclosure()
   // const data = _data[0]
   const toast = useToast()
   if (error)
@@ -61,6 +62,31 @@ export default function TweetList() {
         </Container>
       </Box>
     )
+
+  const handleSaveClick = (tweetObj) => {
+    if (!session) {
+      return onOpen()
+    } else {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId: session.user.userId,
+          tweetId: tweetObj.tweet_id,
+          action: 'save',
+          value: 1,
+        }),
+      }
+      return fetch(FEEDBACK_URL, requestOptions).then((response) =>
+        toast({
+          title: `Saved`,
+          status: 'success',
+          isClosable: true,
+          duration: 2000,
+        })
+      )
+    }
+  }
 
   const showMore = () => {
     setSize(size + 1)
@@ -144,32 +170,13 @@ export default function TweetList() {
                         Apply Now
                       </Button>
 
-                      {/* <IconButton
+                      <IconButton
                         size="md"
                         variant="outline"
                         icon={<SaveIcon />}
-                        isDisabled={!session}
-                        onClick={() => {
-                          const requestOptions = {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                              userId: session.user.userId,
-                              tweetId: tweetObj.tweet_id,
-                              action: 'save',
-                              value: 1,
-                            }),
-                          }
-                          fetch(FEEDBACK_URL, requestOptions).then((response) =>
-                            toast({
-                              title: `Saved`,
-                              status: 'success',
-                              isClosable: true,
-                              duration: 2000,
-                            })
-                          )
-                        }}
-                      /> */}
+                        // isDisabled={!session}
+                        onClick={() => handleSaveClick(tweetObj)}
+                      />
                     </HStack>
                   </Box>
                 ))
@@ -187,6 +194,7 @@ export default function TweetList() {
           >
             Load More
           </Button>
+          <LoginModal isOpen={isOpen} onClose={onClose} action="saveTweet" />
         </Container>
       </Box>
     )
