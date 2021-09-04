@@ -2,7 +2,6 @@ import {
   Badge,
   Box,
   Text,
-  HStack,
   Center,
   Flex,
   Button,
@@ -23,7 +22,7 @@ import { useOpenedCategory } from 'contexts/opened-category-context'
 import { useSelectedCategories } from 'contexts/selected-categories-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
 
-const Category = ({ category, start, end }) => {
+const Category = ({ category }) => {
   const { onOpen } = useModal()
   const [roles, setRoles] = useRoles()
   const [openedCategory, setOpenedCategory] = useOpenedCategory()
@@ -47,45 +46,34 @@ const Category = ({ category, start, end }) => {
   }
 
   return (
-    <Box pos="relative">
-      <Button
-        bg="gray.50"
-        py="2"
-        px="8"
-        w="full"
-        height="10"
-        bg="white"
-        borderWidth="1px"
-        borderColor="gray.200"
-        borderRadius="none"
-        _hover={{ bg: 'gray.100' }}
-        borderRightWidth={!end && '0'}
-        borderLeftRadius={start && 'lg'}
-        borderRightRadius={end && 'lg'}
-        onClick={onClickHandler}
-        _focus={{ outline: 'none' }}
-        _focusVisible={{ borderBottom: '4px solid gray' }}
-      >
-        <Center w="8" h="10">
-          <CategoryEmoji categoryName={category.category} />
-        </Center>
-        <Text ml="2" fontSize="sm" fontWeight="normal" color="gray.600">
-          {category.category}
-        </Text>
-        {(selectedRolesInThisCategory.length > 0 ||
-          selectedCategories.includes(category.category)) && (
-          <Badge
-            ml="2"
-            variant="solid"
-            colorScheme="blue"
-            borderRadius="full"
-            fontSize="0.8em"
-          >
-            {selectedRolesInThisCategoryCountText}
-          </Badge>
-        )}
-      </Button>
-    </Box>
+    <Button
+      bg="white"
+      borderRadius="0"
+      flex="1"
+      _hover={{ bg: '#F6F6F6' }}
+      _focus={{ outline: 'none' }}
+      _focusVisible={{ borderBottom: '4px solid', borderColor: 'blue.500' }}
+      onClick={onClickHandler}
+    >
+      <Center w="8" h="10">
+        <CategoryEmoji categoryName={category.category} />
+      </Center>
+      <Text ml="2" fontSize="sm" fontWeight="normal" color="gray.600">
+        {category.category}
+      </Text>
+      {(selectedRolesInThisCategory.length > 0 ||
+        selectedCategories.includes(category.category)) && (
+        <Badge
+          ml="2"
+          variant="solid"
+          colorScheme="blue"
+          borderRadius="full"
+          fontSize="0.8em"
+        >
+          {selectedRolesInThisCategoryCountText}
+        </Badge>
+      )}
+    </Button>
   )
 }
 
@@ -193,11 +181,19 @@ export default function JobCategories({ categories }) {
             Reset filters
           </Button>
         </Flex>
-        <HStack mt="5" spacing="0" display={{ base: 'none', md: 'flex' }}>
+        <Flex
+          flexDirection="row"
+          mt="5"
+          display={{ base: 'none', md: 'flex' }}
+          borderWidth="1px"
+          borderColor="gray.200"
+          borderRadius="lg"
+          overflow="hidden"
+        >
           {categories.map((category, i) => {
             return <Category category={categories[i]} />
           })}
-        </HStack>
+        </Flex>
       </Container>
     </Box>
   )
