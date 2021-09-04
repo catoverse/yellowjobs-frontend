@@ -23,30 +23,12 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import { FiArrowLeft as BackIcon } from 'react-icons/fi'
-import ContentEmoji from './icons/categories/content.svg'
-import DesignEmoji from './icons/categories/design.svg'
-import ManagementEmoji from './icons/categories/management.svg'
-import MarketingEmoji from './icons/categories/marketing.svg'
-import SalesEmoji from './icons/categories/sales.svg'
-import SupportEmoji from './icons/categories/support.svg'
-import TechEmoji from './icons/categories/tech.svg'
-import OthersEmoji from './icons/categories/others.svg'
+import CategoryEmoji from './category-emoji'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useRoles } from 'contexts/roles-context'
 import { useSelectedCategories } from 'contexts/selected-categories-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
-
-const categoryEmojis = {
-  Content: ContentEmoji,
-  Design: DesignEmoji,
-  Management: ManagementEmoji,
-  Marketing: MarketingEmoji,
-  Sales: SalesEmoji,
-  Support: SupportEmoji,
-  Tech: TechEmoji,
-  Others: OthersEmoji,
-}
 
 const AddFiltersButton = ({ isOpen, onOpen, categories }) => {
   const [selectedCategories, setSelectedCategories] = useSelectedCategories()
@@ -153,7 +135,7 @@ const CateoriesTabs = ({
             category.roles.length === selectedRolesInThisCategory.length
               ? 'All'
               : selectedRolesInThisCategory.length
-          const CategoryEmoji = categoryEmojis[category.category]
+
           return (
             <Tab
               justifyContent="flex-start"
@@ -163,7 +145,7 @@ const CateoriesTabs = ({
               key={index}
             >
               <HStack>
-                <CategoryEmoji />
+                <CategoryEmoji categoryName={category.category} />
                 <Text>{category.category}</Text>
                 {selectedRolesInThisCategory.length > 0 && (
                   <Badge
