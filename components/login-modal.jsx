@@ -62,6 +62,7 @@ export default function LoginModal({ isOpen, onClose, action }) {
             <Text pb="0.5rem">Log in using</Text>
             <Button
               w="100%"
+              bg="#FAFAFA"
               variant="outline"
               leftIcon={<GoogleIcon />}
               onClick={() => signIn('google')}
@@ -70,7 +71,7 @@ export default function LoginModal({ isOpen, onClose, action }) {
             </Button>
           </Box>
           {action ? null : (
-            <Box bg="gray.50" p="8" rounded="md">
+            <Box bg="#FAFAFA" p="8" rounded="md">
               <Heading as="h5" size="sm">
                 Why log in is needed you ask?
               </Heading>
