@@ -96,22 +96,25 @@ export default function TweetList() {
   if (data[0].length > 0)
     return (
       <Box as="section" my={5}>
-        {console.log(query)}
-        {query.s === 'Product Manager' ||
-        query.s === 'Product Lead' ||
-        query.roles === 'Product Manager' ||
-        query.roles === 'Product Lead' ? (
-          <Box m="1rem">
-            <a
-              target="_blank"
-              href="https://www.theproductfolks.com/all-product-management-jobs"
-              rel="noopener noreferrer"
-            >
-              <Badge colorScheme="yellow">Checkout more at ProductFolks</Badge>
-            </a>
-          </Box>
-        ) : null}
         <Container>
+          {query.s === 'Product Manager' ||
+          query.s === 'Product Lead' ||
+          query.s === 'Product Design' ||
+          query.roles === 'Product Manager' ||
+          query.roles === 'Product Design' ||
+          query.roles === 'Product Lead' ? (
+            <Box m="1rem">
+              <a
+                target="_blank"
+                href="https://www.theproductfolks.com/all-product-management-jobs"
+                rel="noopener noreferrer"
+              >
+                <Button colorScheme="orange" variant="link">
+                  Want more? Check out more curated product jobs here
+                </Button>
+              </a>
+            </Box>
+          ) : null}
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
           >
