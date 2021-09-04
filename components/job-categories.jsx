@@ -12,14 +12,7 @@ import {
 } from '@chakra-ui/react'
 
 import { FiRefreshCcw } from 'react-icons/fi'
-import ContentEmoji from './icons/categories/content.svg'
-import DesignEmoji from './icons/categories/design.svg'
-import ManagementEmoji from './icons/categories/management.svg'
-import MarketingEmoji from './icons/categories/marketing.svg'
-import SalesEmoji from './icons/categories/sales.svg'
-import SupportEmoji from './icons/categories/support.svg'
-import TechEmoji from './icons/categories/tech.svg'
-import OthersEmoji from './icons/categories/others.svg'
+import CategoryEmoji from './category-emoji'
 
 import Container from './container'
 import { useModal } from 'contexts/modal-context'
@@ -30,7 +23,7 @@ import { useOpenedCategory } from 'contexts/opened-category-context'
 import { useSelectedCategories } from 'contexts/selected-categories-context'
 import { useSelectedRoles } from 'contexts/selected-roles-context'
 
-const Category = ({ icon, category, start, end }) => {
+const Category = ({ category, start, end }) => {
   const { onOpen } = useModal()
   const [roles, setRoles] = useRoles()
   const [openedCategory, setOpenedCategory] = useOpenedCategory()
@@ -74,7 +67,7 @@ const Category = ({ icon, category, start, end }) => {
         _focusVisible={{ borderBottom: '4px solid gray' }}
       >
         <Center w="8" h="10">
-          {icon}
+          <CategoryEmoji categoryName={category.category} />
         </Center>
         <Text ml="2" fontSize="sm" fontWeight="normal" color="gray.600">
           {category.category}
@@ -201,14 +194,9 @@ export default function JobCategories({ categories }) {
           </Button>
         </Flex>
         <HStack mt="5" spacing="0" display={{ base: 'none', md: 'flex' }}>
-          <Category start category={categories[0]} icon={<TechEmoji />} />
-          <Category category={categories[1]} icon={<DesignEmoji />} />
-          <Category category={categories[2]} icon={<ManagementEmoji />} />
-          <Category category={categories[3]} icon={<MarketingEmoji />} />
-          <Category category={categories[4]} icon={<SalesEmoji />} />
-          <Category category={categories[5]} icon={<ContentEmoji />} />
-          <Category category={categories[6]} icon={<SupportEmoji />} />
-          <Category end category={categories[7]} icon={<OthersEmoji />} />
+          {categories.map((category, i) => {
+            return <Category category={categories[i]} />
+          })}
         </HStack>
       </Container>
     </Box>
