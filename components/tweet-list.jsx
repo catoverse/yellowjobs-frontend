@@ -11,6 +11,7 @@ import {
   HStack,
   useDisclosure,
   useToast,
+  Badge,
 } from '@chakra-ui/react'
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
@@ -96,6 +97,24 @@ export default function TweetList() {
     return (
       <Box as="section" my={5}>
         <Container>
+          {query.s === 'Product Manager' ||
+          query.s === 'Product Lead' ||
+          query.s === 'Product Design' ||
+          query.roles === 'Product Manager' ||
+          query.roles === 'Product Design' ||
+          query.roles === 'Product Lead' ? (
+            <Box m="1rem">
+              <a
+                target="_blank"
+                href="https://www.theproductfolks.com/all-product-management-jobs"
+                rel="noopener noreferrer"
+              >
+                <Button colorScheme="orange" variant="link">
+                  Want more? Check out more curated product jobs here
+                </Button>
+              </a>
+            </Box>
+          ) : null}
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
           >
