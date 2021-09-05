@@ -191,7 +191,7 @@ export default function JobCategories({ categories }) {
           overflow="hidden"
         >
           {categories.map((category, i) => {
-            return <Category category={categories[i]} />
+            return <Category category={categories[i]} key={i} />
           })}
         </Flex>
       </Container>
