@@ -145,7 +145,8 @@ export default function TweetList() {
                         onClick={async () => {
                           if (navigator.share) {
                             navigator.share({
-                              text: `Check out this job I found on yellowjobs.org\n`,
+                              text: `Hey, I came across this remote opportunity that might be relevant for you.\n`
+                              + `Do check it out and other great remote opportunities at YellowJobs!\n`,
                               url: tweetObj.tweet_url,
                             })
                           } else if (navigator.clipboard) {
