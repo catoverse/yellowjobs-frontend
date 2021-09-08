@@ -7,16 +7,14 @@ import {
   Center,
   Spinner,
   Text,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Input,
 } from '@chakra-ui/react'
+import TweetBox from './tweet-box'
+
 import { API_URL, fetcher } from 'lib/api'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useSession } from 'next-auth/client'
-export default function UnverifiedTweetList() {
+
+export default function BookmarkedTweetList() {
   const [session, loading] = useSession()
 
   if (session) {
@@ -33,7 +31,6 @@ export default function UnverifiedTweetList() {
         </Center>
       )
 
-    //   console.log(data)
     return (
       <Box as="section" my={5}>
         <Container>
@@ -46,8 +43,8 @@ export default function UnverifiedTweetList() {
               columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
             >
               <Masonry gutter="1rem">
-                {data.map((tweetObj) => (
-                  <Tweet id={tweetObj.tweet_id} ast={tweetObj.tweet_ast} />
+                {data.map((tweetObj, index) => (
+                  <TweetBox session={session} tweetObj={tweetObj} key={index} />
                 ))}
               </Masonry>
             </ResponsiveMasonry>

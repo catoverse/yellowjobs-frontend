@@ -16,34 +16,20 @@ import {
 } from '@chakra-ui/react'
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
+import { BsChevronDoubleDown } from 'react-icons/bs'
+import TweetBox from './tweet-box'
+
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useSession } from 'next-auth/client'
 import { useTweets } from '../hooks/useTweets'
-import { BsChevronDoubleDown } from 'react-icons/bs'
-import { FiShare2 as ShareIcon } from 'react-icons/fi'
-import { FiBookmark as SaveIcon } from 'react-icons/fi'
 
-import LoginModal from './login-modal'
-import LinkCopiedModal from './link-copied-modal'
-import { API_URL } from 'lib/api'
-const FEEDBACK_URL = API_URL + '/api/feedback'
 export default function TweetList() {
   const [session, loading] = useSession()
   const [pageNo, setPageNo] = useState(1)
   const { query } = useRouter()
   const { data, error, size, setSize, isReachingEnd } = useTweets({ query })
-  const {
-    isOpen: isOpenLoginModal,
-    onOpen: onOpenLoginModal,
-    onClose: onCloseLoginModal,
-  } = useDisclosure()
-  const {
-    isOpen: isOpenLinkCopiedModal,
-    onOpen: onOpenLinkCopiedModal,
-    onClose: onCloseLinkCopiedModal,
-  } = useDisclosure()
-  const toast = useToast()
+
   if (error)
     return (
       <Text align="center" my="4">
@@ -72,31 +58,6 @@ export default function TweetList() {
         </Container>
       </Box>
     )
-
-  const handleSaveClick = (tweetObj) => {
-    if (!session) {
-      return onOpenLoginModal()
-    } else {
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          userId: session.user.userId,
-          tweetId: tweetObj.tweet_id,
-          action: 'save',
-          value: 1,
-        }),
-      }
-      return fetch(FEEDBACK_URL, requestOptions).then((response) =>
-        toast({
-          title: `Saved`,
-          status: 'success',
-          isClosable: true,
-          duration: 2000,
-        })
-      )
-    }
-  }
 
   const showMore = () => {
     setSize(size + 1)
@@ -129,89 +90,7 @@ export default function TweetList() {
             <Masonry gutter="1rem">
               {data.map((page, key) => {
                 return page.map((tweetObj, index) => (
-                  <Box
-                    rounded="md"
-                    p="4"
-                    bg="white"
-                    border="1px"
-                    borderColor="gray.100"
-                  >
-                    <Flex justify="flex-end" mb="4">
-                      <IconButton
-                        size="sm"
-                        variant="outline"
-                        icon={<ShareIcon />}
-                        onClick={async () => {
-                          if (navigator.share) {
-                            navigator.share({
-                              text: `Hey, I came across this remote opportunity that might be relevant for you.\n`
-                              + `Do check it out and other great remote opportunities at YellowJobs!\n`,
-                              url: tweetObj.tweet_url,
-                            })
-                          } else if (navigator.clipboard) {
-                            await navigator.clipboard.writeText(
-                              tweetObj.tweet_url
-                            )
-                            onOpenLinkCopiedModal()
-                          }
-
-                          const requestOptions = {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                              userId: session ? session.user.userId : null,
-                              tweetId: tweetObj.tweet_id,
-                              action: 'share',
-                            }),
-                          }
-                          fetch(FEEDBACK_URL, requestOptions)
-                        }}
-                      />
-                    </Flex>
-                    <Tweet
-                      id={tweetObj.tweet_id}
-                      ast={tweetObj.tweet_ast}
-                      key={index}
-                    />
-                    <HStack mt="4">
-                      <Button
-                        color="yellow.400"
-                        border="2px"
-                        borderColor="yellow.400"
-                        _hover={{ bg: 'yellow.400', color: '#FFF' }}
-                        variant="outline"
-                        w="full"
-                        onClick={() => {
-                          if (tweetObj.urls[0]) {
-                            window.open(tweetObj.urls[0])
-                          } else {
-                            window.open(tweetObj.tweet_url)
-                          }
-
-                          const requestOptions = {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                              userId: session ? session.user.userId : null,
-                              tweetId: tweetObj.tweet_id,
-                              action: 'click',
-                            }),
-                          }
-                          fetch(FEEDBACK_URL, requestOptions)
-                        }}
-                      >
-                        Apply Now
-                      </Button>
-
-                      <IconButton
-                        size="md"
-                        variant="outline"
-                        icon={<SaveIcon />}
-                        // isDisabled={!session}
-                        onClick={() => handleSaveClick(tweetObj)}
-                      />
-                    </HStack>
-                  </Box>
+                  <TweetBox session={session} tweetObj={tweetObj} key={index} />
                 ))
               })}
             </Masonry>
@@ -227,15 +106,6 @@ export default function TweetList() {
           >
             Load More
           </Button>
-          <LoginModal
-            isOpen={isOpenLoginModal}
-            onClose={onCloseLoginModal}
-            action="saveTweet"
-          />
-          <LinkCopiedModal
-            isOpen={isOpenLinkCopiedModal}
-            onClose={onCloseLinkCopiedModal}
-          />
         </Container>
       </Box>
     )
