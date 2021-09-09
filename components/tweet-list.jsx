@@ -100,8 +100,8 @@ export default function TweetList() {
 
   const showMore = () => {
     setSize(size + 1)
-    console.log(size)
   }
+
   if (data[0].length > 0)
     return (
       <Box as="section" my={5}>
