@@ -13,12 +13,14 @@ import { FiShare2 as ShareIcon } from 'react-icons/fi'
 import { FiBookmark as SaveIcon } from 'react-icons/fi'
 import LoginModal from './login-modal'
 import LinkCopiedModal from './link-copied-modal'
+import { useState } from 'react'
 
 import { Tweet } from 'react-static-tweets'
 import { API_URL } from 'lib/api'
 const FEEDBACK_URL = API_URL + '/api/feedback'
 
-export default function TweetList({ session, tweetObj }) {
+export default function TweetList({ session, tweetObj, isTweetSaved: isTweetSavedFromParent }) {
+  const [isTweetSaved, setIsTweetSaved] = useState(isTweetSavedFromParent)
   const toast = useToast()
   const {
     isOpen: isOpenLoginModal,
@@ -31,7 +33,7 @@ export default function TweetList({ session, tweetObj }) {
     onClose: onCloseLinkCopiedModal,
   } = useDisclosure()
 
-  const handleSaveClick = (tweetObj) => {
+  const handleSaveClick = (tweetObj, isTweetSaved) => {
     if (!session) {
       return onOpenLoginModal()
     } else {
@@ -42,16 +44,18 @@ export default function TweetList({ session, tweetObj }) {
           userId: session.user.userId,
           tweetId: tweetObj.tweet_id,
           action: 'save',
-          value: 1,
+          value: isTweetSaved ? '-1' : '1',
         }),
       }
-      return fetch(FEEDBACK_URL, requestOptions).then((response) =>
-        toast({
-          title: `Saved`,
-          status: 'success',
-          isClosable: true,
-          duration: 2000,
-        })
+      return fetch(FEEDBACK_URL, requestOptions).then((response) => {
+          setIsTweetSaved(!isTweetSaved)
+          toast({
+            title: isTweetSaved ? `Removed` : `Saved`,
+            status: 'success',
+            isClosable: true,
+            duration: 2000,
+          })
+        }
       )
     }
   }
@@ -123,9 +127,9 @@ export default function TweetList({ session, tweetObj }) {
         <IconButton
           size="md"
           variant="outline"
-          icon={<SaveIcon />}
+          icon={isTweetSaved ? <SaveIcon color="#ECC94B" fill="#ECC94B" /> : <SaveIcon />}
           // isDisabled={!session}
-          onClick={() => handleSaveClick(tweetObj)}
+          onClick={() => handleSaveClick(tweetObj, isTweetSaved)}
         />
       </HStack>
       <LoginModal

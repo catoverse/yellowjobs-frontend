@@ -1,30 +1,20 @@
 import Container from './container'
-import VerificationButtons from './verification-button'
-import useSWR from 'swr'
 import { Tweet } from 'react-static-tweets'
-import {
-  Box,
-  Center,
-  Spinner,
-  Text,
-} from '@chakra-ui/react'
+import { Box, Center, Spinner, Text } from '@chakra-ui/react'
 import TweetBox from './tweet-box'
 
-import { API_URL, fetcher } from 'lib/api'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useSession } from 'next-auth/client'
+import { useSavedTweets } from '../hooks/useSavedTweets'
 
 export default function BookmarkedTweetList() {
   const [session, loading] = useSession()
+  const { savedTweets, error } = useSavedTweets({ session })
+
+  if (error) return <div>failed to load</div>
 
   if (session) {
-    const { data, error } = useSWR(
-      `${API_URL}/api/savedtweets/?userId=${session.user.userId}`,
-      fetcher
-    )
-
-    if (error) return <div>failed to load</div>
-    if (!data)
+    if (!savedTweets)
       return (
         <Center minH="100vh">
           <Spinner />
@@ -34,7 +24,7 @@ export default function BookmarkedTweetList() {
     return (
       <Box as="section" my={5}>
         <Container>
-          {data.error ? (
+          {savedTweets.error ? (
             <Text align="center" fontSize="4xl">
               Your saved tweets will appear here. Currently you dont have any.
             </Text>
@@ -43,8 +33,13 @@ export default function BookmarkedTweetList() {
               columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
             >
               <Masonry gutter="1rem">
-                {data.map((tweetObj, index) => (
-                  <TweetBox session={session} tweetObj={tweetObj} key={index} />
+                {savedTweets.map((tweetObj, index) => (
+                  <TweetBox
+                    session={session}
+                    tweetObj={tweetObj}
+                    isTweetSaved={true}
+                    key={index}
+                  />
                 ))}
               </Masonry>
             </ResponsiveMasonry>

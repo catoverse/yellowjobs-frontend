@@ -23,9 +23,11 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useSession } from 'next-auth/client'
 import { useTweets } from '../hooks/useTweets'
+import { useSavedTweets } from '../hooks/useSavedTweets'
 
 export default function TweetList() {
   const [session, loading] = useSession()
+  const { savedTweets } = useSavedTweets({ session })
   const [pageNo, setPageNo] = useState(1)
   const { query } = useRouter()
   const { data, error, size, setSize, isReachingEnd } = useTweets({ query })
@@ -89,9 +91,20 @@ export default function TweetList() {
           >
             <Masonry gutter="1rem">
               {data.map((page, key) => {
-                return page.map((tweetObj, index) => (
-                  <TweetBox session={session} tweetObj={tweetObj} key={index} />
-                ))
+                return page.map((tweetObj, index) => {
+                  const isTweetSaved =
+                    savedTweets &&
+                    savedTweets.filter((t) => t.tweet_id === tweetObj.tweet_id)
+                      .length > 0
+                  return (
+                    <TweetBox
+                      session={session}
+                      tweetObj={tweetObj}
+                      isTweetSaved={isTweetSaved}
+                      key={index}
+                    />
+                  )
+                })
               })}
             </Masonry>
           </ResponsiveMasonry>
