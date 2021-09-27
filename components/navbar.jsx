@@ -3,6 +3,7 @@ import {
   Flex,
   VStack,
   HStack,
+  Image,
   Link,
   Button,
   CloseButton,
@@ -44,9 +45,7 @@ export default function Headers() {
       bg="white"
       display={mobileNav.isOpen ? 'flex' : 'none'}
       flexDirection="column"
-      p={2}
       pb={4}
-      spacing={2}
       rounded="sm"
       shadow="sm"
     >
@@ -70,8 +69,10 @@ export default function Headers() {
         w="full"
         variant="ghost"
         _hover={{ bg: 'white', textDecoration: 'underline' }}
+        onClick={() => window.open('https://www.buymeacoffee.com/Navgurukul')}
+        pb="4"
       >
-        <Link href="/disclaimer">Disclaimer</Link>
+        <Image w="32" src="/buy-me-a-coffee.png" />
       </Button>
       <NavbarAuth isMobileView="true" />
     </VStack>
@@ -97,10 +98,6 @@ export default function Headers() {
                 <Link>
                   <HStack>
                     <YellowJobsLogo />
-                    {console.log(
-                      'FE Running in ',
-                      process.env.NEXT_PUBLIC_VERCEL_ENV
-                    )}
                     {process.env.NEXT_PUBLIC_VERCEL_ENV == 'production' ? (
                       ''
                     ) : (
@@ -112,7 +109,7 @@ export default function Headers() {
             </Flex>
 
             <HStack
-              spacing={10}
+              spacing={4}
               justify="flex-end"
               w="full"
               maxW="824px"
@@ -122,9 +119,13 @@ export default function Headers() {
               <Box _hover={{ color: 'gray.500' }}>
                 <NextLink href="/about">About Us</NextLink>
               </Box>
-              <Box _hover={{ color: 'gray.500' }}>
-                <NextLink href="/disclaimer">Disclaimer</NextLink>
-              </Box>
+              <Button
+                variant="ghost"
+                _hover={{ bg: 'white', textDecoration: 'underline' }}
+                onClick={() => window.open('https://www.buymeacoffee.com/Navgurukul')}
+              >
+                <Image w="32" src="/buy-me-a-coffee.png" />
+              </Button>
 
               <NavbarAuth />
             </HStack>
