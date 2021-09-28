@@ -4,6 +4,7 @@ import { Tweet } from 'react-static-tweets'
 import {
   Box,
   IconButton,
+  Link,
   Text,
   Skeleton,
   Button,
@@ -17,7 +18,6 @@ import {
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import Link from 'next/link'
 import { useSession } from 'next-auth/client'
 import { useTweets } from '../hooks/useTweets'
 import { BsChevronDoubleDown } from 'react-icons/bs'
@@ -112,16 +112,15 @@ export default function TweetList() {
           query.roles === 'Product Manager' ||
           query.roles === 'Product Design' ||
           query.roles === 'Product Lead' ? (
-            <Box m="1rem">
-              <a
-                target="_blank"
+            <Box mb="4" mx="2">
+              <Link
+                fontWeight="bold"
+                color="orange"
                 href="https://www.theproductfolks.com/all-product-management-jobs"
-                rel="noopener noreferrer"
+                isExternal
               >
-                <Button colorScheme="orange" variant="link">
-                  Want more? Check out more curated product jobs here
-                </Button>
-              </a>
+                Want more? Check out more curated product jobs here
+              </Link>
             </Box>
           ) : null}
           <ResponsiveMasonry
