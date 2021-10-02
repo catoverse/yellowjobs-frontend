@@ -49,6 +49,12 @@ export default function Footer() {
                     Disclaimer
                   </NextLink>
                 </Box>
+                <Spacer />
+                <Box _hover={{ color: 'gray.500' }} mx="5">
+                  <NextLink href="/privacy" aria-label="Privacy Policy">
+                    Privacy Policy
+                  </NextLink>
+                </Box>
               </Flex>
             </Flex>
             <Divider display={{ base: 'block', md: 'none' }} />
