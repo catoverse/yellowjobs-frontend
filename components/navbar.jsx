@@ -72,7 +72,7 @@ export default function Headers() {
         onClick={() => window.open('https://www.buymeacoffee.com/Navgurukul')}
         pb="4"
       >
-        <Image w="32" src="/buy-me-a-coffee.png" />
+        <Image w="32" src="/buy-me-a-coffee.svg" />
       </Button>
       <NavbarAuth isMobileView="true" />
     </VStack>
@@ -124,7 +124,7 @@ export default function Headers() {
                 _hover={{ bg: 'white', textDecoration: 'underline' }}
                 onClick={() => window.open('https://www.buymeacoffee.com/Navgurukul')}
               >
-                <Image w="32" src="/buy-me-a-coffee.png" />
+                <Image w="32" src="/buy-me-a-coffee.svg" />
               </Button>
 
               <NavbarAuth />
