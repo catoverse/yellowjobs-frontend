@@ -18,8 +18,8 @@ import DOLogo from './icons/DO.svg'
 export default function Footer() {
   return (
     <Box>
-      <Container maxW="container.full" centerContent bg="white">
-        <Container maxW="container.xl">
+      <Container maxW="container.full" px={[0, 4]} centerContent bg="white">
+        <Container maxW="container.xl" px={[0, 4]}>
           <Flex
             flexDirection={{ base: 'column', md: 'row' }}
             py={{ base: '2', md: '4' }}
@@ -37,19 +37,17 @@ export default function Footer() {
                 </Link>
               </NextLink>
               <Spacer />
-              <Flex p="4" w="full" justify="space-between">
+              <Flex w="full" justify="space-around" mt={{ base: '4', md: '0' }}>
                 <Box _hover={{ color: 'gray.500' }} mx="5">
                   <NextLink href="/about" aria-label="About Us">
                     About Us
                   </NextLink>
                 </Box>
-                <Spacer />
                 <Box _hover={{ color: 'gray.500' }} mx="5">
                   <NextLink href="/disclaimer" aria-label="Disclaimer">
                     Disclaimer
                   </NextLink>
                 </Box>
-                <Spacer />
                 <Box _hover={{ color: 'gray.500' }} mx="5">
                   <NextLink href="/privacy" aria-label="Privacy Policy">
                     Privacy Policy
@@ -67,7 +65,7 @@ export default function Footer() {
               hello@yellowjobs.org
             </Link>
             <Spacer />*/}
-              <Flex w="full" justify="space-between">
+              <Flex w="full" justify="space-around" px={[12, 16, 0]}>
                 <Link mx="5" href="https://github.com/catoverse/" isExternal>
                   <GitHubIcon />
                 </Link>
