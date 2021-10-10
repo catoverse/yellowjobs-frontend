@@ -35,7 +35,7 @@ export default NextAuth({
     // async redirect(url, baseUrl) { return baseUrl },
     async session(session, user) {
       session.user.userId = user.id
-      console.log(user)
+      //console.log(user)
       return session
     },
     // async jwt(token, user, account, profile, isNewUser) { return token }
