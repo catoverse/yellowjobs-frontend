@@ -9,7 +9,7 @@ export const useTweets = ({ query }) => {
   // when we have role, for searching
   if (query.s) {
     const keyword = query.s.replace(/ /g, '')
-    url += `&q=${keyword}`
+    url += `&roles=${keyword}`
   }
 
   // for query params
