@@ -69,7 +69,7 @@ export default function Headers() {
         w="full"
         variant="ghost"
         _hover={{ bg: 'white', textDecoration: 'underline' }}
-        onClick={() => window.open('https://www.buymeacoffee.com/Navgurukul')}
+        onClick={() => window.open('https://www.buymeacoffee.com/yellowjobs')}
         pb="4"
       >
         <Image w="32" src="/buy-me-a-coffee.svg" />
@@ -122,7 +122,7 @@ export default function Headers() {
               <Button
                 variant="ghost"
                 _hover={{ bg: 'white', textDecoration: 'underline' }}
-                onClick={() => window.open('https://www.buymeacoffee.com/Navgurukul')}
+                onClick={() => window.open('https://www.buymeacoffee.com/yellowjobs')}
               >
                 <Image w="32" src="/buy-me-a-coffee.svg" />
               </Button>
