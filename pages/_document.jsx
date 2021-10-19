@@ -28,6 +28,17 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `    window._mfq = window._mfq || [];
+            (function() {
+              var mf = document.createElement("script");
+              mf.type = "text/javascript"; mf.defer = true;
+              mf.src = "//cdn.mouseflow.com/projects/61aa2bd7-dca7-40fc-9167-da09f0c5c846.js";
+              document.getElementsByTagName("head")[0].appendChild(mf);
+            })();`,
+            }}
+          />
         </body>
       </Html>
     )
