@@ -122,6 +122,13 @@ export default function Footer() {
           </Flex>
         </Flex>
       </Container>
+      <script type="text/javascript">
+        window._mfq = window._mfq || []; var mf =
+        document.createElement("script"); mf.type = "text/javascript"; mf.defer
+        = true; mf.src =
+        "//cdn.mouseflow.com/projects/61aa2bd7-dca7-40fc-9167-da09f0c5c846.js";
+        document.getElementsByTagName("head")[0].appendChild(mf);
+      </script>
     </Box>
   )
 }
