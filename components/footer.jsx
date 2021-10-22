@@ -44,6 +44,11 @@ export default function Footer() {
                   </NextLink>
                 </Box>
                 <Box _hover={{ color: 'gray.500' }} mx="5">
+                  <a target="_blank" href="https://feedback.yellowjobs.org">
+                    Feedback
+                  </a>
+                </Box>
+                <Box _hover={{ color: 'gray.500' }} mx="5">
                   <NextLink href="/disclaimer" aria-label="Disclaimer">
                     Disclaimer
                   </NextLink>
