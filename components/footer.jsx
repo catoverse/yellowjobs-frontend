@@ -44,6 +44,11 @@ export default function Footer() {
                   </NextLink>
                 </Box>
                 <Box _hover={{ color: 'gray.500' }} mx="5">
+                  <a target="_blank" href="https://feedback.yellowjobs.org">
+                    Feedback
+                  </a>
+                </Box>
+                <Box _hover={{ color: 'gray.500' }} mx="5">
                   <NextLink href="/disclaimer" aria-label="Disclaimer">
                     Disclaimer
                   </NextLink>
@@ -122,6 +127,17 @@ export default function Footer() {
           </Flex>
         </Flex>
       </Container>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `    window._mfq = window._mfq || [];
+            (function() {
+              var mf = document.createElement("script");
+              mf.type = "text/javascript"; mf.defer = true;
+              mf.src = "//cdn.mouseflow.com/projects/61aa2bd7-dca7-40fc-9167-da09f0c5c846.js";
+              document.getElementsByTagName("head")[0].appendChild(mf);
+            })();`,
+        }}
+      />
     </Box>
   )
 }

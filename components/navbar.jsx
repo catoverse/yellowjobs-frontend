@@ -117,12 +117,16 @@ export default function Headers() {
               display={{ base: 'none', md: 'flex' }}
             >
               <Box _hover={{ color: 'gray.500' }}>
-                <NextLink href="/about">About Us</NextLink>
+                <a target="_blank" href="https://feedback.yellowjobs.org">
+                  Feedback
+                </a>
               </Box>
               <Button
                 variant="ghost"
                 _hover={{ bg: 'white', textDecoration: 'underline' }}
-                onClick={() => window.open('https://www.buymeacoffee.com/yellowjobs')}
+                onClick={() =>
+                  window.open('https://www.buymeacoffee.com/yellowjobs')
+                }
               >
                 <Image w="32" src="/buy-me-a-coffee.svg" />
               </Button>
