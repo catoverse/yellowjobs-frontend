@@ -36,26 +36,24 @@ export default function HeroSearch({ categories }) {
     <Box
       as="main"
       overflow="hidden"
-      bgGradient="linear(135deg, #FFDD00 0%, #FCCD53 100%)"
+      bgGradient="linear(225deg, #FFDD00 0%, #FCCD53 100%)"
     >
       <Container>
-        <SimpleGrid columns={{ base: 1, md: 2 }}>
-          <VStack justify="center" align="flex-start" spacing="4" my={12}>
-            <LoopHeading />
-            <SearchBar categories={categories} />
-            <Flex flexWrap="wrap">
-              {searchedRoles.map((searchedRole, index) => {
-                return (
-                  <SearchedRoleButton
-                    text={searchedRole}
-                    onClose={() => removeRole(index)}
-                    key={index}
-                  />
-                )
-              })}
-            </Flex>
-          </VStack>
-        </SimpleGrid>
+        <VStack spacing="4" my={8}>
+          <LoopHeading />
+          <SearchBar categories={categories} />
+          <Flex flexWrap="wrap">
+            {searchedRoles.map((searchedRole, index) => {
+              return (
+                <SearchedRoleButton
+                  text={searchedRole}
+                  onClose={() => removeRole(index)}
+                  key={index}
+                />
+              )
+            })}
+          </Flex>
+        </VStack>
       </Container>
     </Box>
   )
