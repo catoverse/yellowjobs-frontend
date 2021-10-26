@@ -19,7 +19,11 @@ import { Tweet } from 'react-static-tweets'
 import { API_URL } from 'lib/api'
 const FEEDBACK_URL = API_URL + '/api/feedback'
 
-export default function TweetList({ session, tweetObj, isTweetSaved: isTweetSavedFromParent }) {
+export default function TweetList({
+  session,
+  tweetObj,
+  isTweetSaved: isTweetSavedFromParent,
+}) {
   const [isTweetSaved, setIsTweetSaved] = useState(isTweetSavedFromParent)
   const toast = useToast()
   const {
@@ -48,50 +52,39 @@ export default function TweetList({ session, tweetObj, isTweetSaved: isTweetSave
         }),
       }
       return fetch(FEEDBACK_URL, requestOptions).then((response) => {
-          setIsTweetSaved(!isTweetSaved)
-          toast({
-            title: isTweetSaved ? `Removed` : `Saved`,
-            status: 'success',
-            isClosable: true,
-            duration: 2000,
-          })
-        }
-      )
+        setIsTweetSaved(!isTweetSaved)
+        toast({
+          title: isTweetSaved ? `Removed` : `Saved`,
+          status: 'success',
+          isClosable: true,
+          duration: 2000,
+        })
+      })
     }
   }
 
   return (
     <Box rounded="md" p="4" bg="white" border="1px" borderColor="gray.100">
       <Flex justify="flex-end" mb="4">
-        <IconButton
+        <Button
           size="sm"
           variant="outline"
-          icon={<ShareIcon />}
-          onClick={async () => {
-            if (navigator.share) {
-              navigator.share({
-                text:
-                  `Hey, I came across this remote opportunity that might be relevant for you.\n` +
-                  `Do check it out and other great remote opportunities at YellowJobs!\n`,
-                url: tweetObj.tweet_url,
-              })
-            } else if (navigator.clipboard) {
-              await navigator.clipboard.writeText(tweetObj.tweet_url)
-              onOpenLinkCopiedModal()
-            }
-
-            const requestOptions = {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                userId: session ? session.user.userId : null,
-                tweetId: tweetObj.tweet_id,
-                action: 'share',
-              }),
-            }
-            fetch(FEEDBACK_URL, requestOptions)
-          }}
-        />
+          bg="#FAFAFA"
+          fontWeight="normal"
+          onClick={() => handleSaveClick(tweetObj, isTweetSaved)}
+        >
+          {isTweetSaved ? (
+            <>
+              Remove&nbsp;
+              <SaveIcon color="#ECC94B" fill="#ECC94B" />
+            </>
+          ) : (
+            <>
+              Save for later&nbsp;
+              <SaveIcon />
+            </>
+          )}
+        </Button>
       </Flex>
       <Tweet id={tweetObj.tweet_id} ast={tweetObj.tweet_ast} />
       <HStack mt="4">
@@ -125,11 +118,33 @@ export default function TweetList({ session, tweetObj, isTweetSaved: isTweetSave
         </Button>
 
         <IconButton
-          size="md"
           variant="outline"
-          icon={isTweetSaved ? <SaveIcon color="#ECC94B" fill="#ECC94B" /> : <SaveIcon />}
-          // isDisabled={!session}
-          onClick={() => handleSaveClick(tweetObj, isTweetSaved)}
+          icon={<ShareIcon />}
+          bg="#FAFAFA"
+          onClick={async () => {
+            if (navigator.share) {
+              navigator.share({
+                text:
+                  `Hey, I came across this remote opportunity that might be relevant for you.\n` +
+                  `Do check it out and other great remote opportunities at YellowJobs!\n`,
+                url: tweetObj.tweet_url,
+              })
+            } else if (navigator.clipboard) {
+              await navigator.clipboard.writeText(tweetObj.tweet_url)
+              onOpenLinkCopiedModal()
+            }
+
+            const requestOptions = {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                userId: session ? session.user.userId : null,
+                tweetId: tweetObj.tweet_id,
+                action: 'share',
+              }),
+            }
+            fetch(FEEDBACK_URL, requestOptions)
+          }}
         />
       </HStack>
       <LoginModal

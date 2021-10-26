@@ -1,4 +1,4 @@
-import { HStack, IconButton } from '@chakra-ui/react'
+import { HStack, Button } from '@chakra-ui/react'
 import { FiSearch as SearchIcon } from 'react-icons/fi'
 import { useRouter } from 'next/router'
 
@@ -61,13 +61,16 @@ export default function SearchBar({ categories }) {
           ))}
         </AutoCompleteList>
       </AutoComplete>
-      <IconButton
+      <Button
         aria-label="search"
         size="lg"
-        colorScheme="blue"
+        bg="blue.50"
+        color="blue.500"
         borderLeftRadius="none"
-        icon={<SearchIcon />}
-      />
+        _hover={{ bg: 'blue.300', color: 'white' }}
+      >
+        <SearchIcon />
+      </Button>
     </HStack>
   )
 }
