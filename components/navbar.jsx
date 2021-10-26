@@ -55,10 +55,9 @@ export default function Headers() {
         fontWeight="normal"
         w="full"
         variant="ghost"
-        onClick={() => router.push('/about')}
-        _hover={{ bg: 'none', color: 'gray.500' }}
+        onClick={() => window.open('https://www.buymeacoffee.com/yellowjobs')}
       >
-        About Us
+        Feedback
       </Button>
       <Button
         w="full"
@@ -83,11 +82,15 @@ export default function Headers() {
               justifySelf="start"
               display={{ base: 'none', md: 'flex' }}
             >
-              <Box _hover={{ color: 'gray.500' }}>
-                <a target="_blank" href="https://feedback.yellowjobs.org">
-                  Feedback
-                </a>
-              </Box>
+              <Button
+                py={{ base: '8', md: '2' }}
+                fontWeight="normal"
+                variant="ghost"
+                _hover={{ bg: 'none', color: 'gray.500' }}
+                onClick={() => window.open('https://feedback.yellowjobs.org')}
+              >
+                Feedback
+              </Button>
               <Button
                 variant="ghost"
                 _hover={{ bg: 'white', textDecoration: 'underline' }}
