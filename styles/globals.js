@@ -2,12 +2,15 @@ import { Global, css } from '@emotion/react'
 
 // add gloabl CSS here.
 const CSS = css`
+  @import url('https://fonts.googleapis.com/css?family=Atkinson+Hyperlegible');
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
     background-color: #fafafa;
+    font-family: Atkinson Hyperlegible;
   }
 
   ::selection {
