@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import { useState } from 'react'
 
 import Navbar from 'components/navbar'
@@ -20,26 +20,28 @@ import { API_URL } from 'lib/api'
 
 export default function Search({ categories }) {
   return (
-    <Box>
+    <Flex direction="column" h="100vh">
       <ModalProvider>
         <RolesProvider>
           <Navbar />
           <OpenedCategoryProvider categories={categories}>
             <SelectedRolesProvider>
-              <HeroSearch categories={categories} />
-              <SelectedCategoriesProvider>
-                <JobCategories categories={categories} />
-                <TweetList />
-                <CategoriesDrawer categories={categories} />
-                <ScrollToTop />
-                <CategoriesModal categories={categories} />
-              </SelectedCategoriesProvider>
+              <Box flex="1">
+                <HeroSearch categories={categories} />
+                <SelectedCategoriesProvider>
+                  <JobCategories categories={categories} />
+                  <TweetList />
+                  <CategoriesDrawer categories={categories} />
+                  <ScrollToTop />
+                  <CategoriesModal categories={categories} />
+                </SelectedCategoriesProvider>
+              </Box>
             </SelectedRolesProvider>
           </OpenedCategoryProvider>
         </RolesProvider>
       </ModalProvider>
       <Footer />
-    </Box>
+    </Flex>
   )
 }
 

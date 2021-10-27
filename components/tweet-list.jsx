@@ -125,11 +125,10 @@ export default function TweetList() {
   else
     return (
       <Box m="2rem">
-        <Text align="center" fontSize="4xl">
+        <Text align="center" color="gray.500" fontSize="xl" mt="24">
           Oops!!
-        </Text>
-        <Text align="center" fontSize="4xl">
-          We don't have any data for your selection yet😢
+          <br />
+          We don't have any job postings in the categories you selected yet😢
         </Text>
       </Box>
     )
