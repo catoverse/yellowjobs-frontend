@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
 import { Provider as AuthProvider } from 'next-auth/client'
+import { VisitCounterProvider } from 'contexts/visit-counter-context'
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter()
   useEffect(() => {
@@ -36,17 +37,19 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider session={pageProps.session}>
       <ChakraProvider>
-        <GlobalCSS />
-        <NextHead></NextHead>
-        <TwitterContextProvider
-          value={{
-            swrOptions: {
-              fetcher: () => null,
-            },
-          }}
-        >
-          <Component {...pageProps} />
-        </TwitterContextProvider>
+        <VisitCounterProvider>
+          <GlobalCSS />
+          <NextHead></NextHead>
+          <TwitterContextProvider
+            value={{
+              swrOptions: {
+                fetcher: () => null,
+              },
+            }}
+          >
+            <Component {...pageProps} />
+          </TwitterContextProvider>
+        </VisitCounterProvider>
       </ChakraProvider>
     </AuthProvider>
   )
