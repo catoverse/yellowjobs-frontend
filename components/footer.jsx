@@ -1,3 +1,4 @@
+import { useContext, useState } from 'react'
 import {
   Box,
   Container,
@@ -15,7 +16,10 @@ import TwitterIcon from './icons/twitter.svg'
 import LinkedInIcon from './icons/linkedin.svg'
 import VercelLogo from './icons/vercel.svg'
 import DOLogo from './icons/DO.svg'
+import { useVisitCounter } from 'contexts/visit-counter-context'
+
 export default function Footer() {
+  const { visitCounter } = useVisitCounter()
   return (
     <Box>
       <Container maxW="container.full" px={[0, 4]} centerContent bg="white">
@@ -101,8 +105,17 @@ export default function Footer() {
           align="center"
           w="100%"
         >
-          <Text py={{ base: '4', md: '6' }} fontSize="xs">
+          <Text
+            py={{ base: '4', md: '6' }}
+            pr="4"
+            borderRightWidth="2px"
+            borderRightColor="gray500"
+            fontSize="xs"
+          >
             Made with ❤ in India️
+          </Text>
+          <Text ml="4" py={{ base: '4', md: '6' }} fontSize="xs">
+            Visits: <strong>{visitCounter}</strong>
           </Text>
           <Spacer />
           <Divider display={{ base: 'block', md: 'none' }} />
