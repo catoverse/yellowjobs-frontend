@@ -150,11 +150,15 @@ export default function CategoriesModal({ categories }) {
 
   const clearFilters = () => {
     const params = router.query
-    params.categories = selectedCategories.filter((category) => category !== openedCategory.category).join(',')
+    params.categories = selectedCategories
+      .filter((category) => category !== openedCategory.category)
+      .join(',')
     if (params.categories.length === 0) {
       delete params.categories
     }
-    params.roles = selectedRoles.filter((role) => !openedCategory.roles.includes(role)).join(',')
+    params.roles = selectedRoles
+      .filter((role) => !openedCategory.roles.includes(role))
+      .join(',')
     if (params.roles.length === 0) {
       delete params.roles
     }
