@@ -75,7 +75,8 @@ export default function Headers() {
     <Box as="nav" pos="sticky" top="0" zIndex="sticky">
       <chakra.header w="full" py="4" overflowY="hidden" bg="white">
         <Container>
-          <SimpleGrid justifyItems="stretch" columns={{ base: '1', md: '3' }}>
+          <SimpleGrid justifyItems="stretch" columns="3">
+            <Flex display={{ base: 'flex', md: 'none' }}></Flex>
             <HStack
               spacing={4}
               align="center"
@@ -121,27 +122,25 @@ export default function Headers() {
               <NavbarAuth />
             </Flex>
 
-            {mobileNav.isOpen ? (
-              <CloseButton
-                position="fixed"
-                pt="2"
-                right="3"
-                aria-label="Close menu"
-                onClick={mobileNav.onClose}
-              />
-            ) : (
-              <IconButton
-                position="fixed"
-                right="2"
-                display={{ base: 'flex', md: 'none' }}
-                aria-label="Open menu"
-                fontSize="20px"
-                color={useColorModeValue('gray.800', 'inherit')}
-                variant="ghost"
-                icon={<AiOutlineMenu />}
-                onClick={mobileNav.onOpen}
-              />
-            )}
+            <Flex display={{ base: 'flex', md: 'none' }} justifySelf="end">
+              {mobileNav.isOpen ? (
+                <CloseButton
+                  pt="2"
+                  pr="2"
+                  aria-label="Close menu"
+                  onClick={mobileNav.onClose}
+                />
+              ) : (
+                <IconButton
+                  aria-label="Open menu"
+                  fontSize="20px"
+                  color={useColorModeValue('gray.800', 'inherit')}
+                  variant="ghost"
+                  icon={<AiOutlineMenu />}
+                  onClick={mobileNav.onOpen}
+                />
+              )}
+            </Flex>
           </SimpleGrid>
           {MobileNavContent}
         </Container>
