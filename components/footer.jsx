@@ -17,7 +17,7 @@ import VercelLogo from './icons/vercel.svg'
 import DOLogo from './icons/DO.svg'
 export default function Footer() {
   return (
-    <Box>
+    <Box as="footer">
       <Container maxW="container.full" px={[0, 4]} centerContent bg="white">
         <Container maxW="container.xl" px={[0, 4]}>
           <Flex

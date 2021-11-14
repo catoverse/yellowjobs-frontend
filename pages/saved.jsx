@@ -7,13 +7,11 @@ import ScrollToTop from 'components/scroll-to-top'
 
 export default function Home({ categories }) {
   return (
-    <Flex direction="column" h="100vh">
+    <>
       <Navbar />
-      <Box flex="1">
-        <TweetList />
-      </Box>
+      <TweetList />
       <ScrollToTop />
       <Footer />
-    </Flex>
+    </>
   )
 }
