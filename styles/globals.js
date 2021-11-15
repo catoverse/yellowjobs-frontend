@@ -11,7 +11,7 @@ const CSS = css`
   }
 
   body {
-    background-color: #fafafa;
+    background-color: #fafafa !important;
     font-family: Atkinson Hyperlegible;
     padding-bottom: 200px;
   }

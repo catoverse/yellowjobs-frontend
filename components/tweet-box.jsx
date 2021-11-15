@@ -13,6 +13,7 @@ import { FiShare2 as ShareIcon } from 'react-icons/fi'
 import { FiBookmark as SaveIcon } from 'react-icons/fi'
 import LoginModal from './login-modal'
 import LinkCopiedModal from './link-copied-modal'
+import SaveWalkthroughModal from './save-walkthrough-modal'
 import { useState } from 'react'
 
 import { Tweet } from 'react-static-tweets'
@@ -36,8 +37,13 @@ export default function TweetList({
     onOpen: onOpenLinkCopiedModal,
     onClose: onCloseLinkCopiedModal,
   } = useDisclosure()
+  const {
+    isOpen: isOpenSaveWalkthroughModal,
+    onOpen: onOpenSaveWalkthroughModal,
+    onClose: onCloseSaveWalkthroughModal,
+  } = useDisclosure()
 
-  const handleSaveClick = (tweetObj, isTweetSaved) => {
+  const handleSaveClick = async (tweetObj, isTweetSaved) => {
     if (!session) {
       return onOpenLoginModal()
     } else {
@@ -51,14 +57,20 @@ export default function TweetList({
           value: isTweetSaved ? '-1' : '1',
         }),
       }
-      return fetch(FEEDBACK_URL, requestOptions).then((response) => {
-        setIsTweetSaved(!isTweetSaved)
-        toast({
-          title: isTweetSaved ? `Removed` : `Saved`,
-          status: 'success',
-          isClosable: true,
-          duration: 2000,
-        })
+      await fetch(FEEDBACK_URL, requestOptions)
+      if (
+        !isTweetSaved &&
+        !localStorage.getItem('isSaveWalkthroughModalDisplayed')
+      ) {
+        onOpenSaveWalkthroughModal()
+        localStorage.setItem('isSaveWalkthroughModalDisplayed', true)
+      }
+      setIsTweetSaved(!isTweetSaved)
+      toast({
+        title: isTweetSaved ? `Removed` : `Saved`,
+        status: 'success',
+        isClosable: true,
+        duration: 2000,
       })
     }
   }
@@ -155,6 +167,10 @@ export default function TweetList({
       <LinkCopiedModal
         isOpen={isOpenLinkCopiedModal}
         onClose={onCloseLinkCopiedModal}
+      />
+      <SaveWalkthroughModal
+        isOpen={isOpenSaveWalkthroughModal}
+        onClose={onCloseSaveWalkthroughModal}
       />
     </Box>
   )
