@@ -12,7 +12,7 @@ const CSS = css`
 
   body {
     background-color: #fafafa !important;
-    font-family: Atkinson Hyperlegible;
+    font-family: Atkinson Hyperlegible !important;
     padding-bottom: 200px;
   }
 
