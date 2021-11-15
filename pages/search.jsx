@@ -20,28 +20,26 @@ import { API_URL } from 'lib/api'
 
 export default function Search({ categories }) {
   return (
-    <Flex direction="column" h="100vh">
+    <>
       <ModalProvider>
         <RolesProvider>
           <Navbar />
           <OpenedCategoryProvider categories={categories}>
             <SelectedRolesProvider>
-              <Box flex="1">
-                <HeroSearch categories={categories} />
-                <SelectedCategoriesProvider>
-                  <JobCategories categories={categories} />
-                  <TweetList />
-                  <CategoriesDrawer categories={categories} />
-                  <ScrollToTop />
-                  <CategoriesModal categories={categories} />
-                </SelectedCategoriesProvider>
-              </Box>
+              <HeroSearch categories={categories} />
+              <SelectedCategoriesProvider>
+                <JobCategories categories={categories} />
+                <TweetList />
+                <CategoriesDrawer categories={categories} />
+                <ScrollToTop />
+                <CategoriesModal categories={categories} />
+              </SelectedCategoriesProvider>
             </SelectedRolesProvider>
           </OpenedCategoryProvider>
         </RolesProvider>
       </ModalProvider>
       <Footer />
-    </Flex>
+    </>
   )
 }
 

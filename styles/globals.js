@@ -6,11 +6,20 @@ const CSS = css`
 
   html {
     scroll-behavior: smooth;
+    position: relative;
+    height: 100%;
   }
 
   body {
     background-color: #fafafa;
     font-family: Atkinson Hyperlegible;
+    padding-bottom: 200px;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
 
   ::selection {
