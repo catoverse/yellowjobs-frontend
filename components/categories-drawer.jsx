@@ -1,15 +1,10 @@
 import {
   Badge,
+  Box,
   Button,
   Center,
   Checkbox,
   CheckboxGroup,
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
   Flex,
   HStack,
   IconButton,
@@ -125,6 +120,7 @@ const CateoriesTabs = ({
       orientation="vertical"
       variant="ghost"
       onChange={onTabsChange}
+      pb="4rem"
     >
       <TabList pt="2" bg="gray.50">
         {categories.map((category, index) => {
@@ -138,6 +134,7 @@ const CateoriesTabs = ({
 
           return (
             <Tab
+              bg="#FAFAFA"
               justifyContent="flex-start"
               px="6"
               py="4"
@@ -204,6 +201,13 @@ export default function FiltersDrawer({ categories }) {
     new Array(categories.length)
   )
   const [roles, setRoles] = useRoles()
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflowY = 'hidden'
+    } else {
+      document.body.style.overflowY = 'auto'
+    }
+  }, [isOpen])
 
   const applyFilters = (selectedRoles) => {
     if (selectedRoles.length > 0) {
@@ -264,62 +268,70 @@ export default function FiltersDrawer({ categories }) {
         onOpen={onOpen}
         categories={categories}
       />
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="full">
-        <DrawerOverlay />
-        <DrawerContent h="100% !important">
-          <DrawerHeader px="0" py="1" shadow="sm">
-            <Flex align="baseline" justify="space-between">
-              <Flex align="baseline">
-                <IconButton
-                  aria-label="back"
-                  size="lg"
-                  px="0"
-                  variant="ghost"
-                  icon={<BackIcon />}
-                  onClick={onClose}
-                />
-                <Text>Add filters</Text>
-              </Flex>
-              <Button
-                variant="ghost"
-                fontSize="sm"
-                fontWeight="normal"
-                onClick={clearFilters}
-              >
-                Clear Filters
-              </Button>
-            </Flex>
-          </DrawerHeader>
-
-          <DrawerBody p="0">
-            <CateoriesTabs
-              categories={categories}
-              roles={roles}
-              setRoles={setRoles}
-              isAllSelected={isAllSelected}
-              setIsAllSelected={setIsAllSelected}
+      <Flex
+        pos="fixed"
+        top="0"
+        w="full"
+        h="full"
+        bg="white"
+        flexDirection="column"
+        zIndex="3"
+        transform={isOpen ? 'translateX(0)' : 'translateX(-100%)'}
+        transition="transform .3s ease"
+      >
+        <Flex
+          align="center"
+          justify="space-between"
+          py="1"
+          shadow="sm"
+          zIndex="1"
+        >
+          <Flex align="center">
+            <IconButton
+              aria-label="back"
+              size="lg"
+              px="0"
+              variant="ghost"
+              icon={<BackIcon />}
+              onClick={onClose}
             />
-          </DrawerBody>
+            <Text fontSize="lg">Add filters</Text>
+          </Flex>
+          <Button
+            variant="ghost"
+            fontSize="sm"
+            color="gray.500"
+            fontWeight="normal"
+            onClick={clearFilters}
+          >
+            Clear Filters
+          </Button>
+        </Flex>
 
-          <DrawerFooter p="0" h="4rem">
-            <Center
-              bg="blue.500"
-              color="white"
-              pos="fixed"
-              h="4rem"
-              width="100%"
-              zIndex="2"
-              bottom="0"
-              fontSize="sm"
-              fontWeight="bold"
-              display={{ base: 'flex', md: 'none' }}
-              onClick={() => applyFilters(roles)}
-            >
-              Apply filters
-            </Center>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
+        <CateoriesTabs
+          categories={categories}
+          roles={roles}
+          setRoles={setRoles}
+          isAllSelected={isAllSelected}
+          setIsAllSelected={setIsAllSelected}
+        />
+
+        <Center
+          bg="blue.500"
+          color="white"
+          pos="fixed"
+          h="4rem"
+          width="100%"
+          zIndex="2"
+          bottom="0"
+          fontSize="sm"
+          fontWeight="bold"
+          display={{ base: 'flex', md: 'none' }}
+          onClick={() => applyFilters(roles)}
+        >
+          Apply filters
+        </Center>
+      </Flex>
     </div>
   )
 }

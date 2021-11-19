@@ -72,7 +72,7 @@ export default function Headers() {
   )
 
   return (
-    <Box as="nav" pos="sticky" top="0" zIndex="sticky">
+    <Box as="nav" pos="sticky" top="0" zIndex="1">
       <chakra.header w="full" py="4" overflowY="hidden" bg="white">
         <Container>
           <SimpleGrid justifyItems="stretch" columns="3">
