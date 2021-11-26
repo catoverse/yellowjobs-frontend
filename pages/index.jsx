@@ -1,5 +1,4 @@
 import { Box, Flex } from '@chakra-ui/react'
-import { useState } from 'react'
 
 import Navbar from 'components/navbar'
 import Footer from 'components/footer'
