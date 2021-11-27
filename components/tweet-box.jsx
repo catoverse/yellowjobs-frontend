@@ -45,6 +45,15 @@ export default function TweetList({
 
   const handleSaveClick = async (tweetObj, isTweetSaved) => {
     if (!session) {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tweetId: tweetObj.tweet_id,
+          action: 'save_not_logged_in',
+        }),
+      }
+      fetch(FEEDBACK_URL, requestOptions)
       return onOpenLoginModal()
     } else {
       const requestOptions = {
@@ -75,6 +84,19 @@ export default function TweetList({
     }
   }
 
+  const sendClickFeedback = () => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userId: session ? session.user.userId : null,
+        tweetId: tweetObj.tweet_id,
+        action: 'click',
+      }),
+    }
+    fetch(FEEDBACK_URL, requestOptions)
+  }
+
   return (
     <Box rounded="md" p="4" bg="white" border="1px" borderColor="gray.100">
       <Flex justify="flex-end" mb="4">
@@ -98,7 +120,9 @@ export default function TweetList({
           )}
         </Button>
       </Flex>
-      <Tweet id={tweetObj.tweet_id} ast={tweetObj.tweet_ast} />
+      <Box onClick={() => sendClickFeedback()}>
+        <Tweet id={tweetObj.tweet_id} ast={tweetObj.tweet_ast} />
+      </Box>
       <HStack mt="4">
         <Button
           color="yellow.400"
@@ -113,17 +137,7 @@ export default function TweetList({
             } else {
               window.open(tweetObj.tweet_url)
             }
-
-            const requestOptions = {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                userId: session ? session.user.userId : null,
-                tweetId: tweetObj.tweet_id,
-                action: 'click',
-              }),
-            }
-            fetch(FEEDBACK_URL, requestOptions)
+            return sendClickFeedback()
           }}
         >
           Apply Now
