@@ -16,7 +16,7 @@ import LinkCopiedModal from './link-copied-modal'
 import SaveWalkthroughModal from './save-walkthrough-modal'
 import { useState } from 'react'
 
-import { Tweet } from 'react-static-tweets'
+import { Tweet } from '../react-static-tweets'
 import { API_URL } from 'lib/api'
 const FEEDBACK_URL = API_URL + '/api/feedback'
 

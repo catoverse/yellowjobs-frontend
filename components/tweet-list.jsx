@@ -1,6 +1,5 @@
 import Container from './container'
 import useSWR from 'swr'
-import { Tweet } from 'react-static-tweets'
 import {
   Box,
   IconButton,

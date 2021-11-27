@@ -12,7 +12,4 @@ module.exports = withPWA({
     disable: process.env.NODE_ENV === 'development',
     skipWaiting: false,
   },
-  images: {
-    domains: ['pbs.twimg.com', 'abs.twimg.com'],
-  },
 })

@@ -1,5 +1,4 @@
 import { Box, Flex, SimpleGrid, VStack, HStack, Text } from '@chakra-ui/react'
-import NextImage from 'next/image'
 import Container from './container'
 import LoopHeading from './loop-heading'
 import SearchedRoleButton from './searched-role-button'
