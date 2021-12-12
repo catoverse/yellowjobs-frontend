@@ -6,5 +6,6 @@ Fixes #[Add issue number here. If you do not solve the issue entirely, please ch
 
 ## Requirements
 - [ ] The code that is not relevant to the feature/fix is not modified.
+- [ ] I have read the [Contribution Guidelines](https://github.com/catoverse/yellowjobs-frontend#contribution-guidelines) and my PR follows them.
 - [ ] My branch is up-to-date with the Upstream staging branch with no conflicts.
 - [ ] I have run `prettier` on the new code added.
