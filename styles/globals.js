@@ -17,6 +17,7 @@ const CSS = css`
   }
 
   footer {
+    height: 200px;
     position: absolute;
     bottom: 0;
     width: 100%;
