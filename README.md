@@ -38,10 +38,17 @@ npm start
 
 ---
 
-## Contribution guide
-
-- Use the issues section to communicate, list a new issue, feature request etc.
-- To contribute, ask to assigned on an issue -> fork -> clone -> create a feature branch -> create a PR to staging branch
+## Contribution Guidelines
+- Before you join the development, please set up the project on your local machine. Run it and go through the application completely to get familiar with the project.
+- Use the [issues tracker](https://github.com/catoverse/yellowjobs-frontend/issues) to communicate or create a new issue/feature-request etc.
+- To contribute:
+  - If you would like to work on an issue, drop in a comment at the issue. If it is already assigned to someone, but there is no sign of any work being done, please feel free to comment so that the issue can be assigned to you if the previous assignee has dropped it entirely.
+  - Create a feature branch, no need to fork the repository. Use snake case for naming the branch.
+  - Write clear meaningful git commit messages (Do read: [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/)).
+  - Create a pull request to the `staging` branch
+    - Write the pull request description according to the template.
+    - Make sure to assign the pull request that you are working to yourself.
+    - Request the project maintainers for review.
 
 ## Primary Maintainers
 
