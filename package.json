@@ -19,6 +19,7 @@
     "focus-visible": "^5.2.0",
     "framer-motion": "^4",
     "fuse.js": "^6.4.6",
+    "lodash.uniqby": "^4.7.0",
     "mongodb": "^3.5.9",
     "next": "^11.1.0",
     "next-auth": "^3.28.0",
