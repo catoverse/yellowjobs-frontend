@@ -12,12 +12,852 @@
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://yellowjobs.org/?roles=.NET</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=AWS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Agile</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Airflow</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Algorithms</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Android</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=AngularJS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Ansible</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Apache</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Apollo</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Assembly</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Azure</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
   <loc>https://yellowjobs.org/?roles=Backend</loc>
   <lastmod>2022-01-03T11:34:12+00:00</lastmod>
   <priority>0.90</priority>
 </url>
 <url>
-  <loc>https://yellowjobs.org/?roles=web3</loc>
+  <loc>https://yellowjobs.org/?roles=Big+Data</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Bitcoin</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Blockchain</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Bootstrap</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=C</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=C#</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=C++</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=CI/CD</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=CSS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=CTO</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Cassandra</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Clojure</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Cloud</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=CouchDB</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Data+Analysis</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Data+Science</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Database+Administration</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=DevOps</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Developer</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Distributed+Systems</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Django</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Docker</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=ELK</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=ESports</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=ETL</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Ecommerce</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Elasticsearch</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Elixir</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Embedded</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=EmberJS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Erlang</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Erp</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Ethereum</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Express</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Fintech</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Firebase</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Flask</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Flutter</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Frontend</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Full+Stack</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Functional+Programming</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=GCP</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Game+Dev</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Git</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Gitlab</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Golang</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Grafana</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=GraphQL</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=HTML</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Haskell</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Heroku</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Infrastructure</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Ionic</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=JQuery</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Java</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=JavaScript</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Jenkins</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Jira</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Kafka</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Kotlin</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Kubernetes</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=LAMP</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Lambda</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Laravel</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Linux</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Lisp</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=ML/AI</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=MacOS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Matlab</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=MeteorJS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Microservices</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Mobile</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=MongoDB</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Monitoring</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=MySQL</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Net+Core</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=NextJS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Nginx</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=NoSQL</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=NodeJS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=OOP</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Objective+C</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Open+Source</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=PHP</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Pandas</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Perl</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Phoenix</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=PostgreSQL</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Postgres</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Programming</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Python</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=REST</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=RabbitMQ</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Rails</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=React+Native</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=ReactJS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Redis</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Redux</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Research</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Robotics</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Ruby+on Rails</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Ruby</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Rust</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=SASS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=SQL</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=SaaS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Scala</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Scheme</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Security</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Selenium</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Shopify</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Site+Reliability</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Smart+Contracts</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Snowflake</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Software+Architect</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Software+Developer</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Solidity</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Spark</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Spring</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Stats</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Swift</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=TDD</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Tech+Lead</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Test+Automation</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Testing</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Typescript</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Unity</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Unix</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Virtual+Reality</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=VueJS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Web3</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Web+Dev</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Webflow</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Webmaster</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Windows</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Woocommerce</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Wordpress</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=iOS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=3d+Modelling</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Animation</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Brand+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Content+Strategist</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Copywriter</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Design+Director</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Design+Lead</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Figma</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Graphic+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Illustration</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Information+Architect</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Interaction+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Mechanical+Design Engineer</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Motion+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Photoshop</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Presentation+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Product+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Product+Lead</loc>
   <lastmod>2022-01-03T11:34:12+00:00</lastmod>
   <priority>0.90</priority>
 </url>
@@ -26,6 +866,492 @@
   <lastmod>2022-01-03T11:34:12+00:00</lastmod>
   <priority>0.90</priority>
 </url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Sketch</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Sound+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=UI+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=UI+Lead</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=UX+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=UX+Lead</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=UX+Researcher</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=UX+Strategist</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=User+Research</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Visual+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Voice+Design</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Account+Executive</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Accounts</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Admin</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Analyst</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=CEO</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=COO</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=CRO</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=CXO</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=CoS</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Community+Management</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Director</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=HR</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Lawyer</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Management</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Operations</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Product+Manager</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Project+Manager</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Supervisor</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Team+Lead</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Technical+Recruiter</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Account+Manager</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Ambassador</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Business+Development</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Call</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Sales</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Blogger</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Content+creator</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Editing</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Email</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Influencer</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Media</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Post</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=SEO</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Technical+Writer</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Writer</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Youtube</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Video</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Advertising</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Affiliate+marketing</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Brand</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Campaign+manager</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Channel+marketing</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Content+Marketing</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Corporate+partnership</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Digital+Marketing</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Email+marketer</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Growth</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Market+research</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Marketing+Manager</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Marketing</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Media+Relations</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Public+relations</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Sales</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=SEO</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Chat</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Community+Management</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Customer+Success</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Executive+Assistant</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Helpdesk</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Quality+Assurance</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Service</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Support</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Telecalling</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Virtual+Assistant</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Agency</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Architect</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=BioTech</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Communication</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Consulting</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Contracting</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Controller</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Doctor</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=English</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Enterprise</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Excel</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Medical</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Monitoring</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Music</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Non+profit</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Privacy</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Professional+Services</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Publishing</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Research</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Teacher</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Translator</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://yellowjobs.org/?roles=Travel</loc>
+  <lastmod>2022-01-03T11:34:12+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+
 <url>
   <loc>https://yellowjobs.org/about</loc>
   <lastmod>2022-01-03T11:34:12+00:00</lastmod>
