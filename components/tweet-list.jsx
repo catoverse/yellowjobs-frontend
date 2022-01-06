@@ -86,6 +86,7 @@ export default function TweetList() {
               </Link>
             </Box>
           ) : null}
+
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
           >

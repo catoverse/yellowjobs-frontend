@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import content from 'seo.config.json'
+import { useRouter } from 'next/router'
 
 export default function NextHead({
   url = content.url,
@@ -8,6 +9,29 @@ export default function NextHead({
   desc = content.desc,
   seoImage = content.seoImage,
 }) {
+  const { query } = useRouter()
+
+  if (query.s) title = query.s.replaceAll(',', ' ')
+  if (query.roles) title = query.roles.replaceAll(',', ' ')
+  if (!query.types && (query.s || query.roles))
+    title += ' Roles : YellowJobs.org'
+  else if (query.types && (query.s || query.roles)) {
+    //convert first letter of the role to upper case
+    //eg: 'fulltime,intership' --> 'Fulltime Internship'
+    const temp = query.types
+      .split(',')
+      .map((e) => e.charAt(0).toUpperCase() + e.slice(1))
+      .toString()
+      .replaceAll(',', ' ')
+    title += ' ' + temp + ' Roles : YellowJobs.org'
+  } else if (query.types && !(query.s || query.roles)) {
+    const temp = query.types
+      .split(',')
+      .map((e) => e.charAt(0).toUpperCase() + e.slice(1))
+      .toString()
+      .replaceAll(',', ' ')
+    title = 'Latest ' + temp + ' Roles : YellowJobs.org'
+  }
   return (
     <Head>
       <title>{title}</title>
