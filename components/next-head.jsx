@@ -11,27 +11,46 @@ export default function NextHead({
 }) {
   const { query } = useRouter()
 
-  if (query.s) title = query.s.replaceAll(',', ' ')
-  if (query.roles) title = query.roles.replaceAll(',', ' ')
-  if (!query.types && (query.s || query.roles))
-    title += ' Roles : YellowJobs.org'
-  else if (query.types && (query.s || query.roles)) {
-    //convert first letter of the role to upper case
-    //eg: 'fulltime,intership' --> 'Fulltime Internship'
-    const temp = query.types
-      .split(',')
-      .map((e) => e.charAt(0).toUpperCase() + e.slice(1))
-      .toString()
-      .replaceAll(',', ' ')
-    title += ' ' + temp + ' Roles : YellowJobs.org'
-  } else if (query.types && !(query.s || query.roles)) {
-    const temp = query.types
-      .split(',')
-      .map((e) => e.charAt(0).toUpperCase() + e.slice(1))
-      .toString()
-      .replaceAll(',', ' ')
-    title = 'Latest ' + temp + ' Roles : YellowJobs.org'
+  // if (query.s) title = query.s.replaceAll(',', ' ')
+  // if (query.roles) title = query.roles.replaceAll(',', ' ')
+  // if (!query.types && (query.s || query.roles))
+  //   title += ' Roles : YellowJobs.org'
+  // else if (query.types && (query.s || query.roles)) {
+  //   //convert first letter of the role to upper case
+  //   //eg: 'fulltime,intership' --> 'Fulltime Internship'
+  //   const temp = query.types
+  //     .split(',')
+  //     .map((e) => e.charAt(0).toUpperCase() + e.slice(1))
+  //     .toString()
+  //     .replaceAll(',', ' ')
+  //   title += ' ' + temp + ' Roles : YellowJobs.org'
+  // } else if (query.types && !(query.s || query.roles)) {
+  //   const temp = query.types
+  //     .split(',')
+  //     .map((e) => e.charAt(0).toUpperCase() + e.slice(1))
+  //     .toString()
+  //     .replaceAll(',', ' ')
+  //   title = 'Latest ' + temp + ' Roles : YellowJobs.org'
+  // }
+  var temp = ''
+  if (query.roles) {
+    temp = query.roles.substring(
+      0,
+      query.roles.indexOf(',') === -1
+        ? query.roles.length
+        : query.roles.indexOf(',')
+    )
+  } else if (query.s) {
+    temp = query.s.substring(
+      0,
+      query.s.indexOf(',') === -1 ? query.s.length : query.s.indexOf(',')
+    )
   }
+
+  title = '  Best Remote ' + (temp || '') + ' Jobs, Gigs and Internships'
+  desc =
+    'YellowJobs is the best website to find your dream remote jobs, internships and freelance opportunities for ' +
+    (temp || '')
   return (
     <Head>
       <title>{title}</title>
