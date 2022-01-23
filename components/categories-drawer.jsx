@@ -53,7 +53,7 @@ const AddFiltersButton = ({ isOpen, onOpen, categories }) => {
       pos="fixed"
       h="4rem"
       w="100%"
-      zIndex="2"
+      zIndex="3"
       bottom="0"
       fontSize="sm"
       fontWeight="normal"
