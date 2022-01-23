@@ -27,6 +27,11 @@ export const useTweets = ({ query }) => {
     const roles = query.roles.replace(/ /g, '')
     url += `&roles=${roles}`
   }
+
+  if (query.additionalFilters) {
+    const additionalFilters = query.additionalFilters.replace(/ /g, '')
+    url += `&additionalFilters=${additionalFilters}`
+  }
   const getKey = (pageIndex, previousPageData) => {
     // not send a request if location or resource are not empty
     // if (!query.s || !query.types || !query.roles) return null

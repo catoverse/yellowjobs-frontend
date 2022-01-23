@@ -19,6 +19,7 @@ export default function SearchBar({ categories }) {
 
   const onAutoCompleteSelect = (selectedValue) => {
     if (selectedValue === '') return
+    const params = router.query
     const oldSearchQuery = router.query.s
     const searchValue = oldSearchQuery
       ? [...oldSearchQuery.split(','), selectedValue]
@@ -26,6 +27,7 @@ export default function SearchBar({ categories }) {
     router.push({
       pathname: '/search',
       query: {
+        ...params,
         s: searchValue.join(','),
       },
     })

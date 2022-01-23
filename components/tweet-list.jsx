@@ -1,7 +1,7 @@
-import Container from './container'
 import useSWR from 'swr'
 import {
   Box,
+  Container,
   IconButton,
   Link,
   Text,
@@ -41,7 +41,7 @@ export default function TweetList() {
   if (!data)
     return (
       <Box as="section" my={5}>
-        <Container>
+        <Container maxW="container.xl" px="0">
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
           >
@@ -68,7 +68,7 @@ export default function TweetList() {
   if (data[0].length > 0)
     return (
       <Box as="section" my={5}>
-        <Container>
+        <Container maxW="container.xl" px="0">
           {query.s === 'Product Manager' ||
           query.s === 'Product Lead' ||
           query.s === 'Product Design' ||

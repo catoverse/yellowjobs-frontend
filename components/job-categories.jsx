@@ -3,6 +3,7 @@ import {
   Box,
   Text,
   Center,
+  Container,
   Flex,
   Button,
   Checkbox,
@@ -12,7 +13,6 @@ import {
 import { FiRefreshCcw } from 'react-icons/fi'
 import CategoryEmoji from './category-emoji'
 
-import Container from './container'
 import { useModal } from 'contexts/modal-context'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -165,8 +165,8 @@ export default function JobCategories({ categories }) {
   }, [router.query])
 
   return (
-    <Box mt="10">
-      <Container>
+    <Box pt="4">
+      <Container maxW="container.xl" px="0">
         <Flex justify="space-between">
           <JobTypes
             selectedTypes={selectedTypes}

@@ -4,8 +4,7 @@ import { useState } from 'react'
 import Navbar from 'components/navbar'
 import Footer from 'components/footer'
 import HeroSearch from 'components/hero-search'
-import JobCategories from 'components/job-categories'
-import TweetList from 'components/tweet-list'
+import AdditionalFiltersTabs from 'components/additional-filters-tabs'
 import ScrollToTop from 'components/scroll-to-top'
 import CategoriesDrawer from 'components/categories-drawer'
 import CategoriesModal from 'components/categories-modal'
@@ -28,8 +27,7 @@ export default function Search({ categories }) {
             <SelectedRolesProvider>
               <HeroSearch categories={categories} />
               <SelectedCategoriesProvider>
-                <JobCategories categories={categories} />
-                <TweetList />
+                <AdditionalFiltersTabs categories={categories} />
                 <CategoriesDrawer categories={categories} />
                 <ScrollToTop />
                 <CategoriesModal categories={categories} />
